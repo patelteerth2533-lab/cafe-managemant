@@ -1,50 +1,141 @@
-<!DOCTYPE html><html lang='en'><head>
+{% load static %}
+<!DOCTYPE html>
+<html lang='en'>
+<head>
 <meta charset='UTF-8'><meta name='viewport' content='width=device-width,initial-scale=1'>
 <title>Menu Management | Bethak Cafe Admin</title>
 <link href='https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css' rel='stylesheet'>
 <link href='https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css' rel='stylesheet'>
-<link href="admin_style.css" rel="stylesheet">
-<link href="admin_responsive.css" rel="stylesheet">
+<link href="{% static 'css/admin_style.css' %}" rel="stylesheet">
+<link href="{% static 'css/admin_responsive.css' %}" rel="stylesheet">
 <style>
-body{background:#111;color:#fff}.sidebar{position:fixed;left:0;top:0;width:250px;height:100vh;background:#1b1b1b;padding:20px}
-.content{margin-left:250px}.gold{color:#d4af37}.nav-link{color:#ddd}.nav-link:hover,.active{color:#d4af37}
-.card,.table-wrap{background:#222;border:1px solid #333}.table{color:#fff}.btn-gold{background:#d4af37;color:#111}
-img.food{width:60px;height:60px;object-fit:cover;border-radius:8px}
+body{background:#111;color:#fff}
+.sidebar{position:fixed;left:0;top:0;width:240px;height:100vh;background:#1b1b1b;padding:20px;overflow-y:auto;z-index:1000}
+.content{margin-left:240px}
+.gold{color:#d4af37}
+.nav-link{color:#ddd;padding:8px 12px;border-radius:6px;margin-bottom:4px;display:flex;align-items:center;gap:10px}
+.nav-link:hover,.nav-link.active{background:#2b2b2b;color:#d4af37}
+.card,.table-wrap{background:#222;border:1px solid #333;border-radius:10px}
+.table{color:#fff}
+.btn-gold{background:#d4af37;color:#111;font-weight:600}
+.btn-gold:hover{background:#c29d2b;color:#111}
+img.food{width:50px;height:50px;object-fit:cover;border-radius:8px;background:#333}
 .menu-toggle{display:none}
-@media(max-width:768px){.menu-toggle{display:inline-block}}
-</style></head><body>
-<div class='sidebar'>
-<h3 class='gold'>☕ Bethak Cafe</h3><hr>
-<a class='nav-link' href='admin_dashboard.html'><i class="bi bi-speedometer2"></i> Dashboard</a>
-<a class='nav-link' href='admin_order.html'><i class="bi bi-bag-check"></i> Orders</a>
-<a class='nav-link' href='admin_reservation.html'><i class="bi bi-calendar-check"></i> Reservations</a>
-<a class='nav-link' href='admin_table_manage.html'><i class="bi bi-table"></i> Table Manage</a>
-<a class='nav-link' href='admin_advance_booking.html'><i class="bi bi-journal-bookmark-fill"></i> Advance Menu Booking</a>
-<a class='nav-link active' href='admin_menu.html'><i class="bi bi-egg-fried"></i> Menu</a>
-<a class='nav-link' href='admin_customer.html'><i class="bi bi-people"></i> Customers</a>
-<a class='nav-link' href='admin_employe.html'><i class="bi bi-person-badge"></i> Employees</a>
-<a class='nav-link' href='admin_inventory.html'><i class="bi bi-box-seam"></i> Inventory</a>
-<a class='nav-link' href='admin_payments.html'><i class="bi bi-credit-card"></i> Payments</a>
-<a class='nav-link' href='admin_reports.html'><i class="bi bi-graph-up"></i> Reports</a>
-<a class='nav-link' href='admin_profile.html'><i class="bi bi-person-circle"></i> Profile</a>
-<a class='nav-link' href='admin_seating.html'><i class="bi bi-gear"></i> Settings</a>
+@media(max-width:768px){.menu-toggle{display:inline-block}.sidebar{transform:translateX(-100%);transition:.3s}.sidebar.show{transform:translateX(0)}.content{margin-left:0}}
+</style>
+</head>
+<body>
+<div class='sidebar' id="sidebar">
+  <h3 class='gold mb-3'><a href="{% url 'home' %}" style="color:#d4af37;text-decoration:none;">☕ Bethak Cafe</a></h3>
+  <hr class="border-secondary">
+  <ul class="nav flex-column">
+    <li><a class="nav-link" href="{% url 'admin_dashboard' %}"><i class="bi bi-speedometer2"></i> Dashboard</a></li>
+    <li><a class="nav-link" href="{% url 'admin_orders' %}"><i class="bi bi-bag-check"></i> Orders</a></li>
+    <li><a class="nav-link" href="{% url 'admin_reservations' %}"><i class="bi bi-calendar-check"></i> Reservations</a></li>
+    <li><a class="nav-link" href="{% url 'admin_tables' %}"><i class="bi bi-table"></i> Table Manage</a></li>
+    <li><a class="nav-link" href="{% url 'admin_advance_booking' %}"><i class="bi bi-journal-bookmark-fill"></i> Advance Menu Booking</a></li>
+    <li><a class="nav-link active" href="{% url 'admin_menu' %}"><i class="bi bi-egg-fried"></i> Menu</a></li>
+    <li><a class="nav-link" href="{% url 'admin_customers' %}"><i class="bi bi-people"></i> Customers</a></li>
+    <li><a class="nav-link" href="{% url 'admin_employees' %}"><i class="bi bi-person-badge"></i> Employees</a></li>
+    <li><a class="nav-link" href="{% url 'admin_inventory' %}"><i class="bi bi-box-seam"></i> Inventory</a></li>
+    <li><a class="nav-link" href="{% url 'admin_payments' %}"><i class="bi bi-credit-card"></i> Payments</a></li>
+    <li><a class="nav-link" href="{% url 'admin_reports' %}"><i class="bi bi-graph-up"></i> Reports</a></li>
+    <li><a class="nav-link" href="{% url 'admin_profile' %}"><i class="bi bi-person-circle"></i> Profile</a></li>
+    <li><a class="nav-link" href="{% url 'admin_settings' %}"><i class="bi bi-gear"></i> Settings</a></li>
+    <li><a class="nav-link text-danger" href="{% url 'logout' %}"><i class="bi bi-box-arrow-right"></i> Logout</a></li>
+  </ul>
 </div>
+
 <div class='content'>
-<nav class='navbar navbar-dark bg-dark px-4'><button class="btn btn-sm btn-outline-light menu-toggle me-2" id="sidebarToggle"><i class="bi bi-list"></i></button><span class='navbar-brand'>Menu Management</span></nav>
-<div class='container-fluid p-4'>
-<div class='row mb-3'>
-<div class='col-md-3'><a href='admin_addmenu.html' class='btn btn-gold w-100'><i class='bi bi-plus-circle'></i> Add New Food</a></div>
-<div class='col-md-4'><input class='form-control' placeholder='Search food'></div>
-<div class='col-md-3'><select class='form-select'><option>All Categories</option><option>Coffee</option><option>Fast Food</option><option>Dessert</option></select></div>
+  <nav class='navbar navbar-dark bg-dark px-4 d-flex justify-content-between'>
+    <div class="d-flex align-items-center">
+      <button class="btn btn-sm btn-outline-light menu-toggle me-2" id="sidebarToggle"><i class="bi bi-list"></i></button>
+      <span class='navbar-brand mb-0'>Menu Management</span>
+    </div>
+    <span class="badge bg-warning text-dark px-3 py-2">Admin: {{ request.user.username }}</span>
+  </nav>
+
+  <div class='container-fluid p-4'>
+    {% if messages %}
+      {% for msg in messages %}
+      <div class="alert alert-success alert-dismissible fade show" role="alert">
+        {{ msg }}
+        <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+      </div>
+      {% endfor %}
+    {% endif %}
+
+    <div class='row mb-3 g-2'>
+      <div class='col-md-3'>
+        <a href="{% url 'admin_addmenu' %}" class='btn btn-gold w-100'><i class='bi bi-plus-circle'></i> Add New Food</a>
+      </div>
+      <div class='col-md-5'>
+        <form method="GET" class="d-flex gap-2">
+          <input name="q" class='form-control bg-dark text-white border-secondary' placeholder='Search food...' value="{{ request.GET.q }}">
+          <select name="category" class='form-select bg-dark text-white border-secondary'>
+            <option value="">All Categories</option>
+            {% for cat in categories %}
+            <option value="{{ cat.name }}" {% if request.GET.category == cat.name %}selected{% endif %}>{{ cat.name }}</option>
+            {% endfor %}
+          </select>
+          <button type="submit" class="btn btn-secondary"><i class="bi bi-search"></i></button>
+        </form>
+      </div>
+    </div>
+
+    <div class='table-wrap p-3 table-responsive'>
+      <table class='table table-dark table-hover align-middle mb-0'>
+        <thead>
+          <tr>
+            <th>Image</th>
+            <th>Name</th>
+            <th>Category</th>
+            <th>Price</th>
+            <th>Stock</th>
+            <th>Status</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for item in items %}
+          <tr>
+            <td>
+              <img class='food' src="{% static item.image_url %}" onerror="this.onerror=null;this.src='{% static 'image/menu coffee.png' %}';" alt="{{ item.name }}">
+            </td>
+            <td><strong>{{ item.name }}</strong></td>
+            <td><span class="badge bg-secondary">{{ item.category.name }}</span></td>
+            <td class="gold fw-bold">₹{{ item.price }}</td>
+            <td>{{ item.stock }}</td>
+            <td>
+              {% if item.is_available %}
+              <span class='badge bg-success'>Available</span>
+              {% else %}
+              <span class='badge bg-danger'>Out of Stock</span>
+              {% endif %}
+            </td>
+            <td>
+              <div class="btn-group btn-group-sm">
+                <a href="{% url 'admin_editmenu' item.id %}" class='btn btn-warning'>Edit</a>
+                <a href="{% url 'admin_deletemenu' item.id %}" class='btn btn-danger' onclick="return confirm('Delete this menu item?');">Delete</a>
+              </div>
+            </td>
+          </tr>
+          {% empty %}
+          <tr>
+            <td colspan="7" class="text-center py-4 text-muted">No menu items found.</td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+  </div>
 </div>
-<div class='table-wrap p-3'>
-<table class='table table-dark table-hover align-middle'>
-<thead><tr><th>Image</th><th>Name</th><th>Category</th><th>Price</th><th>Stock</th><th>Status</th><th>Action</th></tr></thead>
-<tbody>
-<tr><td><img class='food' src='https://via.placeholder.com/60'></td><td>Margherita Pizza</td><td>Fast Food</td><td>₹299</td><td>20</td><td><span class='badge bg-success'>Available</span></td><td><a href='admin_editmenu.html' class='btn btn-sm btn-warning'>Edit</a> <button class='btn btn-sm btn-danger'>Delete</button></td></tr>
-<tr><td><img class='food' src='https://via.placeholder.com/60'></td><td>Cappuccino</td><td>Coffee</td><td>₹149</td><td>15</td><td><span class='badge bg-success'>Available</span></td><td><a href='admin_editmenu.html' class='btn btn-sm btn-warning'>Edit</a> <button class='btn btn-sm btn-danger'>Delete</button></td></tr>
-<tr><td><img class='food' src='https://via.placeholder.com/60'></td><td>Chocolate Cake</td><td>Dessert</td><td>₹199</td><td>0</td><td><span class='badge bg-danger'>Out of Stock</span></td><td><a href='admin_editmenu.html' class='btn btn-sm btn-warning'>Edit</a> <button class='btn btn-sm btn-danger'>Delete</button></td></tr>
-</tbody></table>
-</div></div></div>
-<script src="admin-animations.js"></script>
-</body></html>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+  document.getElementById('sidebarToggle')?.addEventListener('click', function(){
+    document.getElementById('sidebar').classList.toggle('show');
+  });
+</script>
+</body>
+</html>

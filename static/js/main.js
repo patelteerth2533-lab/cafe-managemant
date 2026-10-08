@@ -105,6 +105,10 @@
             if (selectedTableSpan) {
                 selectedTableSpan.textContent = chosenTable ? chosenTable : "None";
             }
+            var hiddenInput = document.getElementById("hiddenSelectedTable");
+            if (hiddenInput && chosenTable) {
+                hiddenInput.value = chosenTable;
+            }
         });
     }
 

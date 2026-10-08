@@ -71,9 +71,19 @@
 
                         </div>
 
+                        <!-- DJANGO MESSAGES -->
+                        {% if messages %}
+                            {% for message in messages %}
+                                <div class="alert {% if message.tags == 'error' %}alert-danger{% else %}alert-success{% endif %}" role="alert" style="border-radius:12px;margin-bottom:20px;">
+                                    {{ message }}
+                                </div>
+                            {% endfor %}
+                        {% endif %}
+
                         <!-- Login Form -->
 
-                        <form id="loginForm">
+                        <form id="loginForm" method="POST" action="{% url 'login' %}">
+                            {% csrf_token %}
 
                             <!-- Login As: Customer / Admin -->
 

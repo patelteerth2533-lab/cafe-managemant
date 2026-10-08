@@ -20,478 +20,59 @@
 </a>
 </header>
 
-<section class="menu-section" id ="coffee">
+<!-- Category Filter Navigation Bar -->
+<div style="background:#181818;padding:14px 0;border-bottom:1px solid #2a2a2a;position:sticky;top:0;z-index:100;">
+    <div class="container d-flex justify-content-center flex-wrap gap-2">
+        {% for cat in categories %}
+            <a href="#{{ cat.slug }}" class="btn btn-outline-warning btn-sm rounded-pill px-3 py-1" style="border-color:#D4AF37;color:#D4AF37;text-decoration:none;">
+                <i class="bi {{ cat.icon }}"></i> {{ cat.name }}
+            </a>
+        {% endfor %}
+    </div>
+</div>
+
+{% for cat in categories %}
+<section class="menu-section" id="{{ cat.slug }}">
 <div class="container">
-<h2 class="section-title">Coffee Menu</h2>
+<h2 class="section-title"><i class="bi {{ cat.icon }}"></i> {{ cat.name }} Menu</h2>
 <div class="menu-grid">
 
+{% for item in cat.items.all %}
 <div class="menu-card">
-<img src="{% static 'image/images/coffee/coffee1.jpg' %}" alt="Coffee 1">
-<div class="card-content">
-<h3>Coffee 1</h3>
-<p>Fresh brewed coffee.</p>
-<div class="price-row"><span class="price-tag">₹159</span><button type="button" class="add-cart-btn" onclick="BethakCart.addToCart({name:'Coffee 1', price:159})">Add to Cart</button></div>
-</div>
-</div>
-
-<div class="menu-card">
-<img src="{% static 'image/images/coffee/coffee2.jpg' %}" alt="Coffee 2">
-<div class="card-content">
-<h3>Coffee 2</h3>
-<p>Fresh brewed coffee.</p>
-<div class="price-row"><span class="price-tag">₹169</span><button type="button" class="add-cart-btn" onclick="BethakCart.addToCart({name:'Coffee 2', price:169})">Add to Cart</button></div>
-</div>
-</div>
-
-<div class="menu-card">
-<img src="{% static 'image/images/coffee/coffee3.jpg' %}" alt="Coffee 3">
-<div class="card-content">
-<h3>Coffee 3</h3>
-<p>Fresh brewed coffee.</p>
-<div class="price-row"><span class="price-tag">₹179</span><button type="button" class="add-cart-btn" onclick="BethakCart.addToCart({name:'Coffee 3', price:179})">Add to Cart</button></div>
-</div>
-</div>
-
-<div class="menu-card">
-<img src="{% static 'image/images/coffee/coffee4.jpg' %}" alt="Coffee 4">
-<div class="card-content">
-<h3>Coffee 4</h3>
-<p>Fresh brewed coffee.</p>
-<div class="price-row"><span class="price-tag">₹189</span><button type="button" class="add-cart-btn" onclick="BethakCart.addToCart({name:'Coffee 4', price:189})">Add to Cart</button></div>
-</div>
-</div>
-
-<div class="menu-card">
-<img src="{% static 'image/images/coffee/coffee5.jpg' %}" alt="Coffee 5">
-<div class="card-content">
-<h3>Coffee 5</h3>
-<p>Fresh brewed coffee.</p>
-<div class="price-row"><span class="price-tag">₹199</span><button type="button" class="add-cart-btn" onclick="BethakCart.addToCart({name:'Coffee 5', price:199})">Add to Cart</button></div>
-</div>
-</div>
-
-<div class="menu-card">
-<img src="{% static 'image/images/coffee/coffee6.jpg' %}" alt="Coffee 6">
-<div class="card-content">
-<h3>Coffee 6</h3>
-<p>Fresh brewed coffee.</p>
-<div class="price-row"><span class="price-tag">₹209</span><button type="button" class="add-cart-btn" onclick="BethakCart.addToCart({name:'Coffee 6', price:209})">Add to Cart</button></div>
-</div>
-</div>
-
-<div class="menu-card">
-<img src="{% static 'image/images/coffee/coffee7.jpg' %}" alt="Coffee 7">
-<div class="card-content">
-<h3>Coffee 7</h3>
-<p>Fresh brewed coffee.</p>
-<div class="price-row"><span class="price-tag">₹219</span><button type="button" class="add-cart-btn" onclick="BethakCart.addToCart({name:'Coffee 7', price:219})">Add to Cart</button></div>
-</div>
-</div>
-
-<div class="menu-card">
-<img src="{% static 'image/images/coffee/coffee8.jpg' %}" alt="Coffee 8">
-<div class="card-content">
-<h3>Coffee 8</h3>
-<p>Fresh brewed coffee.</p>
-<div class="price-row"><span class="price-tag">₹229</span><button type="button" class="add-cart-btn" onclick="BethakCart.addToCart({name:'Coffee 8', price:229})">Add to Cart</button></div>
-</div>
-</div>
-
-<div class="menu-card">
-<img src="{% static 'image/images/coffee/coffee9.jpg' %}" alt="Coffee 9">
-<div class="card-content">
-<h3>Coffee 9</h3>
-<p>Fresh brewed coffee.</p>
-<div class="price-row"><span class="price-tag">₹239</span><button type="button" class="add-cart-btn" onclick="BethakCart.addToCart({name:'Coffee 9', price:239})">Add to Cart</button></div>
-</div>
-</div>
-
-<div class="menu-card">
-<img src="{% static 'image/images/coffee/coffee10.jpg' %}" alt="Coffee 10">
-<div class="card-content">
-<h3>Coffee 10</h3>
-<p>Fresh brewed coffee.</p>
-<div class="price-row"><span class="price-tag">₹249</span><button type="button" class="add-cart-btn" onclick="BethakCart.addToCart({name:'Coffee 10', price:249})">Add to Cart</button></div>
-</div>
-</div>
-
-<div class="menu-card">
-<img src="{% static 'image/images/coffee/coffee11.jpg' %}" alt="Coffee 11">
-<div class="card-content">
-<h3>Coffee 11</h3>
-<p>Fresh brewed coffee.</p>
-<div class="price-row"><span class="price-tag">₹259</span><button type="button" class="add-cart-btn" onclick="BethakCart.addToCart({name:'Coffee 11', price:259})">Add to Cart</button></div>
-</div>
-</div>
-
-<div class="menu-card">
-<img src="{% static 'image/images/coffee/coffee12.jpg' %}" alt="Coffee 12">
-<div class="card-content">
-<h3>Coffee 12</h3>
-<p>Fresh brewed coffee.</p>
-<div class="price-row"><span class="price-tag">₹269</span><button type="button" class="add-cart-btn" onclick="BethakCart.addToCart({name:'Coffee 12', price:269})">Add to Cart</button></div>
-</div>
-</div>
-
-</div>
-</div>
-</section>
-
-<!-- Next sections (Fast Food, Beverages, Desserts) will be added in the next parts -->
-
-<!-- Part 2 : Fast Food Section -->
-<section class="menu-section" id="snacks">
-  <div class="container">
-    <h2 class="section-title">Fast Food Menu</h2>
-    <div class="menu-grid">
-
-      <div class="menu-card">
-        <img src="{% static 'image/images/fastfood/fastfood1.jpg' %}" alt="Margherita Pizza">
-        <div class="card-content">
-          <h3>Margherita Pizza</h3>
-          <p>Freshly prepared and delicious.</p>
-          <div class="price-row"><span class="price-tag">₹299</span><button type="button" class="add-cart-btn" onclick="BethakCart.addToCart({name:'Margherita Pizza', price:299})">Add to Cart</button></div>
-        </div>
-      </div>
-
-      <div class="menu-card">
-        <img src="{% static 'image/images/fastfood/fastfood2.jpg' %}" alt="Veg Burger">
-        <div class="card-content">
-          <h3>Veg Burger</h3>
-          <p>Freshly prepared and delicious.</p>
-          <div class="price-row"><span class="price-tag">₹199</span><button type="button" class="add-cart-btn" onclick="BethakCart.addToCart({name:'Veg Burger', price:199})">Add to Cart</button></div>
-        </div>
-      </div>
-
-      <div class="menu-card">
-        <img src="{% static 'image/images/fastfood/fastfood3.jpg' %}" alt="French Fries">
-        <div class="card-content">
-          <h3>French Fries</h3>
-          <p>Freshly prepared and delicious.</p>
-          <div class="price-row"><span class="price-tag">₹149</span><button type="button" class="add-cart-btn" onclick="BethakCart.addToCart({name:'French Fries', price:149})">Add to Cart</button></div>
-        </div>
-      </div>
-
-      <div class="menu-card">
-        <img src="{% static 'image/images/fastfood/fastfood4.jpg' %}" alt="Garlic Bread">
-        <div class="card-content">
-          <h3>Garlic Bread</h3>
-          <p>Freshly prepared and delicious.</p>
-          <div class="price-row"><span class="price-tag">₹179</span><button type="button" class="add-cart-btn" onclick="BethakCart.addToCart({name:'Garlic Bread', price:179})">Add to Cart</button></div>
-        </div>
-      </div>
-
-      <div class="menu-card">
-        <img src="{% static 'image/images/fastfood/fastfood5.jpg' %}" alt="Cheese Sandwich">
-        <div class="card-content">
-          <h3>Cheese Sandwich</h3>
-          <p>Freshly prepared and delicious.</p>
-          <div class="price-row"><span class="price-tag">₹189</span><button type="button" class="add-cart-btn" onclick="BethakCart.addToCart({name:'Cheese Sandwich', price:189})">Add to Cart</button></div>
-        </div>
-      </div>
-
-      <div class="menu-card">
-        <img src="{% static 'image/images/fastfood/fastfood6.jpg' %}" alt="Paneer Wrap">
-        <div class="card-content">
-          <h3>Paneer Wrap</h3>
-          <p>Freshly prepared and delicious.</p>
-          <div class="price-row"><span class="price-tag">₹229</span><button type="button" class="add-cart-btn" onclick="BethakCart.addToCart({name:'Paneer Wrap', price:229})">Add to Cart</button></div>
-        </div>
-      </div>
-
-      <div class="menu-card">
-        <img src="{% static 'image/images/fastfood/fastfood7.jpg' %}" alt="White Pasta">
-        <div class="card-content">
-          <h3>White Pasta</h3>
-          <p>Freshly prepared and delicious.</p>
-          <div class="price-row"><span class="price-tag">₹269</span><button type="button" class="add-cart-btn" onclick="BethakCart.addToCart({name:'White Pasta', price:269})">Add to Cart</button></div>
-        </div>
-      </div>
-
-      <div class="menu-card">
-        <img src="{% static 'image/images/fastfood/fastfood8.jpg' %}" alt="Red Pasta">
-        <div class="card-content">
-          <h3>Red Pasta</h3>
-          <p>Freshly prepared and delicious.</p>
-          <div class="price-row"><span class="price-tag">₹279</span><button type="button" class="add-cart-btn" onclick="BethakCart.addToCart({name:'Red Pasta', price:279})">Add to Cart</button></div>
-        </div>
-      </div>
-
-      <div class="menu-card">
-        <img src="{% static 'image/images/fastfood/fastfood9.jpg' %}" alt="Nachos">
-        <div class="card-content">
-          <h3>Nachos</h3>
-          <p>Freshly prepared and delicious.</p>
-          <div class="price-row"><span class="price-tag">₹219</span><button type="button" class="add-cart-btn" onclick="BethakCart.addToCart({name:'Nachos', price:219})">Add to Cart</button></div>
-        </div>
-      </div>
-
-      <div class="menu-card">
-        <img src="{% static 'image/images/fastfood/fastfood10.jpg' %}" alt="Paneer Pizza">
-        <div class="card-content">
-          <h3>Paneer Pizza</h3>
-          <p>Freshly prepared and delicious.</p>
-          <div class="price-row"><span class="price-tag">₹349</span><button type="button" class="add-cart-btn" onclick="BethakCart.addToCart({name:'Paneer Pizza', price:349})">Add to Cart</button></div>
-        </div>
-      </div>
-
-      <div class="menu-card">
-        <img src="{% static 'image/images/fastfood/fastfood11.jpg' %}" alt="Veg Momos">
-        <div class="card-content">
-          <h3>Veg Momos</h3>
-          <p>Freshly prepared and delicious.</p>
-          <div class="price-row"><span class="price-tag">₹169</span><button type="button" class="add-cart-btn" onclick="BethakCart.addToCart({name:'Veg Momos', price:169})">Add to Cart</button></div>
-        </div>
-      </div>
-
-      <div class="menu-card">
-        <img src="{% static 'image/images/fastfood/fastfood12.jpg' %}" alt="Loaded Fries">
-        <div class="card-content">
-          <h3>Loaded Fries</h3>
-          <p>Freshly prepared and delicious.</p>
-          <div class="price-row"><span class="price-tag">₹239</span><button type="button" class="add-cart-btn" onclick="BethakCart.addToCart({name:'Loaded Fries', price:239})">Add to Cart</button></div>
-        </div>
-      </div>
-
+  <div style="position:relative;overflow:hidden;background:#222;height:220px;display:flex;align-items:center;justify-content:center;">
+    {% if item.image_url %}
+        <img src="{% static item.image_url %}" alt="{{ item.name }}" onerror="this.onerror=null;this.src='{% static 'image/menu coffee.png' %}';" style="width:100%;height:100%;object-fit:cover;">
+    {% else %}
+        <img src="{% static 'image/menu coffee.png' %}" alt="{{ item.name }}" style="width:100%;height:100%;object-fit:cover;">
+    {% endif %}
+  </div>
+  <div class="card-content">
+    <h3>{{ item.name }}</h3>
+    <p>{{ item.description|default:"Freshly prepared and delicious." }}</p>
+    <div class="price-row">
+      <span class="price-tag">₹{{ item.price }}</span>
+      <button type="button" class="add-cart-btn" onclick="BethakCart.addToCart({name:'{{ item.name|escapejs }}', price:{{ item.price }}})">
+        <i class="bi bi-cart-plus"></i> Add to Cart
+      </button>
     </div>
   </div>
-</section>
-
-<!-- Part 3 : Beverages Section -->
-<section class="menu-section" id="shakes">
-  <div class="container">
-    <h2 class="section-title">Beverages Menu</h2>
-    <div class="menu-grid">
-
-      <div class="menu-card">
-        <img src="{% static 'image/images/beverages/beverage1.jpg' %}" alt="Classic Mojito">
-        <div class="card-content">
-          <h3>Classic Mojito</h3>
-          <p>Refreshing and freshly served.</p>
-          <div class="price-row"><span class="price-tag">₹149</span><button type="button" class="add-cart-btn" onclick="BethakCart.addToCart({name:'Classic Mojito', price:149})">Add to Cart</button></div>
-        </div>
-      </div>
-
-      <div class="menu-card">
-        <img src="{% static 'image/images/beverages/beverage2.jpg' %}" alt="Blue Lagoon">
-        <div class="card-content">
-          <h3>Blue Lagoon</h3>
-          <p>Refreshing and freshly served.</p>
-          <div class="price-row"><span class="price-tag">₹179</span><button type="button" class="add-cart-btn" onclick="BethakCart.addToCart({name:'Blue Lagoon', price:179})">Add to Cart</button></div>
-        </div>
-      </div>
-
-      <div class="menu-card">
-        <img src="{% static 'image/images/beverages/beverage3.jpg' %}" alt="Fresh Lime Soda">
-        <div class="card-content">
-          <h3>Fresh Lime Soda</h3>
-          <p>Refreshing and freshly served.</p>
-          <div class="price-row"><span class="price-tag">₹99</span><button type="button" class="add-cart-btn" onclick="BethakCart.addToCart({name:'Fresh Lime Soda', price:99})">Add to Cart</button></div>
-        </div>
-      </div>
-
-      <div class="menu-card">
-        <img src="{% static 'image/images/beverages/beverage4.jpg' %}" alt="Cold Coffee">
-        <div class="card-content">
-          <h3>Cold Coffee</h3>
-          <p>Refreshing and freshly served.</p>
-          <div class="price-row"><span class="price-tag">₹189</span><button type="button" class="add-cart-btn" onclick="BethakCart.addToCart({name:'Cold Coffee', price:189})">Add to Cart</button></div>
-        </div>
-      </div>
-
-      <div class="menu-card">
-        <img src="{% static 'image/images/beverages/beverage5.jpg' %}" alt="Chocolate Shake">
-        <div class="card-content">
-          <h3>Chocolate Shake</h3>
-          <p>Refreshing and freshly served.</p>
-          <div class="price-row"><span class="price-tag">₹229</span><button type="button" class="add-cart-btn" onclick="BethakCart.addToCart({name:'Chocolate Shake', price:229})">Add to Cart</button></div>
-        </div>
-      </div>
-
-      <div class="menu-card">
-        <img src="{% static 'image/images/beverages/beverage6.jpg' %}" alt="Oreo Shake">
-        <div class="card-content">
-          <h3>Oreo Shake</h3>
-          <p>Refreshing and freshly served.</p>
-          <div class="price-row"><span class="price-tag">₹239</span><button type="button" class="add-cart-btn" onclick="BethakCart.addToCart({name:'Oreo Shake', price:239})">Add to Cart</button></div>
-        </div>
-      </div>
-
-      <div class="menu-card">
-        <img src="{% static 'image/images/beverages/beverage7.jpg' %}" alt="Strawberry Shake">
-        <div class="card-content">
-          <h3>Strawberry Shake</h3>
-          <p>Refreshing and freshly served.</p>
-          <div class="price-row"><span class="price-tag">₹219</span><button type="button" class="add-cart-btn" onclick="BethakCart.addToCart({name:'Strawberry Shake', price:219})">Add to Cart</button></div>
-        </div>
-      </div>
-
-      <div class="menu-card">
-        <img src="{% static 'image/images/beverages/beverage8.jpg' %}" alt="Mango Smoothie">
-        <div class="card-content">
-          <h3>Mango Smoothie</h3>
-          <p>Refreshing and freshly served.</p>
-          <div class="price-row"><span class="price-tag">₹199</span><button type="button" class="add-cart-btn" onclick="BethakCart.addToCart({name:'Mango Smoothie', price:199})">Add to Cart</button></div>
-        </div>
-      </div>
-
-      <div class="menu-card">
-        <img src="{% static 'image/images/beverages/beverage9.jpg' %}" alt="Watermelon Juice">
-        <div class="card-content">
-          <h3>Watermelon Juice</h3>
-          <p>Refreshing and freshly served.</p>
-          <div class="price-row"><span class="price-tag">₹159</span><button type="button" class="add-cart-btn" onclick="BethakCart.addToCart({name:'Watermelon Juice', price:159})">Add to Cart</button></div>
-        </div>
-      </div>
-
-      <div class="menu-card">
-        <img src="{% static 'image/images/beverages/beverage10.jpg' %}" alt="Orange Juice">
-        <div class="card-content">
-          <h3>Orange Juice</h3>
-          <p>Refreshing and freshly served.</p>
-          <div class="price-row"><span class="price-tag">₹149</span><button type="button" class="add-cart-btn" onclick="BethakCart.addToCart({name:'Orange Juice', price:149})">Add to Cart</button></div>
-        </div>
-      </div>
-
-      <div class="menu-card">
-        <img src="{% static 'image/images/beverages/beverage11.jpg' %}" alt="Green Tea">
-        <div class="card-content">
-          <h3>Green Tea</h3>
-          <p>Refreshing and freshly served.</p>
-          <div class="price-row"><span class="price-tag">₹129</span><button type="button" class="add-cart-btn" onclick="BethakCart.addToCart({name:'Green Tea', price:129})">Add to Cart</button></div>
-        </div>
-      </div>
-
-      <div class="menu-card">
-        <img src="{% static 'image/images/beverages/beverage12.jpg' %}" alt="Mineral Water">
-        <div class="card-content">
-          <h3>Mineral Water</h3>
-          <p>Refreshing and freshly served.</p>
-          <div class="price-row"><span class="price-tag">₹49</span><button type="button" class="add-cart-btn" onclick="BethakCart.addToCart({name:'Mineral Water', price:49})">Add to Cart</button></div>
-        </div>
-      </div>
-
-    </div>
-  </div>
-</section>
-
-<!-- Part 4 : Desserts Section -->
-<section class="menu-section" id="dessert">
-  <div class="container">
-    <h2 class="section-title">Desserts Menu</h2>
-    <div class="menu-grid">
-
-<div class="menu-card">
-<img src="{% static 'image/images/desserts/dessert1.jpg' %}" alt="Chocolate Cake">
-<div class="card-content">
-<h3>Chocolate Cake</h3>
-<p>Freshly prepared dessert.</p>
-<div class="price-row"><span class="price-tag">₹249</span><button type="button" class="add-cart-btn" onclick="BethakCart.addToCart({name:'Chocolate Cake', price:249})">Add to Cart</button></div>
 </div>
-</div>
-
-<div class="menu-card">
-<img src="{% static 'image/images/desserts/dessert2.jpg' %}" alt="Red Velvet Cake">
-<div class="card-content">
-<h3>Red Velvet Cake</h3>
-<p>Freshly prepared dessert.</p>
-<div class="price-row"><span class="price-tag">₹279</span><button type="button" class="add-cart-btn" onclick="BethakCart.addToCart({name:'Red Velvet Cake', price:279})">Add to Cart</button></div>
-</div>
-</div>
-
-<div class="menu-card">
-<img src="{% static 'image/images/desserts/dessert3.jpg' %}" alt="Brownie">
-<div class="card-content">
-<h3>Brownie</h3>
-<p>Freshly prepared dessert.</p>
-<div class="price-row"><span class="price-tag">₹199</span><button type="button" class="add-cart-btn" onclick="BethakCart.addToCart({name:'Brownie', price:199})">Add to Cart</button></div>
-</div>
-</div>
-
-<div class="menu-card">
-<img src="{% static 'image/images/desserts/dessert4.jpg' %}" alt="Cheesecake">
-<div class="card-content">
-<h3>Cheesecake</h3>
-<p>Freshly prepared dessert.</p>
-<div class="price-row"><span class="price-tag">₹299</span><button type="button" class="add-cart-btn" onclick="BethakCart.addToCart({name:'Cheesecake', price:299})">Add to Cart</button></div>
-</div>
-</div>
-
-<div class="menu-card">
-<img src="{% static 'image/images/desserts/dessert5.jpg' %}" alt="Cupcake">
-<div class="card-content">
-<h3>Cupcake</h3>
-<p>Freshly prepared dessert.</p>
-<div class="price-row"><span class="price-tag">₹149</span><button type="button" class="add-cart-btn" onclick="BethakCart.addToCart({name:'Cupcake', price:149})">Add to Cart</button></div>
-</div>
-</div>
-
-<div class="menu-card">
-<img src="{% static 'image/images/desserts/dessert6.jpg' %}" alt="Donut">
-<div class="card-content">
-<h3>Donut</h3>
-<p>Freshly prepared dessert.</p>
-<div class="price-row"><span class="price-tag">₹129</span><button type="button" class="add-cart-btn" onclick="BethakCart.addToCart({name:'Donut', price:129})">Add to Cart</button></div>
-</div>
-</div>
-
-<div class="menu-card">
-<img src="{% static 'image/images/desserts/dessert7.jpg' %}" alt="Waffle">
-<div class="card-content">
-<h3>Waffle</h3>
-<p>Freshly prepared dessert.</p>
-<div class="price-row"><span class="price-tag">₹229</span><button type="button" class="add-cart-btn" onclick="BethakCart.addToCart({name:'Waffle', price:229})">Add to Cart</button></div>
-</div>
-</div>
-
-<div class="menu-card">
-<img src="{% static 'image/images/desserts/dessert8.jpg' %}" alt="Ice Cream Sundae">
-<div class="card-content">
-<h3>Ice Cream Sundae</h3>
-<p>Freshly prepared dessert.</p>
-<div class="price-row"><span class="price-tag">₹189</span><button type="button" class="add-cart-btn" onclick="BethakCart.addToCart({name:'Ice Cream Sundae', price:189})">Add to Cart</button></div>
-</div>
-</div>
-
-<div class="menu-card">
-<img src="{% static 'image/images/desserts/dessert9.jpg' %}" alt="Chocolate Muffin">
-<div class="card-content">
-<h3>Chocolate Muffin</h3>
-<p>Freshly prepared dessert.</p>
-<div class="price-row"><span class="price-tag">₹159</span><button type="button" class="add-cart-btn" onclick="BethakCart.addToCart({name:'Chocolate Muffin', price:159})">Add to Cart</button></div>
-</div>
-</div>
-
-<div class="menu-card">
-<img src="{% static 'image/images/desserts/dessert10.jpg' %}" alt="Cookies">
-<div class="card-content">
-<h3>Cookies</h3>
-<p>Freshly prepared dessert.</p>
-<div class="price-row"><span class="price-tag">₹119</span><button type="button" class="add-cart-btn" onclick="BethakCart.addToCart({name:'Cookies', price:119})">Add to Cart</button></div>
-</div>
-</div>
-
-<div class="menu-card">
-<img src="{% static 'image/images/desserts/dessert11.jpg' %}" alt="Fruit Tart">
-<div class="card-content">
-<h3>Fruit Tart</h3>
-<p>Freshly prepared dessert.</p>
-<div class="price-row"><span class="price-tag">₹259</span><button type="button" class="add-cart-btn" onclick="BethakCart.addToCart({name:'Fruit Tart', price:259})">Add to Cart</button></div>
-</div>
-</div>
-
-<div class="menu-card">
-<img src="{% static 'image/images/desserts/dessert12.jpg' %}" alt="Tiramisu">
-<div class="card-content">
-<h3>Tiramisu</h3>
-<p>Freshly prepared dessert.</p>
-<div class="price-row"><span class="price-tag">₹329</span><button type="button" class="add-cart-btn" onclick="BethakCart.addToCart({name:'Tiramisu', price:329})">Add to Cart</button></div>
-</div>
-</div>
+{% empty %}
+<p class="text-center text-muted" style="grid-column: 1 / -1;">No items available in this category.</p>
+{% endfor %}
 
 </div>
 </div>
 </section>
+{% endfor %}
+
+
+
+
+
+
+
+
 
 
     <script src="{% static 'js/cart.js' %}"></script>

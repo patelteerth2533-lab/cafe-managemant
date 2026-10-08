@@ -70,9 +70,20 @@
 
                         </div>
 
+                        <!-- DJANGO MESSAGES -->
+                        {% if messages %}
+                            {% for message in messages %}
+                                <div class="alert {% if message.tags == 'error' %}alert-danger{% else %}alert-success{% endif %}" role="alert" style="border-radius:12px;margin-bottom:20px;">
+                                    {{ message }}
+                                </div>
+                            {% endfor %}
+                        {% endif %}
+
                         <!-- Reservation Form -->
 
-                        <form>
+                        <form method="POST" action="{% url 'reservation' %}">
+                            {% csrf_token %}
+                            <input type="hidden" name="selected_table" id="hiddenSelectedTable" value="">
 
                             <!-- Full Name -->
 
@@ -80,7 +91,7 @@
 
                                 <i class="bi bi-person-fill"></i>
 
-                                <input type="text" name="fullname" placeholder="Enter Full Name" required>
+                                <input type="text" name="fullname" placeholder="Enter Full Name" value="{{ customer.fullname|default:'' }}" required>
 
                             </div>
 
@@ -297,37 +308,14 @@
                     <!-- Tables -->
 
                     <div class="table-layout">
-
-                        <div class="table-card available-table" data-table="T-01">
-                            T-01
-                            <small>2 Seats</small>
-                        </div>
-
-                        <div class="table-card available-table" data-table="T-02">
-                            T-02
-                            <small>2 Seats</small>
-                        </div>
-
-                        <div class="table-card available-table" data-table="T-03">
-                            T-03
-                            <small>4 Seats</small>
-                        </div>
-
-                        <div class="table-card available-table" data-table="T-04">
-                            T-04
-                            <small>4 Seats</small>
-                        </div>
-
-                        <div class="table-card available-table" data-table="T-05">
-                            T-05
-                            <small>6 Seats</small>
-                        </div>
-
-                        <div class="table-card booked-table" data-table="T-06">
-                            T-06
-                            <small>Booked</small>
-                        </div>
-
+                        {% for t in tables %}
+                            <div class="table-card {% if t.status == 'available' %}available-table{% else %}booked-table{% endif %}" data-table="{{ t.table_number }}">
+                                {{ t.table_number }}
+                                <small>{% if t.status == 'available' %}{{ t.seats }} Seats{% else %}Booked{% endif %}</small>
+                            </div>
+                        {% empty %}
+                            <p class="text-center text-muted">No tables available</p>
+                        {% endfor %}
                     </div>
 
                 </div>

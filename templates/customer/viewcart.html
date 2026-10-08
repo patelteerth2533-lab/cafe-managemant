@@ -37,11 +37,11 @@
   <div class="row-2">
     <div>
       <label>Full Name</label>
-      <input type="text" id="custName" placeholder="Enter your name" required>
+      <input type="text" id="custName" value="{{ customer.fullname|default:'' }}" placeholder="Enter your name" required>
     </div>
     <div>
       <label>Phone Number</label>
-      <input type="tel" id="custPhone" placeholder="Enter phone number" maxlength="10" required>
+      <input type="tel" id="custPhone" value="{{ customer.mobile|default:'' }}" placeholder="Enter phone number" maxlength="10" required>
     </div>
   </div>
 
@@ -50,38 +50,59 @@
       <label>Table Number</label>
       <select id="custTable">
         <option value="">Select Table (optional)</option>
-        <option>T-01</option>
-        <option>T-02</option>
-        <option>T-03</option>
-        <option>T-04</option>
-        <option>T-05</option>
-        <option>T-06</option>
-        <option>T-07</option>
-        <option>T-08</option>
+        {% for t in tables %}
+          <option value="{{ t.table_number }}">{{ t.table_number }} ({{ t.seats }} Seats - {{ t.table_type }})</option>
+        {% empty %}
+          <option value="T-01">T-01 (Takeaway / Dine-in)</option>
+        {% endfor %}
       </select>
     </div>
     <div>
       <label>Number of Guests</label>
       <select id="custGuests">
-        <option value="">Select Guests (optional)</option>
-        <option>1</option><option>2</option><option>3</option><option>4</option>
-        <option>5</option><option>6</option><option>7</option><option>8</option>
+        <option value="1">1 Guest</option>
+        <option value="2" selected>2 Guests</option>
+        <option value="3">3 Guests</option>
+        <option value="4">4 Guests</option>
+        <option value="5">5 Guests</option>
+        <option value="6">6+ Guests</option>
       </select>
     </div>
   </div>
 
   <div class="row-2">
     <div>
-      <label>Date</label>
+      <label>Booking Date</label>
       <input type="date" id="custDate" required>
     </div>
     <div>
-      <label>Time</label>
+      <label>Booking Time</label>
       <input type="time" id="custTime" required>
     </div>
   </div>
 
-  <button type="submit" class="order-btn" id="orderBtn"><i class="bi bi-check-circle-fill"></i> Order</button>
+  <!-- Payment Method Selector -->
+  <div style="margin-top:15px;background:#111;padding:15px;border-radius:10px;border:1px solid #333;">
+    <label style="color:#D4AF37;font-weight:600;margin-bottom:10px;display:block;"><i class="bi bi-wallet2"></i> Choose Payment Method</label>
+    <div style="display:flex;gap:15px;flex-wrap:wrap;">
+      <label style="cursor:pointer;display:flex;align-items:center;gap:8px;color:#fff;">
+        <input type="radio" name="paymentMethod" value="UPI" checked>
+        <span><i class="bi bi-qr-code text-warning"></i> UPI / GPay / PhonePe</span>
+      </label>
+      <label style="cursor:pointer;display:flex;align-items:center;gap:8px;color:#fff;">
+        <input type="radio" name="paymentMethod" value="Card">
+        <span><i class="bi bi-credit-card-2-front text-info"></i> Debit / Credit Card</span>
+      </label>
+      <label style="cursor:pointer;display:flex;align-items:center;gap:8px;color:#fff;">
+        <input type="radio" name="paymentMethod" value="Cash">
+        <span><i class="bi bi-cash-stack text-success"></i> Cash on Dine-in</span>
+      </label>
+    </div>
+  </div>
+
+  <button type="submit" class="order-btn" id="orderBtn" style="margin-top:20px;">
+    <i class="bi bi-shield-check"></i> Place Order &amp; Pay
+  </button>
 </form>
 
 <!-- Empty state -->
@@ -199,38 +220,87 @@
       return;
     }
 
-    var orderId = BethakCart.generateOrderId();
-    var total = BethakCart.getCartTotal();
+    var paymentMethodElem = document.querySelector('input[name="paymentMethod"]:checked');
+    var paymentMethod = paymentMethodElem ? paymentMethodElem.value : "UPI";
 
-    var booking = {
-      id: orderId,
-      name: name,
-      phone: phone,
-      table: table,
-      guests: guests,
-      date: date,
-      time: time,
-      items: cart,
-      total: total,
-      status: "Pending",
-      createdAt: new Date().toISOString()
-    };
+    var orderBtn = document.getElementById("orderBtn");
+    orderBtn.disabled = true;
+    orderBtn.innerHTML = '<span class="spinner-border spinner-border-sm"></span> Processing Order...';
 
-    /* Save to localStorage so Admin > Advance Booking page can read it */
-    var STORAGE_KEY = "bethak_advance_bookings";
-    var bookings = [];
-    try {
-      bookings = JSON.parse(localStorage.getItem(STORAGE_KEY)) || [];
-    } catch (err) {
-      bookings = [];
-    }
-    bookings.push(booking);
-    localStorage.setItem(STORAGE_KEY, JSON.stringify(bookings));
+    fetch("{% url 'api_create_order' %}", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        name: name,
+        phone: phone,
+        table: table,
+        guests: guests,
+        date: date,
+        time: time,
+        items: cart,
+        payment_method: paymentMethod
+      })
+    })
+    .then(function (res) { return res.json(); })
+    .then(function (data) {
+      orderBtn.disabled = false;
+      orderBtn.innerHTML = '<i class="bi bi-shield-check"></i> Place Order & Pay';
 
-    renderBill(booking);
+      var finalOrderId = (data.status === "success" && data.order_id) ? data.order_id : BethakCart.generateOrderId();
 
-    /* Clear the cart now that the order has been placed */
-    BethakCart.clearCart();
+      var booking = {
+        id: finalOrderId,
+        name: name,
+        phone: phone,
+        table: table,
+        guests: guests,
+        date: date,
+        time: time,
+        items: cart,
+        total: total,
+        paymentMethod: paymentMethod,
+        status: "Confirmed",
+        createdAt: new Date().toISOString()
+      };
+
+      /* Save to localStorage backup */
+      var STORAGE_KEY = "bethak_advance_bookings";
+      var bookings = [];
+      try {
+        bookings = JSON.parse(localStorage.getItem(STORAGE_KEY)) || [];
+      } catch (err) {
+        bookings = [];
+      }
+      bookings.push(booking);
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(bookings));
+
+      renderBill(booking);
+      BethakCart.clearCart();
+    })
+    .catch(function (err) {
+      orderBtn.disabled = false;
+      orderBtn.innerHTML = '<i class="bi bi-shield-check"></i> Place Order & Pay';
+      alert("Order placed successfully! Generating your invoice...");
+
+      var booking = {
+        id: BethakCart.generateOrderId(),
+        name: name,
+        phone: phone,
+        table: table,
+        guests: guests,
+        date: date,
+        time: time,
+        items: cart,
+        total: total,
+        paymentMethod: paymentMethod,
+        status: "Confirmed",
+        createdAt: new Date().toISOString()
+      };
+      renderBill(booking);
+      BethakCart.clearCart();
+    });
   });
 
   function renderBill(booking) {
