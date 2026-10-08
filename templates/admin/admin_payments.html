@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Payments | Bethak Cafe Admin</title>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+<link href="admin_style.css" rel="stylesheet">
+<link href="admin_responsive.css" rel="stylesheet">
+<style>
+body{background:#111;color:#fff}
+.sidebar{position:fixed;left:0;top:0;width:240px;height:100vh;background:#1b1b1b;padding:20px}
+.content{margin-left:240px}
+.gold{color:#d4af37}
+.nav-link{display:block;color:#ddd;text-decoration:none;padding:8px 0}
+.nav-link:hover,.active{color:#d4af37}
+.card,.table-box{background:#222;border:1px solid #333}
+.table{color:#fff}
+.btn-gold{background:#d4af37;color:#111}
+.menu-toggle{display:none}
+@media(max-width:768px){.menu-toggle{display:inline-block}}
+</style>
+</head>
+<body>
+
+<div class="sidebar">
+<h3 class="gold">☕ Bethak Cafe</h3>
+<hr>
+<a class="nav-link" href="admin_dashboard.html"><i class="bi bi-speedometer2"></i> Dashboard</a>
+<a class="nav-link" href="admin_order.html"><i class="bi bi-bag-check"></i> Orders</a>
+<a class="nav-link" href="admin_reservation.html"><i class="bi bi-calendar-check"></i> Reservations</a>
+<a class="nav-link" href="admin_table_manage.html"><i class="bi bi-table"></i> Table Manage</a>
+<a class="nav-link" href="admin_advance_booking.html"><i class="bi bi-journal-bookmark-fill"></i> Advance Menu Booking</a>
+<a class="nav-link" href="admin_menu.html"><i class="bi bi-egg-fried"></i> Menu</a>
+<a class="nav-link" href="admin_customer.html"><i class="bi bi-people"></i> Customers</a>
+<a class="nav-link" href="admin_employe.html"><i class="bi bi-person-badge"></i> Employees</a>
+<a class="nav-link" href="admin_inventory.html"><i class="bi bi-box-seam"></i> Inventory</a>
+<a class="nav-link active" href="admin_payments.html"><i class="bi bi-credit-card"></i> Payments</a>
+<a class="nav-link" href="admin_reports.html"><i class="bi bi-graph-up"></i> Reports</a>
+<a class="nav-link" href="admin_profile.html"><i class="bi bi-person-circle"></i> Profile</a>
+<a class="nav-link" href="admin_seating.html"><i class="bi bi-gear"></i> Settings</a>
+</div>
+
+<div class="content">
+<nav class="navbar navbar-dark bg-dark px-4">
+<button class="btn btn-sm btn-outline-light menu-toggle me-2" id="sidebarToggle"><i class="bi bi-list"></i></button>
+<span class="navbar-brand">Payment Management</span>
+</nav>
+
+<div class="container-fluid p-4">
+
+<div class="row g-3 mb-4">
+<div class="col-md-3"><div class="card p-3"><small class="gold">Today's Revenue</small><h3>₹24,500</h3></div></div>
+<div class="col-md-3"><div class="card p-3"><small class="gold">Paid</small><h3>₹22,000</h3></div></div>
+<div class="col-md-3"><div class="card p-3"><small class="gold">Pending</small><h3>₹2,500</h3></div></div>
+<div class="col-md-3"><div class="card p-3"><small class="gold">Transactions</small><h3>96</h3></div></div>
+</div>
+
+<div class="row mb-3">
+<div class="col-md-4"><input class="form-control" placeholder="Search Invoice"></div>
+<div class="col-md-3"><select class="form-select"><option>All Methods</option><option>Cash</option><option>Card</option><option>UPI</option></select></div>
+</div>
+
+<div class="table-box p-3">
+<table class="table table-dark table-hover">
+<thead>
+<tr>
+<th>Invoice</th><th>Customer</th><th>Method</th><th>Amount</th><th>Status</th><th>Date</th><th>Actions</th>
+</tr>
+</thead>
+<tbody>
+<tr><td>INV001</td><td>Rahul</td><td>UPI</td><td>₹599</td><td><span class="badge bg-success">Paid</span></td><td>05-08-2026</td><td><button class="btn btn-sm btn-primary">View</button></td></tr>
+<tr><td>INV002</td><td>Neha</td><td>Cash</td><td>₹299</td><td><span class="badge bg-warning text-dark">Pending</span></td><td>05-08-2026</td><td><button class="btn btn-sm btn-success">Mark Paid</button></td></tr>
+</tbody>
+</table>
+</div>
+
+</div>
+</div>
+
+<script src="admin-animations.js"></script>
+</body>
+</html>

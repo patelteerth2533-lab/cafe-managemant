@@ -1,0 +1,1256 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Bethak Cafe</title>
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Lora:wght@400;500&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'css/responsive.css' %}">
+    <link rel="stylesheet" href="{% static 'css/all-animations.css' %}">
+
+</head>
+
+<body>
+
+    <!-- ===========================
+        NAVBAR START
+============================ -->
+
+    <nav class="navbar navbar-expand-lg">
+
+        <div class="container">
+
+            <!-- Logo -->
+
+            <a class="navbar-brand" href="#">
+                <img src="{% static 'image/logo.png' %}" width="150" alt="Logo">
+            </a>
+
+            <!-- Mobile Button -->
+
+            <button class="navbar-toggler bg-light" type="button" data-bs-toggle="collapse" data-bs-target="#menu">
+
+                <span class="navbar-toggler-icon"></span>
+
+            </button>
+
+            <!-- Menu -->
+
+            <div class="collapse navbar-collapse" id="menu">
+
+                <ul class="navbar-nav mx-auto">
+
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#home">Home</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="#about">About</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="#services">Services</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="#menupage">Menu</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="#chefs">Chefs</a>
+                    </li>
+
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="#experience">Experience</a>
+                    </li>
+
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contact">Contact</a>
+                    </li>
+
+                </ul>
+
+                <button class="booktable-btn">
+
+                    <a class="nav-link" href="#booktable">BOOK TABLE</a>
+
+                </button>
+
+                <button class="login-btn">
+                    <a class="nav-link" href="{% url 'register' %}">REGISTER</a>
+                </button>
+
+            </div>
+
+        </div>
+
+    </nav>
+
+    <!-- ===========================
+      HERO SLIDER START
+============================ -->
+    <section id="home">
+        <div id="heroSlider" class="carousel slide carousel-fade" data-bs-ride="false">
+
+            <div class="carousel-inner">
+
+                <!-- ======================
+        SLIDE 1
+       ======================= -->
+
+                <div class="carousel-item active">
+
+                    <img src="{% static 'image/container 1.png' %}" class="d-block w-100" alt="Slide 1">
+
+                    <div class="overlay"></div>
+
+                    <div class="hero-content">
+
+                        <div class="container">
+
+                            <div class="row align-items-center">
+
+                                <div class="col-lg-6">
+
+                                    <h5>WELCOME TO</h5>
+
+                                    <h1>BETHAK CAFE</h1>
+
+                                    <h3>Great Coffee • Great Food • Great Moments</h3>
+
+                                    <p>
+
+                                        Experience the perfect blend of premium coffee,
+                                        delicious food and warm hospitality.
+
+                                        Enjoy unforgettable moments with your family
+                                        and friends.
+
+                                    </p>
+
+                                    <div class="hero-buttons">
+
+                                        <button class="order-btn">
+
+                                            Explore Menu
+
+                                        </button>
+
+                                        <button class="video-btn">
+
+                                            Watch Video
+
+                                        </button>
+
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <!-- ======================
+        SLIDE 2
+======================= -->
+
+                <div class="carousel-item">
+
+                    <img src="{% static 'image/container 2.png' %}" class="d-block w-100" alt="Slide 2">
+
+                    <div class="overlay"></div>
+
+                    <div class="hero-content">
+
+                        <div class="container">
+
+                            <div class="row align-items-center">
+
+                                <div class="col-lg-6">
+
+                                    <h5>FRESHLY BREWED</h5>
+
+                                    <h1>PREMIUM COFFEE</h1>
+
+                                    <h3>Made With Love Everyday</h3>
+
+                                    <p>
+
+                                        Enjoy handcrafted coffee prepared by our
+                                        expert baristas using the finest beans.
+
+                                        Every sip tells a story.
+
+                                    </p>
+
+                                    <div class="hero-buttons">
+
+                                        <button class="order-btn">
+
+                                            Order Coffee
+
+                                        </button>
+
+                                        <button class="video-btn">
+
+                                            View Gallery
+
+                                        </button>
+
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <!-- ======================
+        SLIDE 3
+======================= -->
+
+                <div class="carousel-item">
+
+                    <img src="{% static 'image/container 3.png' %}" class="d-block w-100" alt="Slide 3">
+
+                    <div class="overlay"></div>
+
+                    <div class="hero-content">
+
+                        <div class="container">
+
+                            <div class="row align-items-center">
+
+                                <div class="col-lg-6">
+
+                                    <h5>RELAX & ENJOY</h5>
+
+                                    <h1>BEST CAFE EXPERIENCE</h1>
+
+                                    <h3>Feel The Taste Of Happiness</h3>
+
+                                    <p>
+
+                                        Celebrate every special moment with delicious
+                                        food, premium coffee and a peaceful atmosphere.
+
+                                    </p>
+
+                                    <div class="hero-buttons">
+
+                                        <button class="order-btn">
+
+                                            Book Now
+
+                                        </button>
+
+                                        <button class="video-btn">
+
+                                            Contact Us
+
+                                        </button>
+
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <!-- Previous -->
+
+            <button class="carousel-control-prev" type="button" data-bs-target="#heroSlider" data-bs-slide="prev">
+
+                <span class="carousel-control-prev-icon"></span>
+
+            </button>
+
+            <!-- Next -->
+
+            <button class="carousel-control-next" type="button" data-bs-target="#heroSlider" data-bs-slide="next">
+
+                <span class="carousel-control-next-icon"></span>
+
+            </button>
+
+            <!-- Indicators -->
+
+            <div class="carousel-indicators">
+
+                <button type="button" data-bs-target="#heroSlider" data-bs-slide-to="0" class="active">
+                </button>
+
+                <button type="button" data-bs-target="#heroSlider" data-bs-slide-to="1">
+                </button>
+
+                <button type="button" data-bs-target="#heroSlider" data-bs-slide-to="2">
+                </button>
+
+            </div>
+
+        </div>
+    </section>
+    <!-- ===========================
+        ABOUT SECTION
+============================ -->
+
+    <section class="about-section" id="about">
+
+        <div class="container">
+
+            <div class="row align-items-center">
+
+                <!-- ===========================
+                    LEFT IMAGES
+            ============================ -->
+
+                <div class="col-lg-6">
+
+                    <div class="about-gallery">
+
+                        <!-- Image 1 -->
+
+                        <div class="gallery-item gallery-top">
+
+                            <img src="{% static 'image/about 1.png' %}" alt="Bethak Cafe">
+
+                            <div class="image-overlay">
+
+                                <h4>Premium Interior</h4>
+
+                            </div>
+
+                        </div>
+
+                        <!-- Image 2 -->
+
+                        <div class="gallery-item gallery-bottom">
+
+                            <img src="{% static 'image/about 2.png' %}" alt="Coffee">
+
+                            <div class="image-overlay">
+
+                                <h4>Luxury Experience</h4>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <!-- ===========================
+                    RIGHT CONTENT
+            ============================ -->
+
+                <div class="col-lg-6">
+                    <div class="about-card">
+
+                        <span class="about-tag">
+                            ABOUT US
+                        </span>
+
+                        <h2 class="about-title">
+                            ABOUT <span>BETHAK CAFE</span>
+                        </h2>
+
+                        <div class="title-design">
+                            <span></span>
+                            <i class="bi bi-stars"></i>
+                            <span></span>
+                        </div>
+
+                        <h3 class="story-title">
+                            Our Story
+                        </h3>
+
+                        <div class="story-line"></div>
+
+                        <p class="about-text">
+
+                            Bethak Cafe is a place where premium coffee, delicious food and
+                            warm hospitality come together. We believe every visit should
+                            create unforgettable memories with family and friends.
+
+                        </p>
+
+                        <p class="about-text">
+
+                            Enjoy handcrafted beverages, freshly prepared meals and a cozy
+                            atmosphere designed to make every moment special.
+
+                        </p>
+                        <!-- Features -->
+
+                        <div class="feature-section">
+
+                            <div class="row">
+
+                                <div class="col-6">
+
+                                    <div class="feature-box">
+
+                                        <i class="bi bi-cup-hot-fill"></i>
+
+                                        <div>
+
+                                            <h5>Premium Coffee</h5>
+
+                                            <small>Freshly Brewed Everyday</small>
+
+                                        </div>
+
+                                    </div>
+
+                                </div>
+
+                                <div class="col-6">
+
+                                    <div class="feature-box">
+
+                                        <i class="bi bi-egg-fried"></i>
+
+                                        <div>
+
+                                            <h5>Delicious Food</h5>
+
+                                            <small>Made With Love & Care</small>
+
+                                        </div>
+
+                                    </div>
+
+                                </div>
+
+                                <div class="col-6 mt-4">
+
+                                    <div class="feature-box">
+
+                                        <i class="bi bi-shop"></i>
+
+                                        <div>
+
+                                            <h5>Cozy Ambience</h5>
+
+                                            <small>Relax & Enjoy</small>
+
+                                        </div>
+
+                                    </div>
+
+                                </div>
+
+                                <div class="col-6 mt-4">
+
+                                    <div class="feature-box">
+
+                                        <i class="bi bi-wifi"></i>
+
+                                        <div>
+
+                                            <h5>Free Wi-Fi</h5>
+
+                                            <small>High Speed Internet</small>
+
+                                        </div>
+
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                        <!-- Button -->
+
+                        <div class="text-center mt-5">
+
+                            <a href="#" class="about-btn">
+
+                                READ MORE
+
+                                <i class="bi bi-arrow-right"></i>
+
+                            </a>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- ======================================
+            OUR SERVICES START
+======================================= -->
+
+    <section class="services-section" id="services">
+
+        <div class="container">
+
+            <!-- Heading -->
+
+            <div class="text-center">
+
+                <h2 class="service-heading">
+
+                    OUR SERVICES
+
+                </h2>
+
+                <div class="service-divider">
+
+                    <span></span>
+
+                    <i class="bi bi-stars"></i>
+
+                    <span></span>
+
+                </div>
+
+            </div>
+
+            <!-- Service Row -->
+
+            <div class="row g-0 service-row">
+
+                <!-- Service 1 -->
+
+                <div class="col-lg-3 col-md-6">
+
+                    <div class="service-box">
+
+                        <i class="bi bi-cup-hot service-icon"></i>
+
+                        <h4>QUALITY COFFEE</h4>
+
+                        <p>
+
+                            Freshly brewed premium coffee
+                            for every mood.
+
+                        </p>
+
+                    </div>
+
+                </div>
+
+                <!-- Service 2 -->
+
+                <div class="col-lg-3 col-md-6">
+
+                    <div class="service-box">
+
+                        <i class="bi bi-egg-fried service-icon"></i>
+
+                        <h4>DELICIOUS FOOD</h4>
+
+                        <p>
+
+                            Tasty meals made with
+                            love and care.
+
+                        </p>
+
+                    </div>
+
+                </div>
+
+                <!-- Service 3 -->
+
+                <div class="col-lg-3 col-md-6">
+
+                    <div class="service-box">
+
+                        <i class="bi bi-shop service-icon"></i>
+
+                        <h4>COZY AMBIENCE</h4>
+
+                        <p>
+
+                            A warm and relaxing
+                            place to unwind.
+
+                        </p>
+
+                    </div>
+
+                </div>
+
+                <!-- Service 4 -->
+
+                <div class="col-lg-3 col-md-6">
+
+                    <div class="service-box border-end-0">
+
+                        <i class="bi bi-wifi service-icon"></i>
+
+                        <h4>FREE WI-FI</h4>
+
+                        <p>
+
+                            High-speed internet
+                            for work & leisure.
+
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- ======================================
+            OUR SERVICES END
+======================================= -->
+
+    <!-- =====================================
+            OUR MENU START
+====================================== -->
+
+    <section class="menu-section" id="menupage">
+
+        <div class="container">
+
+            <!-- Heading -->
+
+            <div class="text-center">
+
+                <h2 class="menu-title">
+
+                    OUR MENU
+
+                </h2>
+
+                <div class="menu-divider">
+
+                    <span></span>
+
+                    <i class="bi bi-stars"></i>
+
+                    <span></span>
+
+                </div>
+
+            </div>
+
+            <!-- Menu Cards -->
+
+            <div class="row g-4">
+
+                <!-- Coffee -->
+
+                <div class="col-lg-3 col-md-6">
+
+                    <div class="menu-card">
+
+                        <div class="menu-image">
+
+                            <img src="{% static 'image/menu coffee.png' %}" alt="Coffee">
+
+                        </div>
+
+                        <div class="menu-content">
+
+                            <a href="{% url 'menu' %}#coffee" class="menu-btn">
+
+                                ☕ COFFEE
+
+                            </a>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <!-- Snacks -->
+
+                <div class="col-lg-3 col-md-6">
+
+                    <div class="menu-card">
+
+                        <div class="menu-image">
+
+                            <img src="{% static 'image/menu snacks.png' %}" alt="Snacks">
+
+                        </div>
+
+                        <div class="menu-content">
+
+                            <a href="{% url 'menu' %}#snacks" class="menu-btn">
+
+                                🍔 SNACKS
+
+                            </a>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <!-- Dessert -->
+
+                <div class="col-lg-3 col-md-6">
+
+                    <div class="menu-card">
+
+                        <div class="menu-image">
+
+                            <img src="{% static 'image/menu dessert.png' %}" alt="Dessert">
+
+                        </div>
+
+                        <div class="menu-content">
+
+                            <a href="{% url 'menu' %}#dessert" class="menu-btn">
+
+                                🍰 DESSERT
+
+                            </a>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <!-- Shake -->
+
+                <div class="col-lg-3 col-md-6">
+
+                    <div class="menu-card">
+
+                        <div class="menu-image">
+
+                            <img src="{% static 'image/menu shake&juice.png' %}" alt="Shake">
+
+                        </div>
+
+                        <div class="menu-content">
+
+                            <a href="{% url 'menu' %}#shakes" class="menu-btn">
+
+                                🥤 SHAKES & JUICE
+
+                            </a>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- =====================================
+            OUR MENU END
+====================================== -->
+
+    <!-- =========================================
+                OUR CHEFS START
+========================================== -->
+
+    <section class="chef-section" id="chefs">
+
+        <div class="container">
+
+            <!-- Heading -->
+
+            <div class="text-center">
+
+                <h2 class="chef-title">
+                    OUR CHEFS
+                </h2>
+
+                <div class="chef-divider">
+
+                    <span></span>
+
+                    <i class="bi bi-stars"></i>
+
+                    <span></span>
+
+                </div>
+
+            </div>
+
+            <!-- Chef Cards -->
+
+            <div class="row g-4 justify-content-center">
+
+                <!-- Chef 1 -->
+
+                <div class="col-lg-4 col-md-6">
+
+                    <div class="chef-card">
+
+                        <div class="chef-image">
+
+                            <img src="{% static 'image/chef 1.png' %}" alt="Head Chef">
+
+                        </div>
+
+                        <div class="chef-info">
+
+                            <h4>John Doe</h4>
+
+                            <p>Head Chef</p>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <!-- Chef 2 -->
+
+                <div class="col-lg-4 col-md-6">
+
+                    <div class="chef-card">
+
+                        <div class="chef-image">
+
+                            <img src="{% static 'image/chef 2.png' %}" alt="Pastry Chef">
+
+                        </div>
+
+                        <div class="chef-info">
+
+                            <h4>Emma Smith</h4>
+
+                            <p>Pastry Chef</p>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <!-- Chef 3 -->
+
+                <div class="col-lg-4 col-md-6">
+
+                    <div class="chef-card">
+
+                        <div class="chef-image">
+
+                            <img src="{% static 'image/chef 3.png' %}" alt="Sous Chef">
+
+                        </div>
+
+                        <div class="chef-info">
+
+                            <h4>Michael Brown</h4>
+
+                            <p>Sous Chef</p>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- =========================================
+                OUR CHEFS END
+========================================== -->
+
+    <!--=========================================
+            BOOK TABLE START
+==========================================-->
+
+    <section class="booking-section" id="booktable">
+
+        <!-- Background Image -->
+
+        <img src="{% static 'image/reserved-table.png' %}" class="booking-bg" alt="Reserved Table">
+
+        <!-- Dark Overlay -->
+
+        <div class="booking-overlay"></div>
+
+        <!-- Content -->
+
+        <div class="container">
+
+            <div class="row align-items-center">
+
+                <div class="col-lg-6 col-md-7">
+
+                    <div class="booking-content">
+
+                        <h2>
+                            BOOK YOUR TABLE
+                        </h2>
+
+                        <p>
+                            Reserve your spot for a perfect café experience.
+                            Enjoy premium coffee, delicious food and a cozy
+                            atmosphere with your family and friends.
+                        </p>
+
+                        <a href="{% url 'reservation' %}" class="booking-btn">
+                            RESERVE NOW
+                        </a>
+
+                    </div>
+
+                </div>
+
+                <!-- Right Side Empty -->
+                <!-- Image background me hi hai -->
+
+                <div class="col-lg-6"></div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!--=========================================
+            BOOK TABLE END
+==========================================-->
+
+
+
+    <!--=========================================
+            CUSTOMER REVIEWS START
+==========================================-->
+
+    <section class="review-section" id="experience">
+
+        <div class="container">
+
+            <!-- Heading -->
+
+            <div class="text-center">
+
+                <h2 class="review-title">
+                    CUSTOMER REVIEWS
+                </h2>
+
+                <div class="review-divider">
+
+                    <span></span>
+
+                    <i class="bi bi-stars"></i>
+
+                    <span></span>
+
+                </div>
+
+            </div>
+
+            <div class="row g-4">
+
+                <!-- Review 1 -->
+
+                <div class="col-lg-4 col-md-6">
+
+                    <div class="review-card">
+
+                        <i class="bi bi-quote review-icon"></i>
+
+                        <p class="review-text">
+                            The best coffee and ambience in town!
+                        </p>
+
+                        <div class="customer">
+
+                            <img src="{% static 'image/customer 1.png' %}" alt="Customer">
+
+                            <h5>Sarah J.</h5>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <!-- Review 2 -->
+
+                <div class="col-lg-4 col-md-6">
+
+                    <div class="review-card">
+
+                        <i class="bi bi-quote review-icon"></i>
+
+                        <p class="review-text">
+                            Amazing food and friendly staff.
+                        </p>
+
+                        <div class="customer">
+
+                            <img src="{% static 'image/customer 1.png' %}" alt="Customer">
+
+                            <h5>Michael T.</h5>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <!-- Review 3 -->
+
+                <div class="col-lg-4 col-md-6">
+
+                    <div class="review-card">
+
+                        <i class="bi bi-quote review-icon"></i>
+
+                        <p class="review-text">
+                            A perfect place to relax and work.
+                        </p>
+
+                        <div class="customer">
+
+                            <img src="{% static 'image/customer 1.png' %}" alt="Customer">
+
+                            <h5>Jessica L.</h5>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!--=========================================
+            CUSTOMER REVIEWS END
+==========================================-->
+
+    <!--=========================================
+            CONTACT US START
+==========================================-->
+
+    <section class="contact-section" id="contact">
+
+        <div class="container">
+
+            <!-- Heading -->
+
+            <div class="text-center">
+
+                <h2 class="contact-title">
+                    CONTACT US
+                </h2>
+
+                <div class="contact-divider">
+
+                    <span></span>
+
+                    <i class="bi bi-stars"></i>
+
+                    <span></span>
+
+                </div>
+
+            </div>
+
+            <div class="row align-items-center g-4">
+
+                <!-- Left Side -->
+
+                <div class="col-lg-5">
+
+                    <div class="contact-box">
+
+                        <!-- Address -->
+
+                        <div class="contact-item">
+
+                            <div class="contact-icon">
+
+                                <i class="bi bi-geo-alt"></i>
+
+                            </div>
+
+                            <div>
+
+                                <h5>Address</h5>
+
+                                <p>
+                                    123 Coffee Street,<br>
+                                    Himatnagar, Gujarat 383001
+                                </p>
+
+                            </div>
+
+                        </div>
+
+                        <!-- Phone -->
+
+                        <div class="contact-item">
+
+                            <div class="contact-icon">
+
+                                <i class="bi bi-telephone"></i>
+
+                            </div>
+
+                            <div>
+
+                                <h5>Phone</h5>
+
+                                <p>
+                                    +91 94083 60851
+                                </p>
+
+                            </div>
+
+                        </div>
+
+                        <!-- Email -->
+
+                        <div class="contact-item">
+
+                            <div class="contact-icon">
+
+                                <i class="bi bi-envelope"></i>
+
+                            </div>
+
+                            <div>
+
+                                <h5>Email</h5>
+
+                                <p>
+                                    info@bethakcafe.com
+                                </p>
+
+                            </div>
+
+                        </div>
+
+                        <!-- Website -->
+
+                        <div class="contact-item">
+
+                            <div class="contact-icon">
+
+                                <i class="bi bi-globe"></i>
+
+                            </div>
+
+                            <div>
+
+                                <h5>Website</h5>
+
+                                <p>
+                                    www.bethakcafe.com
+                                </p>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <!-- Right Side -->
+
+                <div class="col-lg-7">
+
+                    <div class="map-box">
+
+                        <iframe src="https://www.google.com/maps?q=Himatnagar,Gujarat&output=embed" allowfullscreen=""
+                            loading="lazy">
+                        </iframe>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!--=========================================
+            CONTACT US END
+==========================================-->
+    <!-- Bootstrap JS -->
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script src="{% static 'js/all-animations.js' %}"></script>
+</body>
+
+</html>
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,297 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>View Cart | Bethak Cafe</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+<link rel="stylesheet" href="{% static 'css/menu.css' %}">
+<link rel="stylesheet" href="{% static 'css/all-animations.css' %}">
+<link rel="stylesheet" href="{% static 'css/cart.css' %}">
+</head>
+<body class="cart-page">
+
+<header class="cart-header">
+<a href="{% url 'menu' %}" class="menu-back-link"><i class="bi bi-arrow-left"></i> Back to Menu</a>
+<h1>Bethak Cafe</h1>
+</header>
+
+<div class="cart-container">
+
+<h2 class="cart-title"><i class="bi bi-cart3"></i> Your Cart</h2>
+
+<!-- Cart items render here -->
+<div id="cartItemsWrap"></div>
+
+<!-- Cart summary -->
+<div class="cart-summary" id="cartSummary" style="display:none">
+  <div class="cart-summary-row"><span>Items (<span id="summaryCount">0</span>)</span><span id="summarySubtotal">₹0</span></div>
+  <div class="cart-summary-row grand-total"><span>Total</span><span id="summaryTotal">₹0</span></div>
+</div>
+
+<!-- Checkout / booking details form -->
+<form class="checkout-form" id="checkoutForm" style="display:none">
+  <h3><i class="bi bi-person-lines-fill"></i> Booking Details</h3>
+
+  <div class="row-2">
+    <div>
+      <label>Full Name</label>
+      <input type="text" id="custName" placeholder="Enter your name" required>
+    </div>
+    <div>
+      <label>Phone Number</label>
+      <input type="tel" id="custPhone" placeholder="Enter phone number" maxlength="10" required>
+    </div>
+  </div>
+
+  <div class="row-2">
+    <div>
+      <label>Table Number</label>
+      <select id="custTable">
+        <option value="">Select Table (optional)</option>
+        <option>T-01</option>
+        <option>T-02</option>
+        <option>T-03</option>
+        <option>T-04</option>
+        <option>T-05</option>
+        <option>T-06</option>
+        <option>T-07</option>
+        <option>T-08</option>
+      </select>
+    </div>
+    <div>
+      <label>Number of Guests</label>
+      <select id="custGuests">
+        <option value="">Select Guests (optional)</option>
+        <option>1</option><option>2</option><option>3</option><option>4</option>
+        <option>5</option><option>6</option><option>7</option><option>8</option>
+      </select>
+    </div>
+  </div>
+
+  <div class="row-2">
+    <div>
+      <label>Date</label>
+      <input type="date" id="custDate" required>
+    </div>
+    <div>
+      <label>Time</label>
+      <input type="time" id="custTime" required>
+    </div>
+  </div>
+
+  <button type="submit" class="order-btn" id="orderBtn"><i class="bi bi-check-circle-fill"></i> Order</button>
+</form>
+
+<!-- Empty state -->
+<div class="cart-empty" id="cartEmpty" style="display:none">
+  <i class="bi bi-cart-x" style="font-size:3rem;color:#D4AF37"></i>
+  <p>Your cart is empty.</p>
+  <a href="{% url 'menu' %}">Browse Menu</a>
+</div>
+
+<!-- Bill / Receipt (shown after order is placed) -->
+<div class="bill-box" id="billBox" style="display:none"></div>
+
+</div>
+
+<script src="{% static 'js/cart.js' %}"></script>
+<script>
+(function () {
+  "use strict";
+
+  var cartItemsWrap = document.getElementById("cartItemsWrap");
+  var cartSummary = document.getElementById("cartSummary");
+  var checkoutForm = document.getElementById("checkoutForm");
+  var cartEmpty = document.getElementById("cartEmpty");
+  var billBox = document.getElementById("billBox");
+
+  /* Set today's date as default / min */
+  var dateInput = document.getElementById("custDate");
+  var today = new Date().toISOString().split("T")[0];
+  dateInput.min = today;
+  dateInput.value = today;
+
+  function renderCart() {
+    var cart = BethakCart.getCart();
+
+    if (!cart.length) {
+      cartItemsWrap.innerHTML = "";
+      cartSummary.style.display = "none";
+      checkoutForm.style.display = "none";
+      cartEmpty.style.display = "block";
+      return;
+    }
+
+    cartEmpty.style.display = "none";
+    cartSummary.style.display = "block";
+    checkoutForm.style.display = "block";
+
+    cartItemsWrap.innerHTML = cart.map(function (item) {
+      var lineTotal = item.qty * item.price;
+      return (
+        '<div class="cart-item" data-name="' + escapeHtml(item.name) + '">' +
+          '<div>' +
+            '<div class="cart-item-name">' + escapeHtml(item.name) + '</div>' +
+            '<div class="cart-item-price">₹' + item.price + ' each</div>' +
+          '</div>' +
+          '<div class="qty-control">' +
+            '<button type="button" class="qty-minus">−</button>' +
+            '<span>' + item.qty + '</span>' +
+            '<button type="button" class="qty-plus">+</button>' +
+          '</div>' +
+          '<div class="cart-item-total">₹' + lineTotal + '</div>' +
+          '<button type="button" class="remove-item-btn"><i class="bi bi-trash"></i> Remove</button>' +
+        '</div>'
+      );
+    }).join("");
+
+    var count = BethakCart.getCartCount();
+    var total = BethakCart.getCartTotal();
+    document.getElementById("summaryCount").textContent = count;
+    document.getElementById("summarySubtotal").textContent = "₹" + total;
+    document.getElementById("summaryTotal").textContent = "₹" + total;
+
+    /* Wire up qty / remove buttons */
+    cartItemsWrap.querySelectorAll(".cart-item").forEach(function (row) {
+      var name = row.getAttribute("data-name");
+      var current = cart.find(function (i) { return i.name === name; });
+
+      row.querySelector(".qty-plus").addEventListener("click", function () {
+        BethakCart.updateQty(name, current.qty + 1);
+        renderCart();
+      });
+      row.querySelector(".qty-minus").addEventListener("click", function () {
+        BethakCart.updateQty(name, current.qty - 1);
+        renderCart();
+      });
+      row.querySelector(".remove-item-btn").addEventListener("click", function () {
+        BethakCart.removeFromCart(name);
+        renderCart();
+      });
+    });
+  }
+
+  function escapeHtml(str) {
+    var div = document.createElement("div");
+    div.textContent = str;
+    return div.innerHTML;
+  }
+
+  /* ---------------- Order + Bill Generation ---------------- */
+
+  checkoutForm.addEventListener("submit", function (e) {
+    e.preventDefault();
+
+    var cart = BethakCart.getCart();
+    if (!cart.length) return;
+
+    var name = document.getElementById("custName").value.trim();
+    var phone = document.getElementById("custPhone").value.trim();
+    var table = document.getElementById("custTable").value;
+    var guests = document.getElementById("custGuests").value;
+    var date = document.getElementById("custDate").value;
+    var time = document.getElementById("custTime").value;
+
+    if (!name || !phone || !date || !time) {
+      alert("Please fill all required booking details.");
+      return;
+    }
+
+    var orderId = BethakCart.generateOrderId();
+    var total = BethakCart.getCartTotal();
+
+    var booking = {
+      id: orderId,
+      name: name,
+      phone: phone,
+      table: table,
+      guests: guests,
+      date: date,
+      time: time,
+      items: cart,
+      total: total,
+      status: "Pending",
+      createdAt: new Date().toISOString()
+    };
+
+    /* Save to localStorage so Admin > Advance Booking page can read it */
+    var STORAGE_KEY = "bethak_advance_bookings";
+    var bookings = [];
+    try {
+      bookings = JSON.parse(localStorage.getItem(STORAGE_KEY)) || [];
+    } catch (err) {
+      bookings = [];
+    }
+    bookings.push(booking);
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(bookings));
+
+    renderBill(booking);
+
+    /* Clear the cart now that the order has been placed */
+    BethakCart.clearCart();
+  });
+
+  function renderBill(booking) {
+    cartItemsWrap.style.display = "none";
+    cartSummary.style.display = "none";
+    checkoutForm.style.display = "none";
+    cartEmpty.style.display = "none";
+
+    var rows = booking.items.map(function (item) {
+      return (
+        "<tr><td>" + escapeHtml(item.name) + "</td>" +
+        "<td>" + item.qty + "</td>" +
+        "<td>₹" + item.price + "</td>" +
+        "<td>₹" + (item.qty * item.price) + "</td></tr>"
+      );
+    }).join("");
+
+    var dateObj = new Date(booking.createdAt);
+
+    billBox.innerHTML =
+      '<div class="bill-head">' +
+        '<h2>Bethak Cafe</h2>' +
+        '<p>Order Bill / Receipt</p>' +
+      '</div>' +
+      '<div class="bill-meta">' +
+        '<span><strong>Bill No:</strong> ' + booking.id + '</span>' +
+        '<span><strong>Date:</strong> ' + dateObj.toLocaleDateString() + ' ' + dateObj.toLocaleTimeString() + '</span>' +
+      '</div>' +
+      '<div class="bill-meta">' +
+        '<span><strong>Customer:</strong> ' + escapeHtml(booking.name) + '</span>' +
+        '<span><strong>Phone:</strong> ' + escapeHtml(booking.phone) + '</span>' +
+      '</div>' +
+      '<div class="bill-meta">' +
+        '<span><strong>Table:</strong> ' + (booking.table || "-") + '</span>' +
+        '<span><strong>Guests:</strong> ' + (booking.guests || "-") + '</span>' +
+        '<span><strong>Booking For:</strong> ' + booking.date + ' ' + booking.time + '</span>' +
+      '</div>' +
+      '<table class="bill-table">' +
+        '<thead><tr><th>Item</th><th>Qty</th><th>Price</th><th>Total</th></tr></thead>' +
+        '<tbody>' + rows + '</tbody>' +
+      '</table>' +
+      '<div class="bill-total-row"><span>Grand Total</span><span>₹' + booking.total + '</span></div>' +
+      '<div class="bill-actions">' +
+        '<button type="button" class="print-btn" onclick="window.print()"><i class="bi bi-printer"></i> Print Bill</button>' +
+        '<a href="{% url 'menu' %}" class="new-order-btn"><i class="bi bi-bag-plus"></i> New Order</a>' +
+      '</div>';
+
+    billBox.style.display = "block";
+  }
+
+  renderCart();
+})();
+</script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+

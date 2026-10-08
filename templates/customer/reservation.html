@@ -1,0 +1,369 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Reserve Table | Bethak Cafe</title>
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+    <!-- Google Fonts -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Cormorant+Garamond:wght@600;700&display=swap"
+        rel="stylesheet">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="{% static 'css/reservation.css' %}">
+    <link rel="stylesheet" href="{% static 'css/all-animations.css' %}">
+
+</head>
+
+<body class="page-reservation">
+
+    <!--==============================
+            Background Overlay
+    ==============================-->
+
+    <div class="bg-overlay"></div>
+
+    <!-- Floating Particles -->
+
+    <span class="particle p1"></span>
+    <span class="particle p2"></span>
+    <span class="particle p3"></span>
+    <span class="particle p4"></span>
+    <span class="particle p5"></span>
+
+    <!--==============================
+            Reservation Section
+    ==============================-->
+
+    <section class="reservation-section">
+
+        <div class="container">
+
+            <div class="row justify-content-center align-items-center min-vh-100">
+
+                <div class="col-lg-6 col-md-8">
+
+                    <div class="reservation-card">
+
+                        <!-- Logo -->
+
+                        <div class="text-center">
+
+                            <img src="{% static 'image/logo.png' %}" class="logo" alt="Bethak Cafe">
+
+                            <h2>Reserve Your Table ☕</h2>
+
+                            <p>
+                                Enjoy a Premium Dining Experience
+                            </p>
+
+                        </div>
+
+                        <!-- Reservation Form -->
+
+                        <form>
+
+                            <!-- Full Name -->
+
+                            <div class="input-box">
+
+                                <i class="bi bi-person-fill"></i>
+
+                                <input type="text" name="fullname" placeholder="Enter Full Name" required>
+
+                            </div>
+
+                            <!-- Email -->
+
+                            <div class="input-box">
+
+                                <i class="bi bi-envelope-fill"></i>
+
+                                <input type="email" name="email" placeholder="Enter Email Address" required>
+
+                            </div>
+
+                            <!-- Mobile -->
+
+                            <div class="input-box">
+
+                                <i class="bi bi-telephone-fill"></i>
+
+                                <input type="tel" name="mobile" placeholder="Enter Mobile Number" maxlength="10"
+                                    required>
+
+                            </div>
+                            <!-- Number of Guests -->
+
+                            <div class="input-box">
+
+                                <i class="bi bi-people-fill"></i>
+
+                                <select name="guests" required>
+
+                                    <option value="">Number of Guests</option>
+
+                                    <option>1 Guest</option>
+                                    <option>2 Guests</option>
+                                    <option>3 Guests</option>
+                                    <option>4 Guests</option>
+                                    <option>5 Guests</option>
+                                    <option>6 Guests</option>
+                                    <option>7 Guests</option>
+                                    <option>8 Guests</option>
+
+                                </select>
+
+                            </div>
+
+                            <!-- Reservation Date -->
+
+                            <div class="input-box">
+
+                                <i class="bi bi-calendar-event-fill"></i>
+
+                                <input type="date" name="date" required>
+
+                            </div>
+
+                            <!-- Reservation Time -->
+
+                            <div class="input-box">
+
+                                <i class="bi bi-clock-fill"></i>
+
+                                <input type="time" name="time" required>
+
+                            </div>
+
+                            <!-- Table Type -->
+
+                            <div class="input-box">
+
+                                <i class="bi bi-grid-fill"></i>
+
+                                <select name="table_type" required>
+
+                                    <option value="">Select Table Type</option>
+
+                                    <option>Indoor</option>
+
+                                    <option>Outdoor</option>
+
+                                    <option>Family</option>
+
+                                    <option>Window Seat</option>
+
+                                </select>
+
+                            </div>
+
+                            <!-- Special Request -->
+
+                            <div class="textarea-box">
+
+                                <i class="bi bi-chat-left-text-fill"></i>
+
+                                <textarea name="message" rows="4" placeholder="Special Request (Optional)"></textarea>
+
+                            </div>
+
+                            <!-- Selected Table -->
+
+                            <div class="selected-table">
+
+                                <h5>
+
+                                    Selected Table :
+
+                                    <span id="selectedTable">
+
+                                        None
+
+                                    </span>
+
+                                </h5>
+
+                            </div>
+
+                            <!-- Choose Table -->
+
+                            <button type="button" class="choose-table-btn" data-bs-toggle="modal"
+                                data-bs-target="#tableModal">
+
+                                <i class="bi bi-grid-3x3-gap-fill"></i>
+
+                                CHOOSE TABLE
+
+                            </button>
+
+                            <!-- Reserve Button -->
+
+                            <button type="submit" class="reserve-btn">
+
+                                <i class="bi bi-check-circle-fill"></i>
+
+                                RESERVE TABLE
+
+                            </button>
+
+                            <!-- Back Home -->
+
+                            <div class="back-home">
+
+                                <a href="{% url 'home' %}">
+
+                                    <i class="bi bi-arrow-left"></i>
+
+                                    Back to Home
+
+                                </a>
+
+                            </div>
+
+                        </form>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- ===========================
+         TABLE SELECTION MODAL
+         (moved outside .reservation-card so Bootstrap's
+         fixed-position modal isn't clipped by the card's
+         overflow:hidden + floating animation)
+    ============================ -->
+
+    <div class="modal fade" id="tableModal" tabindex="-1" aria-hidden="true">
+
+        <div class="modal-dialog modal-lg modal-dialog-centered">
+
+            <div class="modal-content table-modal">
+
+                <!-- Modal Header -->
+
+                <div class="modal-header">
+
+                    <h4 class="modal-title">
+
+                        <i class="bi bi-grid-3x3-gap-fill"></i>
+
+                        Select Your Table
+
+                    </h4>
+
+                    <button type="button" class="btn-close btn-close-white"
+                        data-bs-dismiss="modal">
+                    </button>
+
+                </div>
+
+                <!-- Modal Body -->
+
+                <div class="modal-body">
+
+                    <!-- Legend -->
+
+                    <div class="table-status">
+
+                        <span class="available"></span>
+                        Available
+
+                        <span class="booked ms-4"></span>
+                        Booked
+
+                        <span class="selected ms-4"></span>
+                        Selected
+
+                    </div>
+
+                    <!-- Tables -->
+
+                    <div class="table-layout">
+
+                        <div class="table-card available-table" data-table="T-01">
+                            T-01
+                            <small>2 Seats</small>
+                        </div>
+
+                        <div class="table-card available-table" data-table="T-02">
+                            T-02
+                            <small>2 Seats</small>
+                        </div>
+
+                        <div class="table-card available-table" data-table="T-03">
+                            T-03
+                            <small>4 Seats</small>
+                        </div>
+
+                        <div class="table-card available-table" data-table="T-04">
+                            T-04
+                            <small>4 Seats</small>
+                        </div>
+
+                        <div class="table-card available-table" data-table="T-05">
+                            T-05
+                            <small>6 Seats</small>
+                        </div>
+
+                        <div class="table-card booked-table" data-table="T-06">
+                            T-06
+                            <small>Booked</small>
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <!-- Modal Footer -->
+
+                <div class="modal-footer">
+
+                    <button type="button" class="confirm-table-btn" data-bs-dismiss="modal">
+
+                        Confirm Table
+
+                    </button>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- Bootstrap JS -->
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script src="{% static 'js/all-animations.js' %}"></script>
+    <script src="{% static 'js/main.js' %}"></script>
+</body>
+
+</html>
+
+
+
+
+
+
+
+

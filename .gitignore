@@ -1,0 +1,46 @@
+# Python Virtual Environments
+venv/
+env/
+ENV/
+.venv/
+env.bak/
+venv.bak/
+
+# Python Bytecode & Cache
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+
+# Database
+*.sqlite3
+*.sqlite3-journal
+
+# Django local files
+local_settings.py
+db.sqlite3
+media/
+*.log
+
+# Environment variables
+.env
+.env.*
+
+# Large zip archives & Temporary import folders
+*.zip
+*.tar.gz
+*.rar
+frontend_temp/
+
+# IDE & Editor settings
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+
+# OS generated files
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+.DS_Store

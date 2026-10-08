@@ -1,0 +1,307 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Register | Bethak Cafe</title>
+
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+        rel="stylesheet">
+
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+    <!-- Google Font -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600;700&family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="{% static 'css/register.css' %}">
+    <link rel="stylesheet" href="{% static 'css/all-animations.css' %}">
+
+</head>
+
+
+<body class="page-register">
+
+
+    <!-- BACKGROUND OVERLAY -->
+
+    <div class="bg-overlay"></div>
+
+
+    <!-- FLOATING PARTICLES -->
+
+    <span class="particle p1"></span>
+    <span class="particle p2"></span>
+    <span class="particle p3"></span>
+    <span class="particle p4"></span>
+    <span class="particle p5"></span>
+
+
+    <!-- REGISTER SECTION -->
+
+    <section class="register-section">
+
+        <div class="container">
+
+            <div class="row justify-content-center align-items-center min-vh-100 py-5">
+
+                <div class="col-lg-5 col-md-8">
+
+
+                    <div class="register-card">
+
+
+                        <!-- LOGO -->
+
+                        <div class="text-center">
+
+                            <img
+                                src="{% static 'image/logo.png' %}"
+                                class="logo"
+                                alt="Bethak Cafe Logo">
+
+                            <h2>Create Account</h2>
+
+                            <p>
+                                Join Bethak Cafe and enjoy your experience
+                            </p>
+
+                        </div>
+
+
+                        <!-- DJANGO MESSAGES -->
+
+                        {% if messages %}
+
+                            {% for message in messages %}
+
+                                <div
+                                    class="alert
+                                    {% if message.tags == 'error' %}
+                                        alert-danger
+                                    {% else %}
+                                        alert-success
+                                    {% endif %}"
+                                    role="alert">
+
+                                    {{ message }}
+
+                                </div>
+
+                            {% endfor %}
+
+                        {% endif %}
+
+
+                        <!-- REGISTER FORM -->
+
+                        <form
+                            method="post"
+                            autocomplete="on">
+
+                            {% csrf_token %}
+
+
+                            <!-- FULL NAME -->
+
+                            <div class="input-box">
+
+                                <i class="bi bi-person-fill"></i>
+
+                                <input
+                                    type="text"
+                                    name="fullname"
+                                    placeholder="Enter Full Name"
+                                    autocomplete="name"
+                                    required>
+
+                            </div>
+
+
+                            <!-- MOBILE NUMBER -->
+
+                            <div class="input-box">
+
+                                <i class="bi bi-telephone-fill"></i>
+
+                                <input
+                                    type="tel"
+                                    name="mobile"
+                                    placeholder="Enter Mobile Number"
+                                    autocomplete="tel"
+                                    maxlength="10"
+                                    inputmode="numeric"
+                                    required>
+
+                            </div>
+
+
+                            <!-- EMAIL -->
+
+                            <div class="input-box">
+
+                                <i class="bi bi-envelope-fill"></i>
+
+                                <input
+                                    type="email"
+                                    name="email"
+                                    placeholder="Enter Email Address"
+                                    autocomplete="email"
+                                    required>
+
+                            </div>
+
+
+                            <!-- PASSWORD -->
+
+                            <div class="input-box password-box">
+
+                                <i class="bi bi-lock-fill"></i>
+
+                                <input
+                                    type="password"
+                                    id="password"
+                                    name="password"
+                                    placeholder="Create Password"
+                                    autocomplete="new-password"
+                                    required>
+
+                                <span class="toggle-password">
+
+                                    <i class="bi bi-eye-fill"></i>
+
+                                </span>
+
+                            </div>
+
+
+                            <!-- PASSWORD STRENGTH -->
+
+                            <div class="password-strength">
+
+                                <div class="strength-bar"></div>
+
+                                <small class="strength-text"></small>
+
+                            </div>
+
+
+                            <!-- CONFIRM PASSWORD -->
+
+                            <div class="input-box password-box">
+
+                                <i class="bi bi-shield-lock-fill"></i>
+
+                                <input
+                                    type="password"
+                                    id="confirmPassword"
+                                    name="confirm_password"
+                                    placeholder="Confirm Password"
+                                    autocomplete="new-password"
+                                    required>
+
+                                <span class="toggle-password">
+
+                                    <i class="bi bi-eye-fill"></i>
+
+                                </span>
+
+                            </div>
+
+
+                            <!-- TERMS -->
+
+                            <div class="terms-area">
+
+                                <label>
+
+                                    <input
+                                        type="checkbox"
+                                        required>
+
+                                    I agree to the
+
+                                    <a href="#">
+                                        Terms & Conditions
+                                    </a>
+
+                                </label>
+
+                            </div>
+
+
+                            <!-- REGISTER BUTTON -->
+
+                            <button
+                                class="register-btn"
+                                type="submit">
+
+                                CREATE ACCOUNT
+
+                                <i class="bi bi-arrow-right"></i>
+
+                            </button>
+
+                        </form>
+
+
+                        <!-- LOGIN -->
+
+                        <div class="login-link">
+
+                            Already have an account?
+
+                            <a href="{% url 'login' %}">
+
+                                Login
+
+                            </a>
+
+                        </div>
+
+
+                        <!-- BACK HOME -->
+
+                        <div class="back-home">
+
+                            <a href="{% url 'home' %}">
+
+                                <i class="bi bi-arrow-left"></i>
+
+                                Back to Home
+
+                            </a>
+
+                        </div>
+
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- JAVASCRIPT -->
+
+    <script src="{% static 'js/all-animations.js' %}"></script>
+
+    <script src="{% static 'js/main.js' %}"></script>
+
+</body>
+
+</html>
