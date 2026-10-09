@@ -1,169 +1,393 @@
-/* ==========================================================
-   BETHAK CAFE - RESPONSIVE STYLESHEET (responsive.css)
-   Mobile, Tablet & Desktop Layout Perfection
-========================================================== */
+/*=========================================
+      RESPONSIVE
+=========================================*/
 
-/* Large Tablets & Small Laptops (max-width: 991px) */
-@media (max-width: 991px) {
-  .navbar-collapse {
-    background: #141414;
-    border-radius: 16px;
-    padding: 20px;
-    margin-top: 15px;
-    border: 1px solid rgba(212, 175, 55, 0.2);
-  }
+@media(max-width:991px){
 
-  .navbar .nav-link {
-    margin: 6px 0;
-    padding: 8px 12px !important;
-  }
+.about-gallery{
 
-  .navbar .booktable-btn,
-  .navbar .login-btn {
-    margin: 10px 0 0 0 !important;
-    display: inline-block;
-    width: auto;
-  }
+    height:auto;
 
-  .hero-content h1 {
-    font-size: 52px;
-  }
-
-  .hero-content h3 {
-    font-size: 22px;
-  }
-
-  .about-gallery {
-    height: auto;
-    margin-bottom: 40px;
-  }
-
-  .gallery-item {
-    height: 280px;
-  }
-
-  .service-row {
-    border: none;
-    background: transparent;
-  }
-
-  .service-box {
-    border: 1px solid var(--border-gold);
-    border-radius: 16px;
-    background: var(--bg-card);
-    margin-bottom: 20px;
-    padding: 35px 20px;
-  }
-
-  .menu-image {
-    height: 220px;
-  }
-
-  .chef-image {
-    height: 280px;
-  }
-
-  .booking-section {
-    padding: 60px 0;
-  }
-
-  .booking-content {
-    max-width: 100%;
-    text-align: center;
-  }
-
-  .contact-box {
-    margin-bottom: 30px;
-  }
-
-  .map-box {
-    height: 340px;
-  }
 }
 
-/* Medium Tablets & Phones (max-width: 768px) */
-@media (max-width: 768px) {
-  .hero-content {
-    text-align: center;
-    padding: 0 15px;
-  }
+.gallery-item{
 
-  .hero-content h5 {
-    font-size: 15px;
-    letter-spacing: 2px;
-  }
+    height:300px;
 
-  .hero-content h1 {
-    font-size: 40px;
-    line-height: 1.2;
-  }
-
-  .hero-content h3 {
-    font-size: 20px;
-  }
-
-  .hero-content p {
-    font-size: 14px;
-    margin: 0 auto 24px;
-  }
-
-  .hero-buttons {
-    justify-content: center;
-  }
-
-  .about-title,
-  .service-heading,
-  .menu-title,
-  .chef-title,
-  .review-title,
-  .contact-title {
-    font-size: 34px !important;
-  }
-
-  .about-card {
-    padding: 28px 20px;
-  }
-
-  .feature-box {
-    flex-direction: column;
-    text-align: center;
-  }
-
-  .booking-content h2 {
-    font-size: 32px;
-  }
-
-  .contact-box {
-    padding: 24px;
-  }
-
-  .map-box {
-    height: 280px;
-  }
 }
 
-/* Small Mobile Phones (max-width: 576px) */
-@media (max-width: 576px) {
-  .hero-content h1 {
-    font-size: 32px;
-  }
+}
 
-  .hero-buttons {
-    flex-direction: column;
-    width: 100%;
-  }
+@media(max-width:576px){
 
-  .order-btn,
-  .video-btn {
-    width: 100%;
-    justify-content: center;
-  }
+.gallery-item{
 
-  .gallery-item {
-    height: 220px;
-  }
+    height:230px;
 
-  .image-overlay h4 {
-    font-size: 20px;
-  }
+}
+
+.image-overlay h4{
+
+    font-size:22px;
+
+}
+
+}
+
+/*=========================================
+          RESPONSIVE
+=========================================*/
+
+@media(max-width:991px){
+
+.service-box{
+
+    border-right:none;
+
+    border-bottom:1px solid rgba(212,175,55,.25);
+
+}
+
+.service-heading{
+
+    font-size:40px;
+
+}
+
+}
+
+@media(max-width:576px){
+
+.services-section{
+
+    padding:60px 0;
+
+}
+
+.service-heading{
+
+    font-size:32px;
+
+}
+
+.service-icon{
+
+    font-size:45px;
+
+}
+
+.service-box{
+
+    padding:30px 15px;
+
+}
+
+}
+
+/*=========================================
+      RESPONSIVE IMPROVEMENT
+=========================================*/
+
+@media(max-width:768px){
+
+.service-box{
+
+    margin-bottom:20px;
+
+    border-right:none;
+
+}
+
+.service-row{
+
+    border:none;
+
+}
+
+}
+
+/*=========================================
+          RESPONSIVE
+=========================================*/
+
+@media(max-width:991px){
+
+.menu-image{
+
+    height:220px;
+
+}
+
+}
+
+@media(max-width:576px){
+
+.menu-title{
+
+    font-size:36px;
+
+}
+
+.menu-image{
+
+    height:200px;
+
+}
+
+.menu-btn{
+
+    font-size:15px;
+
+}
+
+}
+
+/*=========================================
+        MOBILE
+=========================================*/
+
+@media(max-width:768px){
+
+.menu-card{
+
+    animation:none;
+
+    margin-bottom:20px;
+
+}
+
+}
+
+/*=========================================
+            RESPONSIVE
+=========================================*/
+
+@media(max-width:991px){
+
+.chef-image{
+
+    height:300px;
+
+}
+
+}
+
+@media(max-width:576px){
+
+.chef-title{
+
+    font-size:36px;
+
+}
+
+.chef-image{
+
+    height:260px;
+
+}
+
+}
+
+/*=========================================
+        MOBILE
+=========================================*/
+
+@media(max-width:768px){
+
+    .chef-card{
+
+        animation:none;
+
+    }
+
+}
+
+/*==============================
+      Mobile
+==============================*/
+
+@media(max-width:768px){
+
+.booking-section::before{
+
+    display:none;
+
+}
+
+.booking-content{
+
+    text-align:center;
+
+}
+
+.booking-btn{
+
+    display:inline-block;
+
+}
+
+}
+
+/*=========================================
+            RESPONSIVE
+=========================================*/
+
+@media(max-width:991px){
+
+.review-card{
+
+    margin-bottom:20px;
+
+}
+
+}
+
+@media(max-width:576px){
+
+.review-title{
+
+    font-size:34px;
+
+}
+
+.review-card{
+
+    padding:22px;
+
+}
+
+.review-text{
+
+    font-size:15px;
+
+    line-height:26px;
+
+}
+
+.customer img{
+
+    width:55px;
+
+    height:55px;
+
+}
+
+.customer h5{
+
+    font-size:18px;
+
+}
+
+}
+
+/*==============================
+      Mobile
+==============================*/
+
+@media(max-width:768px){
+
+.review-card{
+
+    animation:none;
+
+}
+
+}
+
+/*=========================================
+          RESPONSIVE
+=========================================*/
+
+@media(max-width:991px){
+
+.contact-box{
+
+    margin-bottom:30px;
+
+}
+
+.map-box{
+
+    height:350px;
+
+}
+
+}
+
+@media(max-width:576px){
+
+.contact-title{
+
+    font-size:34px;
+
+}
+
+.contact-box{
+
+    padding:25px;
+
+}
+
+.contact-icon{
+
+    width:45px;
+
+    height:45px;
+
+    font-size:18px;
+
+}
+
+.contact-item h5{
+
+    font-size:18px;
+
+}
+
+.contact-item p{
+
+    font-size:14px;
+
+    line-height:24px;
+
+}
+
+.map-box{
+
+    height:280px;
+
+}
+
+}
+
+/*=========================================
+        MOBILE
+=========================================*/
+
+@media(max-width:768px){
+
+.contact-section::before{
+
+    display:none;
+
+}
+
+.contact-item:hover{
+
+    transform:none;
+
+}
+
+.map-box:hover{
+
+    transform:none;
+
+}
+
+.contact-box:hover{
+
+    transform:none;
+
+}
+
 }

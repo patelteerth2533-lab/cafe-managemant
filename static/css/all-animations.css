@@ -1,84 +1,1558 @@
-/* ==========================================================
-   BETHAK CAFE - ANIMATIONS (all-animations.css)
-   Smooth, High-Performance, Non-Conflicting Transitions
-========================================================== */
+/* ===== General site animations (index.html, menu.html) ===== */
+/* ==========================================
+          TEXT ANIMATION
+========================================== */
 
-/* Hero Text Reveal */
-.carousel-item.active h5 {
-  animation: heroFadeDown 0.7s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+.carousel-item.active h5{
+
+    animation:leftText .8s ease;
+
 }
 
-.carousel-item.active h1 {
-  animation: heroFadeDown 0.9s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+.carousel-item.active h1{
+
+    animation:leftText 1s ease;
+
 }
 
-.carousel-item.active h3 {
-  animation: heroFadeDown 1.1s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+.carousel-item.active h3{
+
+    animation:leftText 1.2s ease;
+
 }
 
-.carousel-item.active p {
-  animation: heroFadeDown 1.3s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+.carousel-item.active p{
+
+    animation:leftText 1.4s ease;
+
 }
 
-.carousel-item.active .hero-buttons {
-  animation: heroFadeDown 1.5s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+.carousel-item.active .hero-buttons{
+
+    animation:leftText 1.6s ease;
+
 }
 
-@keyframes heroFadeDown {
+@keyframes leftText{
+
+    from{
+
+        opacity:0;
+        transform:translateX(-120px);
+
+    }
+
+    to{
+
+        opacity:1;
+        transform:translateX(0);
+
+    }
+
+}
+
+/*=========================================
+      FLOAT ANIMATION
+=========================================*/
+
+.gallery-top{
+
+    animation:floatTop 4s ease-in-out infinite;
+
+}
+
+.gallery-bottom{
+
+    animation:floatBottom 4s ease-in-out infinite;
+
+}
+
+@keyframes floatTop{
+
+    0%{
+
+        transform:translateY(0);
+
+    }
+
+    50%{
+
+        transform:translateY(-8px);
+
+    }
+
+    100%{
+
+        transform:translateY(0);
+
+    }
+
+}
+
+@keyframes floatBottom{
+
+    0%{
+
+        transform:translateY(0);
+
+    }
+
+    50%{
+
+        transform:translateY(8px);
+
+    }
+
+    100%{
+
+        transform:translateY(0);
+
+    }
+
+}
+
+/*=========================================
+        DIVIDER ANIMATION
+=========================================*/
+
+.service-divider i{
+
+    animation:rotateStar 4s linear infinite;
+
+}
+
+@keyframes rotateStar{
+
+    0%{
+
+        transform:rotate(0deg);
+
+    }
+
+    100%{
+
+        transform:rotate(360deg);
+
+    }
+
+}
+
+/*=========================================
+        FLOAT ICON
+=========================================*/
+
+.service-icon{
+
+    animation:floatIcon 3s ease-in-out infinite;
+
+}
+
+@keyframes floatIcon{
+
+    0%{
+
+        transform:translateY(0);
+
+    }
+
+    50%{
+
+        transform:translateY(-6px);
+
+    }
+
+    100%{
+
+        transform:translateY(0);
+
+    }
+
+}
+
+/*=========================================
+      FLOATING CARD EFFECT
+=========================================*/
+
+.menu-card{
+
+    animation:floatCard 5s ease-in-out infinite;
+
+}
+
+.menu-card:nth-child(2){
+
+    animation-delay:.5s;
+
+}
+
+.menu-card:nth-child(3){
+
+    animation-delay:1s;
+
+}
+
+.menu-card:nth-child(4){
+
+    animation-delay:1.5s;
+
+}
+
+@keyframes floatCard{
+
+    0%{
+
+        transform:translateY(0);
+
+    }
+
+    50%{
+
+        transform:translateY(-8px);
+
+    }
+
+    100%{
+
+        transform:translateY(0);
+
+    }
+
+}
+
+/*=========================================
+        FLOATING CARD
+=========================================*/
+
+.chef-card{
+
+    animation:chefFloat 5s ease-in-out infinite;
+
+}
+
+.chef-card:nth-child(2){
+
+    animation-delay:.5s;
+
+}
+
+.chef-card:nth-child(3){
+
+    animation-delay:1s;
+
+}
+
+@keyframes chefFloat{
+
+    0%{
+
+        transform:translateY(0);
+
+    }
+
+    50%{
+
+        transform:translateY(-8px);
+
+    }
+
+    100%{
+
+        transform:translateY(0);
+
+    }
+
+}
+
+/*==============================
+      Responsive
+==============================*/
+
+/*=========================================
+      BOOK TABLE PREMIUM EFFECT
+=========================================*/
+
+/* Fade Animation */
+
+.booking-content{
+
+    animation:bookingFade 1.2s ease;
+
+}
+
+@keyframes bookingFade{
+
+    from{
+
+        opacity:0;
+
+        transform:translateX(-60px);
+
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:translateX(0);
+
+    }
+
+}
+
+@keyframes lightMove{
+
+    0%{
+
+        transform:translateX(0);
+
+    }
+
+    50%{
+
+        transform:translateX(180px);
+
+    }
+
+    100%{
+
+        transform:translateX(0);
+
+    }
+
+}
+
+/*==============================
+      Floating Animation
+==============================*/
+
+.review-card{
+
+    animation:reviewFloat 5s ease-in-out infinite;
+
+}
+
+.row .col-lg-4:nth-child(2) .review-card{
+
+    animation-delay:.5s;
+
+}
+
+.row .col-lg-4:nth-child(3) .review-card{
+
+    animation-delay:1s;
+
+}
+
+@keyframes reviewFloat{
+
+    0%{
+
+        transform:translateY(0);
+
+    }
+
+    50%{
+
+        transform:translateY(-8px);
+
+    }
+
+    100%{
+
+        transform:translateY(0);
+
+    }
+
+}
+
+/*=========================================
+        CONTACT PREMIUM EFFECTS
+=========================================*/
+
+/* Smooth Fade */
+
+.contact-box{
+
+    animation:contactLeft 1.2s ease;
+
+}
+
+.map-box{
+
+    animation:contactRight 1.2s ease;
+
+}
+
+@keyframes contactLeft{
+
+    from{
+
+        opacity:0;
+
+        transform:translateX(-60px);
+
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:translateX(0);
+
+    }
+
+}
+
+@keyframes contactRight{
+
+    from{
+
+        opacity:0;
+
+        transform:translateX(60px);
+
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:translateX(0);
+
+    }
+
+}
+
+@keyframes goldLight{
+
+    0%{
+
+        transform:translateX(0);
+
+    }
+
+    50%{
+
+        transform:translateX(180px);
+
+    }
+
+    100%{
+
+        transform:translateX(0);
+
+    }
+
+}
+
+
+/* ===== Scoped from: login animation.css  (applies only on body.page-login) ===== */
+body.page-login {
+    animation:login-pageFade 1.2s ease;
+}
+@keyframes login-pageFade {
   from {
-    opacity: 0;
-    transform: translateY(-24px);
-  }
+        opacity:0;
+    }
   to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+        opacity:1;
+    }
 }
+body.page-login .login-card {
 
-/* Subtle Gentle Floating for Gallery Highlights */
-.gallery-top {
-  animation: gentleFloat 6s ease-in-out infinite;
+    animation:login-cardUp 1.2s ease;
+    position:relative;
+    overflow:hidden;
+
 }
+@keyframes login-cardUp {
+  from {
 
-.gallery-bottom {
-  animation: gentleFloat 6s ease-in-out infinite 3s;
+        opacity:0;
+        transform:translateY(60px);
+
+    }
+  to {
+
+        opacity:1;
+        transform:translateY(0);
+
+    }
 }
+body.page-login .login-card::before {
 
-@keyframes gentleFloat {
-  0%, 100% {
-    transform: translateY(0);
-  }
-  50% {
-    transform: translateY(-8px);
-  }
+    content:"";
+
+    position:absolute;
+
+    top:-2px;
+    left:-2px;
+
+    width:calc(100% + 4px);
+    height:calc(100% + 4px);
+
+    border-radius:25px;
+
+    background:linear-gradient(
+    90deg,
+    transparent,
+    #D4AF37,
+    transparent,
+    #D4AF37,
+    transparent);
+
+    background-size:300%;
+
+    animation:login-borderMove 6s linear infinite;
+
+    z-index:-1;
+
 }
-
-/* Star Rotation in Dividers */
-.title-design i,
-.service-divider i,
-.menu-divider i,
-.chef-divider i,
-.review-divider i,
-.contact-divider i {
-  animation: starRotate 8s linear infinite;
-  display: inline-block;
-}
-
-@keyframes starRotate {
+@keyframes login-borderMove {
   0% {
-    transform: rotate(0deg);
-  }
+
+        background-position:0%;
+
+    }
   100% {
-    transform: rotate(360deg);
-  }
+
+        background-position:300%;
+
+    }
+}
+body.page-login .logo {
+
+    animation:login-logoGlow 3s infinite;
+
+}
+@keyframes login-logoGlow {
+  0% {
+
+        filter:drop-shadow(0 0 0px #D4AF37);
+
+    }
+  50% {
+
+        filter:drop-shadow(0 0 18px #D4AF37);
+
+    }
+  100% {
+
+        filter:drop-shadow(0 0 0px #D4AF37);
+
+    }
+}
+body.page-login .login-card h2 {
+
+    animation:login-titleFade 1.4s;
+
+}
+@keyframes login-titleFade {
+  from {
+
+        opacity:0;
+        transform:translateY(-20px);
+
+    }
+  to {
+
+        opacity:1;
+        transform:translateY(0);
+
+    }
+}
+body.page-login .input-box {
+
+    animation:login-inputShow .8s ease forwards;
+
+}
+body.page-login .input-box:nth-child(1) {
+
+    animation-delay:.2s;
+
+}
+body.page-login .input-box:nth-child(2) {
+
+    animation-delay:.4s;
+
+}
+@keyframes login-inputShow {
+  from {
+
+        opacity:0;
+        transform:translateX(-40px);
+
+    }
+  to {
+
+        opacity:1;
+        transform:translateX(0);
+
+    }
+}
+body.page-login .input-box:hover {
+
+    transform:translateY(-2px);
+
+}
+body.page-login .input-box i {
+
+    transition:.4s;
+
+}
+body.page-login .input-box:hover i {
+
+    transform:translateY(-50%) scale(1.2);
+
+    color:#FFD700;
+
+}
+body.page-login .login-btn,
+body.page-login .login-submit-btn {
+
+    position:relative;
+
+    overflow:hidden;
+
+}
+body.page-login .login-btn::before,
+body.page-login .login-submit-btn::before {
+
+    content:"";
+
+    position:absolute;
+
+    top:0;
+    left:-120%;
+
+    width:60%;
+    height:100%;
+
+    background:rgba(255,255,255,.35);
+
+    transform:skewX(-25deg);
+
+}
+body.page-login .login-btn:hover::before,
+body.page-login .login-submit-btn:hover::before {
+
+    animation:login-shine .8s linear;
+
+}
+@keyframes login-shine {
+  from {
+
+        left:-120%;
+
+    }
+  to {
+
+        left:130%;
+
+    }
+}
+body.page-login .login-btn:hover {
+
+    box-shadow:0 0 25px rgba(212,175,55,.6);
+
+}
+body.page-login .social-login a {
+
+    position:relative;
+
+    overflow:hidden;
+
+}
+body.page-login .social-login a:hover {
+
+    transform:translateY(-5px);
+
+    box-shadow:0 10px 20px rgba(212,175,55,.35);
+
+}
+body.page-login .register-link a, body.page-login .back-home a, body.page-login .remember-area a {
+
+    position:relative;
+
+}
+body.page-login .register-link a::after, body.page-login .back-home a::after, body.page-login .remember-area a::after {
+
+    content:"";
+
+    position:absolute;
+
+    bottom:-2px;
+    left:0;
+
+    width:0;
+
+    height:2px;
+
+    background:#D4AF37;
+
+    transition:.4s;
+
+}
+body.page-login .register-link a:hover::after, body.page-login .back-home a:hover::after, body.page-login .remember-area a:hover::after {
+
+    width:100%;
+
+}
+body.page-login .particle {
+
+    position:fixed;
+
+    width:10px;
+
+    height:10px;
+
+    border-radius:50%;
+
+    background:#D4AF37;
+
+    opacity:.4;
+
+    z-index:1;
+
+}
+body.page-login .p1 {
+
+    left:10%;
+    top:90%;
+
+    animation:login-floatParticle 10s infinite linear;
+
+}
+body.page-login .p2 {
+
+    left:30%;
+    top:100%;
+
+    animation:login-floatParticle 12s infinite linear;
+
+}
+body.page-login .p3 {
+
+    left:50%;
+    top:95%;
+
+    animation:login-floatParticle 14s infinite linear;
+
+}
+body.page-login .p4 {
+
+    left:70%;
+    top:92%;
+
+    animation:login-floatParticle 11s infinite linear;
+
+}
+body.page-login .p5 {
+
+    left:90%;
+    top:98%;
+
+    animation:login-floatParticle 13s infinite linear;
+
+}
+@keyframes login-floatParticle {
+  0% {
+
+        transform:translateY(0) scale(.5);
+
+        opacity:0;
+
+    }
+  30% {
+
+        opacity:.7;
+
+    }
+  100% {
+
+        transform:translateY(-110vh) scale(1.4);
+
+        opacity:0;
+
+    }
+}
+body.page-login .login-card {
+
+    animation:
+    login-cardUp 1s ease,
+    login-floatingCard 5s ease-in-out infinite;
+
+}
+@keyframes login-floatingCard {
+  0% {
+
+        transform:translateY(0);
+
+    }
+  50% {
+
+        transform:translateY(-8px);
+
+    }
+  100% {
+
+        transform:translateY(0);
+
+    }
+}
+body.page-login ::-webkit-scrollbar {
+
+    width:8px;
+
+}
+body.page-login ::-webkit-scrollbar-thumb {
+
+    background:#D4AF37;
+    border-radius:10px;
+
+}
+body.page-login ::-webkit-scrollbar-track {
+
+    background:#111;
+
 }
 
-/* Gold Pulse Effect */
-@keyframes goldGlowPulse {
-  0%, 100% {
-    box-shadow: 0 0 15px rgba(212, 175, 55, 0.2);
-  }
+/* ===== Scoped from: register animation.css  (applies only on body.page-register) ===== */
+body.page-register {
+    animation:register-pageFade 1s ease;
+}
+@keyframes register-pageFade {
+  from {
+        opacity:0;
+    }
+  to {
+        opacity:1;
+    }
+}
+body.page-register .register-card {
+
+    position:relative;
+
+    animation:
+    register-cardUp 1s ease,
+    register-floatingCard 6s ease-in-out infinite;
+
+}
+@keyframes register-cardUp {
+  from {
+
+        opacity:0;
+        transform:translateY(60px);
+
+    }
+  to {
+
+        opacity:1;
+        transform:translateY(0);
+
+    }
+}
+@keyframes register-floatingCard {
+  0% {
+        transform:translateY(0px);
+    }
   50% {
-    box-shadow: 0 0 30px rgba(212, 175, 55, 0.5);
-  }
+        transform:translateY(-8px);
+    }
+  100% {
+        transform:translateY(0px);
+    }
+}
+body.page-register .register-card::before {
+
+    content:"";
+
+    position:absolute;
+
+    inset:-2px;
+
+    border-radius:25px;
+
+    background:linear-gradient(
+        90deg,
+        transparent,
+        #D4AF37,
+        transparent,
+        #FFD700,
+        transparent
+    );
+
+    background-size:300%;
+
+    animation:register-borderMove 6s linear infinite;
+
+    z-index:-1;
+
+}
+@keyframes register-borderMove {
+  from {
+        background-position:0%;
+    }
+  to {
+        background-position:300%;
+    }
+}
+body.page-register .logo {
+
+    animation:register-logoGlow 3s infinite;
+
+}
+@keyframes register-logoGlow {
+  0% {
+
+        filter:drop-shadow(0 0 0px #D4AF37);
+
+    }
+  50% {
+
+        filter:drop-shadow(0 0 18px #D4AF37);
+
+    }
+  100% {
+
+        filter:drop-shadow(0 0 0px #D4AF37);
+
+    }
+}
+body.page-register .register-card h2 {
+
+    animation:register-titleDown 1.2s ease;
+
+}
+@keyframes register-titleDown {
+  from {
+
+        opacity:0;
+        transform:translateY(-30px);
+
+    }
+  to {
+
+        opacity:1;
+        transform:translateY(0);
+
+    }
+}
+body.page-register .input-box {
+
+    opacity:0;
+
+    animation:register-inputShow .8s forwards;
+
+}
+body.page-register .input-box:nth-child(1) {
+
+    animation-delay:.2s;
+
+}
+body.page-register .input-box:nth-child(2) {
+
+    animation-delay:.4s;
+
+}
+body.page-register .input-box:nth-child(3) {
+
+    animation-delay:.6s;
+
+}
+body.page-register .input-box:nth-child(4) {
+
+    animation-delay:.8s;
+
+}
+body.page-register .input-box:nth-child(5) {
+
+    animation-delay:1s;
+
+}
+@keyframes register-inputShow {
+  from {
+
+        opacity:0;
+        transform:translateX(-35px);
+
+    }
+  to {
+
+        opacity:1;
+        transform:translateX(0);
+
+    }
+}
+body.page-register .input-box {
+
+    transition:.4s;
+
+}
+body.page-register .input-box:hover {
+
+    transform:translateY(-2px);
+
+}
+body.page-register .input-box:hover i {
+
+    color:#FFD700;
+
+    transform:translateY(-50%) scale(1.2);
+
+}
+body.page-register .register-btn,
+body.page-register .register-submit-btn {
+
+    position:relative;
+
+    overflow:hidden;
+
+}
+body.page-register .register-btn::before,
+body.page-register .register-submit-btn::before {
+
+    content:"";
+
+    position:absolute;
+
+    top:0;
+
+    left:-120%;
+
+    width:60%;
+
+    height:100%;
+
+    background:rgba(255,255,255,.4);
+
+    transform:skewX(-25deg);
+
+}
+body.page-register .register-btn:hover::before,
+body.page-register .register-submit-btn:hover::before {
+
+    animation:register-shine .8s linear;
+
+}
+@keyframes register-shine {
+  from {
+
+        left:-120%;
+
+    }
+  to {
+
+        left:130%;
+
+    }
+}
+body.page-register .register-btn:hover {
+
+    box-shadow:0 0 25px rgba(212,175,55,.6);
+
+}
+body.page-register .social-login a {
+
+    transition:.4s;
+
+}
+body.page-register .social-login a:hover {
+
+    transform:translateY(-5px) scale(1.03);
+
+}
+body.page-register .login-link a, body.page-register .back-home a, body.page-register .terms-area a {
+
+    position:relative;
+
+}
+body.page-register .login-link a::after, body.page-register .back-home a::after, body.page-register .terms-area a::after {
+
+    content:"";
+
+    position:absolute;
+
+    left:0;
+
+    bottom:-3px;
+
+    width:0;
+
+    height:2px;
+
+    background:#D4AF37;
+
+    transition:.4s;
+
+}
+body.page-register .login-link a:hover::after, body.page-register .back-home a:hover::after, body.page-register .terms-area a:hover::after {
+
+    width:100%;
+
+}
+body.page-register .particle {
+
+    position:fixed;
+
+    width:10px;
+
+    height:10px;
+
+    border-radius:50%;
+
+    background:#D4AF37;
+
+    opacity:.45;
+
+    z-index:1;
+
+}
+body.page-register .p1 {
+
+    left:10%;
+    top:95%;
+
+    animation:register-floatParticle 11s linear infinite;
+
+}
+body.page-register .p2 {
+
+    left:30%;
+    top:100%;
+
+    animation:register-floatParticle 13s linear infinite;
+
+}
+body.page-register .p3 {
+
+    left:50%;
+    top:98%;
+
+    animation:register-floatParticle 12s linear infinite;
+
+}
+body.page-register .p4 {
+
+    left:70%;
+    top:94%;
+
+    animation:register-floatParticle 10s linear infinite;
+
+}
+body.page-register .p5 {
+
+    left:90%;
+    top:100%;
+
+    animation:register-floatParticle 14s linear infinite;
+
+}
+@keyframes register-floatParticle {
+  0% {
+
+        transform:translateY(0) scale(.5);
+
+        opacity:0;
+
+    }
+  20% {
+
+        opacity:.8;
+
+    }
+  100% {
+
+        transform:translateY(-110vh) scale(1.5);
+
+        opacity:0;
+
+    }
+}
+body.page-register ::-webkit-scrollbar {
+
+    width:8px;
+
+}
+body.page-register ::-webkit-scrollbar-track {
+
+    background:#111;
+
+}
+body.page-register ::-webkit-scrollbar-thumb {
+
+    background:#D4AF37;
+
+    border-radius:20px;
+
+}
+body.page-register ::-webkit-scrollbar-thumb:hover {
+
+    background:#FFD700;
+
+}
+
+/* ===== Scoped from: reservation animation.css  (applies only on body.page-reservation) ===== */
+body.page-reservation {
+
+    animation:reservation-pageFade .9s ease;
+
+}
+@keyframes reservation-pageFade {
+  from {
+
+        opacity:0;
+
+    }
+  to {
+
+        opacity:1;
+
+    }
+}
+body.page-reservation .reservation-card {
+
+    position:relative;
+
+    animation:
+    reservation-cardUp .9s ease,
+    reservation-floatingCard 6s ease-in-out infinite;
+
+}
+@keyframes reservation-cardUp {
+  from {
+
+        opacity:0;
+
+        transform:translateY(60px);
+
+    }
+  to {
+
+        opacity:1;
+
+        transform:translateY(0);
+
+    }
+}
+@keyframes reservation-floatingCard {
+  0% {
+
+        transform:translateY(0);
+
+    }
+  50% {
+
+        transform:translateY(-8px);
+
+    }
+  100% {
+
+        transform:translateY(0);
+
+    }
+}
+body.page-reservation .reservation-card::before {
+
+    content:"";
+
+    position:absolute;
+
+    inset:-2px;
+
+    border-radius:25px;
+
+    background:linear-gradient(
+        90deg,
+        transparent,
+        #D4AF37,
+        transparent,
+        #FFD700,
+        transparent
+    );
+
+    background-size:300%;
+
+    animation:reservation-borderMove 6s linear infinite;
+
+    z-index:-1;
+
+}
+@keyframes reservation-borderMove {
+  from {
+
+        background-position:0%;
+
+    }
+  to {
+
+        background-position:300%;
+
+    }
+}
+body.page-reservation .logo {
+
+    animation:reservation-logoGlow 3s infinite;
+
+}
+@keyframes reservation-logoGlow {
+  0% {
+
+        filter:drop-shadow(0 0 0px #D4AF37);
+
+    }
+  50% {
+
+        filter:drop-shadow(0 0 20px #D4AF37);
+
+    }
+  100% {
+
+        filter:drop-shadow(0 0 0px #D4AF37);
+
+    }
+}
+body.page-reservation .reservation-card h2 {
+
+    animation:reservation-titleDown 1s ease;
+
+}
+@keyframes reservation-titleDown {
+  from {
+
+        opacity:0;
+
+        transform:translateY(-30px);
+
+    }
+  to {
+
+        opacity:1;
+
+        transform:translateY(0);
+
+    }
+}
+body.page-reservation .input-box, body.page-reservation .textarea-box, body.page-reservation .selected-table, body.page-reservation .choose-table-btn, body.page-reservation .reserve-btn {
+
+    opacity:0;
+
+    animation:reservation-fadeUp .8s forwards;
+
+}
+body.page-reservation .input-box:nth-child(1) {animation-delay:.2s;}
+body.page-reservation .input-box:nth-child(2) {animation-delay:.35s;}
+body.page-reservation .input-box:nth-child(3) {animation-delay:.5s;}
+body.page-reservation .input-box:nth-child(4) {animation-delay:.65s;}
+body.page-reservation .input-box:nth-child(5) {animation-delay:.8s;}
+body.page-reservation .textarea-box {
+
+    animation-delay:1s;
+
+}
+body.page-reservation .selected-table {
+
+    animation-delay:1.1s;
+
+}
+body.page-reservation .choose-table-btn {
+
+    animation-delay:1.2s;
+
+}
+body.page-reservation .reserve-btn {
+
+    animation-delay:1.3s;
+
+}
+@keyframes reservation-fadeUp {
+  from {
+
+        opacity:0;
+
+        transform:translateY(30px);
+
+    }
+  to {
+
+        opacity:1;
+
+        transform:translateY(0);
+
+    }
+}
+body.page-reservation .input-box:hover {
+
+    transform:translateY(-2px);
+
+    transition:.3s;
+
+}
+body.page-reservation .input-box:hover i {
+
+    color:#FFD700;
+
+}
+body.page-reservation .choose-table-btn, body.page-reservation .reserve-btn {
+
+    position:relative;
+
+    overflow:hidden;
+
+}
+body.page-reservation .choose-table-btn::before, body.page-reservation .reserve-btn::before {
+
+    content:"";
+
+    position:absolute;
+
+    top:0;
+
+    left:-120%;
+
+    width:60%;
+
+    height:100%;
+
+    background:rgba(255,255,255,.4);
+
+    transform:skewX(-25deg);
+
+}
+body.page-reservation .choose-table-btn:hover::before, body.page-reservation .reserve-btn:hover::before {
+
+    animation:reservation-shine .8s linear;
+
+}
+@keyframes reservation-shine {
+  from {
+
+        left:-120%;
+
+    }
+  to {
+
+        left:130%;
+
+    }
+}
+body.page-reservation .table-card {
+
+    animation:reservation-tablePop .6s ease;
+
+}
+@keyframes reservation-tablePop {
+  from {
+
+        transform:scale(.7);
+
+        opacity:0;
+
+    }
+  to {
+
+        transform:scale(1);
+
+        opacity:1;
+
+    }
+}
+body.page-reservation .available-table:hover {
+
+    animation:reservation-pulse .8s infinite alternate;
+
+}
+@keyframes reservation-pulse {
+  from {
+
+        transform:translateY(-5px) scale(1);
+
+    }
+  to {
+
+        transform:translateY(-5px) scale(1.04);
+
+    }
+}
+body.page-reservation .table-card.active {
+
+    animation:reservation-selectedGlow 1.2s infinite alternate;
+
+}
+@keyframes reservation-selectedGlow {
+  from {
+
+        box-shadow:0 0 15px rgba(212,175,55,.35);
+
+    }
+  to {
+
+        box-shadow:0 0 35px rgba(212,175,55,.7);
+
+    }
+}
+body.page-reservation .particle {
+
+    position:fixed;
+
+    width:10px;
+
+    height:10px;
+
+    background:#D4AF37;
+
+    border-radius:50%;
+
+    opacity:.4;
+
+    z-index:1;
+
+}
+body.page-reservation .p1 {left:10%;top:100%;animation:reservation-particle 11s linear infinite;}
+body.page-reservation .p2 {left:30%;top:100%;animation:reservation-particle 13s linear infinite;}
+body.page-reservation .p3 {left:50%;top:100%;animation:reservation-particle 10s linear infinite;}
+body.page-reservation .p4 {left:70%;top:100%;animation:reservation-particle 12s linear infinite;}
+body.page-reservation .p5 {left:90%;top:100%;animation:reservation-particle 14s linear infinite;}
+@keyframes reservation-particle {
+  0% {
+
+        transform:translateY(0) scale(.5);
+
+        opacity:0;
+
+    }
+  20% {
+
+        opacity:.7;
+
+    }
+  100% {
+
+        transform:translateY(-110vh) scale(1.5);
+
+        opacity:0;
+
+    }
+}
+body.page-reservation ::-webkit-scrollbar {
+
+    width:8px;
+
+}
+body.page-reservation ::-webkit-scrollbar-track {
+
+    background:#111;
+
+}
+body.page-reservation ::-webkit-scrollbar-thumb {
+
+    background:#D4AF37;
+
+    border-radius:20px;
+
+}
+body.page-reservation ::-webkit-scrollbar-thumb:hover {
+
+    background:#FFD700;
+
 }
