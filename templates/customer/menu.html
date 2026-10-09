@@ -11,20 +11,20 @@
     <link rel="stylesheet" href="{% static 'css/cart.css' %}">
 </head>
 <body>
-<header style="padding:20px;background:#111;color:#D4AF37;text-align:center;position:relative">
-<h1>Bethak Cafe</h1>
-<a href="{% url 'home' %}" class="menu-back-link"><i class="bi bi-arrow-left"></i> Home</a>
-<a href="{% url 'cart' %}" class="view-cart-btn">
-<i class="bi bi-cart3"></i> View Cart
-<span class="cart-count">0</span>
-</a>
+<header class="menu-header-bar">
+  <a href="{% url 'home' %}" class="menu-back-link"><i class="bi bi-arrow-left"></i> Home</a>
+  <h1>Bethak Cafe</h1>
+  <a href="{% url 'cart' %}" class="view-cart-btn">
+    <i class="bi bi-cart3"></i> View Cart
+    <span class="cart-count">0</span>
+  </a>
 </header>
 
 <!-- Category Filter Navigation Bar -->
-<div style="background:#181818;padding:14px 0;border-bottom:1px solid #2a2a2a;position:sticky;top:0;z-index:100;">
+<div class="category-nav-bar">
     <div class="container d-flex justify-content-center flex-wrap gap-2">
         {% for cat in categories %}
-            <a href="#{{ cat.slug }}" class="btn btn-outline-warning btn-sm rounded-pill px-3 py-1" style="border-color:#D4AF37;color:#D4AF37;text-decoration:none;">
+            <a href="#{{ cat.slug }}" class="cat-nav-pill">
                 <i class="bi {{ cat.icon }}"></i> {{ cat.name }}
             </a>
         {% endfor %}
@@ -39,7 +39,7 @@
 
 {% for item in cat.items.all %}
 <div class="menu-card">
-  <div style="position:relative;overflow:hidden;background:#222;height:220px;display:flex;align-items:center;justify-content:center;">
+  <div class="menu-card-img-wrap">
     {% if item.image_url %}
         <img src="{% static item.image_url %}" alt="{{ item.name }}" onerror="this.onerror=null;this.src='{% static 'image/menu coffee.png' %}';" style="width:100%;height:100%;object-fit:cover;">
     {% else %}

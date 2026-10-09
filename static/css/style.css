@@ -1,2817 +1,1025 @@
-/* ==========================================
-            Google Font
-========================================== */
-
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
-
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-    font-family:'Poppins',sans-serif;
-}
-
-html{
-    scroll-behavior:smooth;
-}
-
-body{
-    background:#000;
-}
-
-/* ==========================================
-                NAVBAR
-========================================== */
-
-.navbar{
-    position:fixed;
-    top:0;
-    left:0;
-    width:100%;
-    z-index:9999;
-    background:rgba(0,0,0,.70);
-    backdrop-filter:blur(10px);
-    padding:15px 0;
-    transition:.4s;
-}
-
-.navbar-brand img{
-    width:150px;
-}
-
-.navbar .nav-link{
-
-    color:#fff !important;
-    margin:0 12px;
-    font-size:17px;
-    font-weight:500;
-    transition:.4s;
-
-}
-
-.navbar .nav-link:hover{
-
-    color:#D4AF37 !important;
-
-}
-
-.navbar .nav-link.active{
-
-    color:#D4AF37 !important;
-
-}
-
-/* ==========================================
-               BUTTONS
-========================================== */
-
-.booktable-btn{
-  background:transparent;
-    color:#D4AF37;
-    border:2px solid #D4AF37;
-    padding:14px 34px;
-    border-radius:40px;
-    margin-left:15px;
-    transition:.4s;
-    cursor:pointer;
-
-}
-
-.booktable-btn:hover
-{
-   /* background:#fff; */
-    color:#fff;
-    transform:translateY(-5px);
-
-}
-
-.login-btn
-{
-    background:transparent;
-    color:#D4AF37;
-    border:2px solid #D4AF37;
-    padding:14px 34px;
-    border-radius:40px;
-    margin-left:15px;
-    transition:.4s;
-    cursor:pointer;
-}
-.login-btn:hover
-{
-     color:#fff;
-    transform:translateY(-5px);
-
-}
-
-
-.order-btn{
-
-    background:#D4AF37;
-    color:#fff;
-    border:none;
-    padding:14px 34px;
-    border-radius:40px;
-    font-weight:600;
-    transition:.4s;
-    cursor:pointer;
-
-}
-
-.order-btn:hover{
-
-    background:#fff;
-    color:#D4AF37;
-    transform:translateY(-5px);
-
-}
-
-.video-btn{
-
-    background:transparent;
-    color:#fff;
-    border:2px solid #fff;
-    padding:14px 34px;
-    border-radius:40px;
-    margin-left:15px;
-    transition:.4s;
-    cursor:pointer;
-
-}
-
-.video-btn:hover{
-
-    background:#D4AF37;
-    border-color:#D4AF37;
-    color:#fff;
-    transform:translateY(-5px);
-
-}
-
-/* ==========================================
-             HERO SLIDER
-========================================== */
-
-.carousel{
-
-    width:100%;
-    height:100vh;
-
-}
-
-.carousel-item{
-
-    position:relative;
-    height:100vh;
-
-}
-
-.carousel-item img{
-
-    width:100%;
-    height:100vh;
-    object-fit:cover;
-
-}
-
-/* ==========================================
-            GOLDEN OVERLAY
-========================================== */
-
-.overlay{
-
-    position:absolute;
-    inset:0;
-    background:
-    linear-gradient(to right,
-    rgba(0,0,0,.88),
-    rgba(0,0,0,.65),
-    rgba(0,0,0,.35),
-    rgba(0,0,0,.10));
-
-}
-
-/* ==========================================
-            HERO CONTENT
-========================================== */
-
-.hero-content{
-
-    position:absolute;
-    top:50%;
-    left:0;
-    width:100%;
-    transform:translateY(-50%);
-    z-index:5;
-
-}
-
-.hero-content h5{
-
-    color:#D4AF37;
-    letter-spacing:3px;
-    font-size:22px;
-    margin-bottom:15px;
-
-}
-
-.hero-content h1{
-
-    color:#fff;
-    font-size:75px;
-    font-weight:800;
-    line-height:85px;
-    margin-bottom:20px;
-
-}
-
-.hero-content h3{
-
-    color:#D4AF37;
-    font-size:28px;
-    margin-bottom:20px;
-
-}
-
-.hero-content p{
-
-    color:#ddd;
-    font-size:18px;
-    line-height:34px;
-    margin-bottom:35px;
-
-}
-
-.hero-buttons{
-
-    display:flex;
-    align-items:center;
-    margin-top:20px;
-
-}
-
-/* ==========================================
-         CAROUSEL CONTROLS
-========================================== */
-
-.carousel-control-next,
-.carousel-control-prev{
-
-    width:6%;
-
-}
-
-.carousel-control-next-icon,
-.carousel-control-prev-icon{
-
-    background-size:35px;
-
-}
-
-.carousel-indicators button{
-
-    width:12px !important;
-    height:12px !important;
-    border-radius:50%;
-    background:#fff;
-
-}
-
-.carousel-indicators .active{
-
-    background:#D4AF37;
-
-}
-
-/*=========================================
-          ABOUT SECTION
-=========================================*/
-
-.about-section{
-    background:#0b0b0b;
-    padding:100px 0;
-}
-
-/*=========================================
-          LEFT GALLERY
-=========================================*/
-
-.about-gallery{
-
-    height:700px;
-
-    display:flex;
-
-    flex-direction:column;
-
-    justify-content:space-between;
-
-    gap:15px;
-
-    padding:10px;
-
-}
-
-/*=========================================
-          IMAGE BOX
-=========================================*/
-
-.gallery-item{
-
-    position:relative;
-
-    flex:1;
-
-    overflow:hidden;
-
-    border-radius:22px;
-
-    border:2px solid rgba(212,175,55,.25);
-
-    background:#111;
-
-    box-shadow:
-    0 10px 30px rgba(0,0,0,.45),
-    0 0 15px rgba(212,175,55,.12);
-
-    transition:.5s;
-
-}
-
-/*=========================================
-          IMAGE
-=========================================*/
-
-.gallery-item img{
-
-    width:100%;
-
-    height:100%;
-
-    object-fit:cover;
-
-    transition:1s;
-
-    display:block;
-
-}
-
-/*=========================================
-      GOLDEN OVERLAY
-=========================================*/
-
-.gallery-item::before{
-
-    content:"";
-
-    position:absolute;
-
-    inset:0;
-
-    background:
-
-    linear-gradient(to top,
-
-    rgba(0,0,0,.70),
-
-    rgba(0,0,0,.10),
-
-    rgba(0,0,0,.05));
-
-    z-index:1;
-
-}
-
-/*=========================================
-          IMAGE TEXT
-=========================================*/
-
-.image-overlay{
-
-    position:absolute;
-
-    left:25px;
-
-    bottom:25px;
-
-    z-index:2;
-
-}
-
-.image-overlay h4{
-
-    color:white;
-
-    font-size:28px;
-
-    font-family:'Cormorant Garamond',serif;
-
-    letter-spacing:1px;
-
-}
-
-/*=========================================
-          HOVER EFFECT
-=========================================*/
-
-.gallery-item:hover{
-
-    transform:translateY(-8px);
-
-    border-color:#D4AF37;
-
-    box-shadow:
-
-    0 20px 45px rgba(0,0,0,.55),
-
-    0 0 25px rgba(212,175,55,.35);
-
-}
-
-.gallery-item:hover img{
-
-    transform:scale(1.12);
-
-}
-
-/*=========================================
-      GOLD BORDER ANIMATION
-=========================================*/
-
-.gallery-item::after{
-
-    content:"";
-
-    position:absolute;
-
-    inset:12px;
-
-    border:1px solid rgba(212,175,55,.35);
-
-    border-radius:18px;
-
-    opacity:0;
-
-    transition:.5s;
-
-    z-index:2;
-
-}
-
-.gallery-item:hover::after{
-
-    opacity:1;
-
-}
-
-/*=========================================
-        RIGHT SIDE ABOUT CARD
-=========================================*/
-
-/*==============================
-      ABOUT CARD
-==============================*/
-
-.about-card{
-
-    background:#111;
-
-    height:700px;
-
-    border-radius:20px;
-
-    padding:45px;
-
-    border:2px solid rgba(212,175,55,.20);
-
-    display:flex;
-
-    flex-direction:column;
-
-    justify-content:center;
-
-    box-sizing: border-box;
-}
-
-/* Small Title */
-
-.about-tag{
-
-    color:#D4AF37;
-
-    font-size:14px;
-
-    letter-spacing:3px;
-
-    font-weight:600;
-
-}
-
-/* Main Heading */
-
-.about-title{
-
-    color:white;
-
-    font-size:48px;
-
-    font-family:'Cormorant Garamond',serif;
-
-    margin:12px 0;
-
-}
-
-.about-title span{
-
-    color:#D4AF37;
-
-}
-
-/* Divider */
-
-.title-design{
-
-    display:flex;
-
-    align-items:center;
-
-    justify-content:center;
-
-    gap:15px;
-
-    /* margin:15px 0 30px; */
-
-    color:#D4AF37;
-
-}
-
-.title-design span{
-
-    width:100px;
-
-    height:1px;
-
-    background:#D4AF37;
-
-}
-
-/* Story */
-
-.story-title{
-
-    color:#D4AF37;
-
-    font-size:30px;
-
-    font-family:'Cormorant Garamond',serif;
-
-}
-
-.story-line{
-
-    width:70px;
-
-    height:2px;
-
-    background:#D4AF37;
-
-    /* margin:12px 0 20px; */
-
-}
-
-/* Paragraph */
-
-.about-text{
-
-    color:#d0d0d0;
-
-    line-height:30px;
-
-    font-size:16px;
-
-    margin-bottom:10px;
-
-}
-
-/* Feature Section */
-
-.feature-section{
-
-    margin-top:35px;
-
-}
-
-/* Feature Box */
-
-.feature-box{
-
-    display:flex;
-
-    align-items:center;
-
-    gap:15px;
-
-    transition:.4s;
-
-}
-
-.feature-box i{
-
-    color:#D4AF37;
-
-    font-size:38px;
-
-    transition:.4s;
-
-}
-
-.feature-box h5{
-
-    color:white;
-
-    margin:0;
-
-    font-size:20px;
-
-    font-family:'Cormorant Garamond', serif;
-
-}
-
-.feature-box small{
-
-    color:#cfcfcf;
-
-    font-size:14px;
-
-}
-
-/* Hover */
-
-.feature-box:hover{
-
-    transform:translateX(8px);
-
-}
-
-.feature-box:hover i{
-
-    transform:scale(1.2);
-
-    color:#FFD369;
-
-}
-
-/* Button */
-
-.about-btn{
-
-    display:inline-block;
-
-    padding:14px 35px;
-
-    border:2px solid #D4AF37;
-
-    color:#D4AF37;
-
-    text-decoration:none;
-
-    transition:.4s;
-
-}
-
-.about-btn:hover{
-
-    background:#D4AF37;
-
-    color:#111;
-
-}
-
-/*=========================================
-          OUR SERVICES SECTION
-=========================================*/
-
-.services-section{
-
-    background:#0d0d0d;
-
-    padding:80px 0;
-
-}
-
-/*=========================================
-            HEADING
-=========================================*/
-
-.service-heading{
-
-    color:#fff;
-
-    font-size:50px;
-
-    font-family:'Cormorant Garamond',serif;
-
-    font-weight:700;
-
-    letter-spacing:2px;
-
-    margin-bottom:10px;
-
-}
-
-.service-divider{
-
-    display:flex;
-
-    justify-content:center;
-
-    align-items:center;
-
-    gap:15px;
-
-    color:#D4AF37;
-
-    margin-bottom:50px;
-
-}
-
-.service-divider span{
-
-    width:110px;
-
-    height:1px;
-
-    background:#D4AF37;
-
-}
-
-.service-divider i{
-
-    font-size:16px;
-
-}
-
-/*=========================================
-          SERVICE ROW
-=========================================*/
-
-.service-row{
-
-    border-top:1px solid rgba(212,175,55,.25);
-
-    border-bottom:1px solid rgba(212,175,55,.25);
-
-}
-
-/*=========================================
-            SERVICE BOX
-=========================================*/
-
-.service-box{
-
-    text-align:center;
-
-    padding:40px 20px;
-
-    border-right:1px solid rgba(212,175,55,.25);
-
-    transition:.4s;
-
-    height:100%;
-
-}
-
-/*=========================================
-              ICON
-=========================================*/
-
-.service-icon{
-
-    font-size:55px;
-
-    color:#D4AF37;
-
-    margin-bottom:20px;
-
-    transition:.4s;
-
-}
-
-/*=========================================
-            HEADING
-=========================================*/
-
-.service-box h4{
-
-    color:#fff;
-
-    font-size:22px;
-
-    font-family:'Cormorant Garamond',serif;
-
-    margin-bottom:15px;
-
-}
-
-/*=========================================
-            PARAGRAPH
-=========================================*/
-
-.service-box p{
-
-    color:#cfcfcf;
-
-    font-size:15px;
-
-    line-height:28px;
-
-    margin:0;
-
-}
-
-/*=========================================
-          HOVER EFFECT
-=========================================*/
-
-.service-box:hover{
-
-    background:#171717;
-
-}
-
-.service-box:hover .service-icon{
-
-    transform:translateY(-8px) scale(1.1);
-
-    color:#f5c55c;
-
-}
-
-.service-box:hover h4{
-
-    color:#D4AF37;
-
-}
-
-/*=========================================
-        PREMIUM HOVER EFFECT
-=========================================*/
-
-.service-box{
-
-    position:relative;
-
-    overflow:hidden;
-
-}
-
-/* Golden Glow */
-
-.service-box::before{
-
-    content:"";
-
-    position:absolute;
-
-    top:0;
-
-    left:-100%;
-
-    width:100%;
-
-    height:100%;
-
-    background:linear-gradient(
-        120deg,
-        transparent,
-        rgba(212,175,55,.15),
-        transparent
-    );
-
-    transition:.8s;
-
-}
-
-.service-box:hover::before{
-
-    left:100%;
-
-}
-
-/*=========================================
-        TOP GOLD LINE
-=========================================*/
-
-.service-box::after{
-
-    content:"";
-
-    position:absolute;
-
-    top:0;
-
-    left:50%;
-
-    transform:translateX(-50%);
-
-    width:0;
-
-    height:3px;
-
-    background:#D4AF37;
-
-    transition:.4s;
-
-}
-
-.service-box:hover::after{
-
-    width:100%;
-
-}
-
-/*=========================================
-            BOX HOVER
-=========================================*/
-
-.service-box:hover{
-
-    transform:translateY(-10px);
-
-    background:#181818;
-
-    box-shadow:
-    0 12px 30px rgba(0,0,0,.45),
-    0 0 20px rgba(212,175,55,.15);
-
-}
-
-/*=========================================
-            ICON ANIMATION
-=========================================*/
-
-.service-icon{
-
-    transition:.5s;
-
-}
-
-.service-box:hover .service-icon{
-
-    transform:rotate(-10deg) scale(1.2);
-
-    color:#FFD369;
-
-}
-
-/*=========================================
-          TITLE EFFECT
-=========================================*/
-
-.service-box h4{
-
-    transition:.4s;
-
-}
-
-.service-box:hover h4{
-
-    color:#FFD369;
-
-    letter-spacing:1px;
-
-}
-
-/*=========================================
-          PARAGRAPH EFFECT
-=========================================*/
-
-.service-box p{
-
-    transition:.4s;
-
-}
-
-.service-box:hover p{
-
-    color:#ffffff;
-
-}
-
-/*=========================================
-            OUR MENU
-=========================================*/
-
-.menu-section{
-
-    background:#0b0b0b;
-
-    padding:90px 0;
-
-}
-
-/*=========================================
-            HEADING
-=========================================*/
-
-.menu-title{
-
-    color:#fff;
-
-    font-size:52px;
-
-    font-family:'Cormorant Garamond',serif;
-
-    font-weight:700;
-
-    letter-spacing:2px;
-
-}
-
-.menu-divider{
-
-    display:flex;
-
-    justify-content:center;
-
-    align-items:center;
-
-    gap:15px;
-
-    color:#D4AF37;
-
-    margin:15px 0 50px;
-
-}
-
-.menu-divider span{
-
-    width:110px;
-
-    height:1px;
-
-    background:#D4AF37;
-
-}
-
-/*=========================================
-            MENU CARD
-=========================================*/
-
-.menu-card{
-
-    background:#111;
-
-    border:2px solid rgba(212,175,55,.20);
-
-    border-radius:18px;
-
-    overflow:hidden;
-
-    transition:.5s;
-
-    box-shadow:0 10px 25px rgba(0,0,0,.35);
-
-}
-
-/*=========================================
-            IMAGE
-=========================================*/
-
-.menu-image{
-
-    height:260px;
-
-    overflow:hidden;
-
-}
-
-.menu-image img{
-
-    width:100%;
-
-    height:100%;
-
-    object-fit:cover;
-
-    transition:1s;
-
-}
-
-/*=========================================
-            CONTENT
-=========================================*/
-
-.menu-content{
-
-    padding:20px;
-
-    text-align:center;
-
-}
-
-/*=========================================
-            BUTTON
-=========================================*/
-
-.menu-btn{
-
-    display:inline-block;
-
-    width:100%;
-
-    padding:12px;
-
-    border:2px solid #D4AF37;
-
-    color:#D4AF37;
-
-    text-decoration:none;
-
-    font-size:17px;
-
-    font-weight:600;
-
-    border-radius:8px;
-
-    transition:.4s;
-
-}
-
-.menu-btn:hover{
-
-    background:#D4AF37;
-
-    color:#111;
-
-}
-
-/*=========================================
-          CARD HOVER
-=========================================*/
-
-.menu-card:hover{
-
-    transform:translateY(-10px);
-
-    border-color:#D4AF37;
-
-    box-shadow:
-
-    0 15px 35px rgba(0,0,0,.50),
-
-    0 0 20px rgba(212,175,55,.18);
-
-}
-
-.menu-card:hover img{
-
-    transform:scale(1.12);
-
-}
-
-/*=========================================
-        PREMIUM MENU EFFECT
-=========================================*/
-
-.menu-card{
-
-    position:relative;
-
-}
-
-/* Golden Shine Effect */
-
-.menu-card::before{
-
-    content:"";
-
-    position:absolute;
-
-    top:0;
-    left:-120%;
-
-    width:60%;
-    height:100%;
-
-    background:linear-gradient(
-        120deg,
-        transparent,
-        rgba(255,255,255,.18),
-        transparent
-    );
-
-    transform:skewX(-25deg);
-
-    transition:.9s;
-
-    z-index:3;
-
-}
-
-.menu-card:hover::before{
-
-    left:150%;
-
-}
-
-/* Top Golden Line */
-
-.menu-card::after{
-
-    content:"";
-
-    position:absolute;
-
-    top:0;
-    left:50%;
-
-    transform:translateX(-50%);
-
-    width:0;
-
-    height:3px;
-
-    background:#D4AF37;
-
-    transition:.5s;
-
-}
-
-.menu-card:hover::after{
-
-    width:100%;
-
-}
-
-/*=========================================
-        IMAGE OVERLAY
-=========================================*/
-
-.menu-image{
-
-    position:relative;
-
-}
-
-.menu-image::before{
-
-    content:"";
-
-    position:absolute;
-
-    inset:0;
-
-    background:linear-gradient(
-
-        to top,
-
-        rgba(0,0,0,.65),
-
-        rgba(0,0,0,.10)
-
-    );
-
-    opacity:0;
-
-    transition:.5s;
-
-}
-
-.menu-card:hover .menu-image::before{
-
-    opacity:1;
-
-}
-
-/*=========================================
-          IMAGE ANIMATION
-=========================================*/
-
-.menu-card:hover img{
-
-    transform:scale(1.15) rotate(2deg);
-
-}
-
-/*=========================================
-          BUTTON EFFECT
-=========================================*/
-
-.menu-btn{
-
-    position:relative;
-
-    overflow:hidden;
-
-}
-
-.menu-btn::before{
-
-    content:"";
-
-    position:absolute;
-
-    left:-100%;
-
-    top:0;
-
-    width:100%;
-
-    height:100%;
-
-    background:rgba(255,255,255,.18);
-
-    transition:.5s;
-
-}
-
-.menu-btn:hover::before{
-
-    left:100%;
-
-}
-
-.menu-btn:hover{
-
-    transform:translateY(-3px);
-
-    box-shadow:0 0 18px rgba(212,175,55,.35);
-
-}
-
-/*=========================================
-      HOVER SHADOW
-=========================================*/
-
-.menu-card:hover{
-
-    box-shadow:
-
-    0 18px 40px rgba(0,0,0,.45),
-
-    0 0 25px rgba(212,175,55,.25);
-
-}
-
-/*=========================================
-            OUR CHEFS
-=========================================*/
-
-.chef-section{
-
-    background:#0b0b0b;
-
-    padding:90px 0;
-
-}
-
-/*=========================================
-            HEADING
-=========================================*/
-
-.chef-title{
-
-    color:#fff;
-
-    font-size:50px;
-
-    font-family:'Cormorant Garamond',serif;
-
-    font-weight:700;
-
-    letter-spacing:2px;
-
-}
-
-.chef-divider{
-
-    display:flex;
-
-    justify-content:center;
-
-    align-items:center;
-
-    gap:15px;
-
-    color:#D4AF37;
-
-    margin:15px 0 50px;
-
-}
-
-.chef-divider span{
-
-    width:100px;
-
-    height:1px;
-
-    background:#D4AF37;
-
-}
-
-/*=========================================
-            CHEF CARD
-=========================================*/
-
-.chef-card{
-
-    background:#111;
-
-    border:2px solid rgba(212,175,55,.25);
-
-    border-radius:15px;
-
-    overflow:hidden;
-
-    transition:.5s;
-
-    box-shadow:0 10px 25px rgba(0,0,0,.35);
-
-}
-
-/*=========================================
-            IMAGE
-=========================================*/
-
-.chef-image{
-
-    height:330px;
-
-    overflow:hidden;
-
-}
-
-.chef-image img{
-
-    width:100%;
-
-    height:100%;
-
-    object-fit:cover;
-
-    transition:.7s;
-
-}
-
-/*=========================================
-            INFO
-=========================================*/
-
-.chef-info{
-
-    padding:18px;
-
-    text-align:center;
-
-    background:#111;
-
-}
-
-.chef-info h4{
-
-    color:#fff;
-
-    font-size:24px;
-
-    font-family:'Cormorant Garamond',serif;
-
-    margin-bottom:5px;
-
-}
-
-.chef-info p{
-
-    color:#D4AF37;
-
-    margin:0;
-
-    font-size:15px;
-
-    letter-spacing:1px;
-
-}
-
-/*=========================================
-            HOVER
-=========================================*/
-
-.chef-card:hover{
-
-    transform:translateY(-10px);
-
-    border-color:#D4AF37;
-
-    box-shadow:
-
-    0 15px 35px rgba(0,0,0,.50),
-
-    0 0 20px rgba(212,175,55,.20);
-
-}
-
-.chef-card:hover img{
-
-    transform:scale(1.10);
-
-}
-
-/*=========================================
-        PREMIUM CHEF EFFECTS
-=========================================*/
-
-/* Card Position */
-
-.chef-card{
-
-    position:relative;
-
-}
-
-/* Golden Shine Effect */
-
-.chef-card::before{
-
-    content:"";
-
-    position:absolute;
-
-    top:0;
-
-    left:-120%;
-
-    width:60%;
-
-    height:100%;
-
-    background:linear-gradient(
-        120deg,
-        transparent,
-        rgba(255,255,255,.20),
-        transparent
-    );
-
-    transform:skewX(-25deg);
-
-    transition:.8s;
-
-    z-index:5;
-
-}
-
-.chef-card:hover::before{
-
-    left:150%;
-
-}
-
-/* Top Golden Line */
-
-.chef-card::after{
-
-    content:"";
-
-    position:absolute;
-
-    top:0;
-
-    left:50%;
-
-    transform:translateX(-50%);
-
-    width:0;
-
-    height:3px;
-
-    background:#D4AF37;
-
-    transition:.4s;
-
-}
-
-.chef-card:hover::after{
-
-    width:100%;
-
-}
-
-/*=========================================
-        IMAGE OVERLAY
-=========================================*/
-
-.chef-image{
-
-    position:relative;
-
-}
-
-.chef-image::before{
-
-    content:"";
-
-    position:absolute;
-
-    inset:0;
-
-    background:linear-gradient(
-        to top,
-        rgba(0,0,0,.65),
-        rgba(0,0,0,.10)
-    );
-
-    opacity:0;
-
-    transition:.5s;
-
-    z-index:2;
-
-}
-
-.chef-card:hover .chef-image::before{
-
-    opacity:1;
-
-}
-
-/*=========================================
-        SOCIAL ICONS
-=========================================*/
-
-.social-icons{
-
-    position:absolute;
-
-    bottom:20px;
-
-    left:50%;
-
-    transform:translateX(-50%) translateY(20px);
-
-    display:flex;
-
-    gap:12px;
-
-    opacity:0;
-
-    transition:.5s;
-
-    z-index:3;
-
-}
-
-.social-icons a{
-
-    width:42px;
-
-    height:42px;
-
-    background:#D4AF37;
-
-    color:#111;
-
-    border-radius:50%;
-
-    display:flex;
-
-    align-items:center;
-
-    justify-content:center;
-
-    text-decoration:none;
-
-    transition:.4s;
-
-}
-
-.social-icons a:hover{
-
-    background:#fff;
-
-    transform:rotate(360deg);
-
-}
-
-.chef-card:hover .social-icons{
-
-    opacity:1;
-
-    transform:translateX(-50%) translateY(0);
-
-}
-
-/*=========================================
-        IMAGE ZOOM
-=========================================*/
-
-.chef-card:hover img{
-
-    transform:scale(1.12);
-
-}
-
-/*=========================================
-        TITLE EFFECT
-=========================================*/
-
-.chef-info h4{
-
-    transition:.4s;
-
-}
-
-.chef-card:hover h4{
-
-    color:#D4AF37;
-
-}
-
-.chef-card:hover p{
-
-    color:#fff;
-
-}
-
-/*=========================================
-        BUTTON GLOW
-=========================================*/
-
-.social-icons a{
-
-    box-shadow:0 0 15px rgba(212,175,55,.30);
-
-}
-
-/*=========================================
-          BOOK YOUR TABLE
-=========================================*/
-
-.booking-section{
-
-    position:relative;
-
-    width:100%;
-
-    height:700px;
-
-    overflow:hidden;
-
-    display:flex;
-
-    align-items:center;
-
-}
-
-/*==============================
-      Background Image
-==============================*/
-
-.booking-bg{
-
-    position:absolute;
-
-    top:0;
-    left:0;
-
-    width:100%;
-    height:100%;
-
-    object-fit:cover;
-
-    z-index:1;
-
-}
-
-/*==============================
-      Dark Golden Overlay
-==============================*/
-
-.booking-overlay{
-
-    position:absolute;
-
-    inset:0;
-
-    background:linear-gradient(
-        to right,
-        rgba(0,0,0,.88) 0%,
-        rgba(0,0,0,.70) 35%,
-        rgba(0,0,0,.25) 100%
-    );
-
-    z-index:2;
-
-}
-
-/*==============================
-      Content
-==============================*/
-
-.booking-content{
-
-    position:relative;
-
-    z-index:3;
-
-    color:#fff;
-
-    max-width:480px;
-
-}
-
-/* Heading */
-
-.booking-content h2{
-
-    font-size:48px;
-
-    font-family:'Cormorant Garamond',serif;
-
-    font-weight:700;
-
-    color:#fff;
-
-    margin-bottom:18px;
-
-}
-
-/* Paragraph */
-
-.booking-content p{
-
-    font-size:18px;
-
-    color:#d9d9d9;
-
-    line-height:32px;
-
-    margin-bottom:35px;
-
-}
-
-/*==============================
-      Button
-==============================*/
-
-.booking-btn{
-
-    display:inline-block;
-
-    padding:14px 35px;
-
-    text-decoration:none;
-
-    border:2px solid #D4AF37;
-
-    color:#D4AF37;
-
-    font-weight:600;
-
-    letter-spacing:1px;
-
-    border-radius:8px;
-
-    transition:.4s;
-
-}
-
-.booking-btn:hover{
-
-    background:#D4AF37;
-
-    color:#111;
-
-}
-
-/*==============================
-      Heading Animation
-==============================*/
-
-.booking-content h2{
-
-    position:relative;
-
-    display:inline-block;
-
-}
-
-.booking-content h2::after{
-
-    content:"";
-
-    position:absolute;
-
-    left:0;
-
-    bottom:-10px;
-
-    width:0;
-
-    height:3px;
-
-    background:#D4AF37;
-
-    transition:.6s;
-
-}
-
-.booking-section:hover h2::after{
-
-    width:100%;
-
-}
-
-/*==============================
-      Paragraph
-==============================*/
-
-.booking-content p{
-
-    transition:.4s;
-
-}
-
-.booking-section:hover p{
-
-    color:#ffffff;
-
-}
-
-/*==============================
-      Premium Button
-==============================*/
-
-.booking-btn{
-
-    position:relative;
-
-    overflow:hidden;
-
-}
-
-.booking-btn::before{
-
-    content:"";
-
-    position:absolute;
-
-    top:0;
-
-    left:-100%;
-
-    width:100%;
-
-    height:100%;
-
-    background:rgba(255,255,255,.18);
-
-    transition:.6s;
-
-}
-
-.booking-btn:hover::before{
-
-    left:100%;
-
-}
-
-.booking-btn:hover{
-
-    transform:translateY(-4px);
-
-    box-shadow:
-
-    0 0 20px rgba(212,175,55,.45),
-
-    0 0 40px rgba(212,175,55,.25);
-
-}
-
-/*==============================
-      Background Zoom
-==============================*/
-
-.booking-bg{
-
-    transition:8s;
-
-}
-
-.booking-section:hover .booking-bg{
-
-    transform:scale(1.06);
-
-}
-
-/*==============================
-      Overlay Animation
-==============================*/
-
-.booking-overlay{
-
-    transition:.6s;
-
-}
-
-.booking-section:hover .booking-overlay{
-
-    background:linear-gradient(
-        to right,
-        rgba(0,0,0,.92),
-        rgba(0,0,0,.70),
-        rgba(0,0,0,.35)
-    );
-
-}
-
-/*==============================
-      Floating Light
-==============================*/
-
-.booking-section::before{
-
-    content:"";
-
-    position:absolute;
-
-    top:-80px;
-
-    left:-120px;
-
-    width:260px;
-
-    height:260px;
-
-    background:radial-gradient(
-        rgba(212,175,55,.18),
-        transparent 70%
-    );
-
-    border-radius:50%;
-
-    animation:lightMove 8s linear infinite;
-
-    z-index:2;
-
-}
-
-/*=========================================
-        CUSTOMER REVIEW SECTION
-=========================================*/
-
-.review-section{
-
-    background:#0b0b0b;
-
-    padding:90px 0;
-
-}
-
-/*=========================================
-        HEADING
-=========================================*/
-
-.review-title{
-
-    color:#fff;
-
-    font-size:48px;
-
-    font-family:'Cormorant Garamond',serif;
-
-    font-weight:700;
-
-    letter-spacing:2px;
-
-}
-
-.review-divider{
-
-    display:flex;
-
-    justify-content:center;
-
-    align-items:center;
-
-    gap:15px;
-
-    margin:15px 0 50px;
-
-    color:#D4AF37;
-
-}
-
-.review-divider span{
-
-    width:90px;
-
-    height:2px;
-
-    background:#D4AF37;
-
-}
-
-/*=========================================
-            REVIEW CARD
-=========================================*/
-
-.review-card{
-
-    background:#151515;
-
-    border:2px solid rgba(212,175,55,.35);
-
-    border-radius:15px;
-
-    padding:30px 25px;
-
-    transition:.5s;
-
-    position:relative;
-
-    height:100%;
-
-    overflow:hidden;
-
-}
-
-/*=========================================
-            QUOTE ICON
-=========================================*/
-
-.review-icon{
-
-    font-size:38px;
-
-    color:#D4AF37;
-
-}
-
-/*=========================================
-            REVIEW TEXT
-=========================================*/
-
-.review-text{
-
-    color:#e5e5e5;
-
-    font-size:17px;
-
-    line-height:30px;
-
-    margin:15px 0 25px;
-
-}
-
-/*=========================================
-            CUSTOMER
-=========================================*/
-
-.customer{
-
-    display:flex;
-
-    align-items:center;
-
-    gap:15px;
-
-}
-
-.customer img{
-
-    width:65px;
-
-    height:65px;
-
-    border-radius:50%;
-
-    border:3px solid #D4AF37;
-
-    object-fit:cover;
-
-}
-
-.customer h5{
-
-    color:#fff;
-
-    margin:0;
-
-    font-size:20px;
-
-    font-family:'Cormorant Garamond',serif;
-
-}
-
-.customer span{
-
-    color:#D4AF37;
-
-    font-size:14px;
-
-}
-
-/*=========================================
-            CARD HOVER
-=========================================*/
-
-.review-card:hover{
-
-    transform:translateY(-10px);
-
-    border-color:#D4AF37;
-
-    box-shadow:
-
-    0 15px 35px rgba(0,0,0,.45),
-
-    0 0 20px rgba(212,175,55,.18);
-
-}
-
-/*=========================================
-        PREMIUM REVIEW EFFECTS
-=========================================*/
-
-/* Card Position */
-
-.review-card{
-
-    position:relative;
-
-}
-
-/*==============================
-      Golden Shine Effect
-==============================*/
-
-.review-card::before{
-
-    content:"";
-
-    position:absolute;
-
-    top:0;
-
-    left:-120%;
-
-    width:60%;
-
-    height:100%;
-
-    background:linear-gradient(
-        120deg,
-        transparent,
-        rgba(255,255,255,.18),
-        transparent
-    );
-
-    transform:skewX(-25deg);
-
-    transition:.9s;
-
-    z-index:2;
-
-}
-
-.review-card:hover::before{
-
-    left:150%;
-
-}
-
-/*==============================
-      Top Golden Border
-==============================*/
-
-.review-card::after{
-
-    content:"";
-
-    position:absolute;
-
-    top:0;
-
-    left:50%;
-
-    transform:translateX(-50%);
-
-    width:0;
-
-    height:3px;
-
-    background:#D4AF37;
-
-    transition:.5s;
-
-}
-
-.review-card:hover::after{
-
-    width:100%;
-
-}
-
-/*==============================
-      Quote Animation
-==============================*/
-
-.review-icon{
-
-    transition:.5s;
-
+/* ==========================================================
+   BETHAK CAFE - PREMIUM LUXURY STYLESHEET (style.css)
+   Clean, Elegant, Responsive, Perfectly Structured
+========================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,600&family=Poppins:wght@300;400;500;600;700&display=swap');
+
+:root {
+  --gold: #D4AF37;
+  --gold-light: #F3E5AB;
+  --gold-glow: rgba(212, 175, 55, 0.35);
+  --bg-dark: #0A0A0A;
+  --bg-card: #141414;
+  --bg-card-hover: #1A1A1A;
+  --border-gold: rgba(212, 175, 55, 0.25);
+  --border-gold-hover: rgba(212, 175, 55, 0.7);
+  --text-main: #FFFFFF;
+  --text-muted: #B3B3B3;
+  --font-serif: 'Cormorant Garamond', Georgia, serif;
+  --font-sans: 'Poppins', -apple-system, BlinkMacSystemFont, sans-serif;
+  --transition: all 0.35s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 80px;
+}
+
+body {
+  background-color: var(--bg-dark);
+  color: var(--text-main);
+  font-family: var(--font-sans);
+  overflow-x: hidden;
+  line-height: 1.6;
+}
+
+/* ==========================================================
+   NAVIGATION BAR
+========================================================== */
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1050;
+  background: rgba(10, 10, 10, 0.88);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  padding: 14px 0;
+  border-bottom: 1px solid rgba(212, 175, 55, 0.15);
+  transition: var(--transition);
+}
+
+.navbar-brand img {
+  width: 140px;
+  height: auto;
+  transition: var(--transition);
+}
+
+.navbar .nav-link {
+  color: #E6E6E6 !important;
+  font-size: 15px;
+  font-weight: 500;
+  margin: 0 10px;
+  padding: 8px 12px !important;
+  border-radius: 6px;
+  position: relative;
+  transition: var(--transition);
+}
+
+.navbar .nav-link:hover,
+.navbar .nav-link.active {
+  color: var(--gold) !important;
+}
+
+.navbar .nav-link::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  width: 0;
+  height: 2px;
+  background: var(--gold);
+  transition: var(--transition);
+  transform: translateX(-50%);
+}
+
+.navbar .nav-link:hover::after,
+.navbar .nav-link.active::after {
+  width: 60%;
+}
+
+/* Navbar Buttons */
+.booktable-btn,
+.nav-btn-gold {
+  background: transparent;
+  color: var(--gold) !important;
+  border: 1.5px solid var(--gold);
+  padding: 9px 24px;
+  border-radius: 50px;
+  font-size: 14px;
+  font-weight: 600;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  transition: var(--transition);
+}
+
+.booktable-btn:hover,
+.nav-btn-gold:hover {
+  background: var(--gold);
+  color: #000 !important;
+  box-shadow: 0 0 18px var(--gold-glow);
+  transform: translateY(-2px);
+}
+
+.login-btn,
+.nav-btn-outline {
+  background: transparent;
+  color: #FFFFFF !important;
+  border: 1.5px solid rgba(255, 255, 255, 0.4);
+  padding: 9px 22px;
+  border-radius: 50px;
+  font-size: 14px;
+  font-weight: 500;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  transition: var(--transition);
+}
+
+.login-btn:hover,
+.nav-btn-outline:hover {
+  border-color: var(--gold);
+  color: var(--gold) !important;
+  transform: translateY(-2px);
+}
+
+.cart-count {
+  background: var(--gold) !important;
+  color: #000 !important;
+  font-weight: 700;
+  border-radius: 50%;
+  padding: 3px 7px;
+  font-size: 12px;
+}
+
+/* ==========================================================
+   HERO SLIDER
+========================================================== */
+#home,
+.hero-section {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+}
+
+.carousel {
+  width: 100%;
+  min-height: 100vh;
+}
+
+.carousel-item {
+  position: relative;
+  min-height: 100vh;
+}
+
+.carousel-item img {
+  width: 100%;
+  height: 100vh;
+  object-fit: cover;
+  object-position: center;
+}
+
+.overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    90deg,
+    rgba(10, 10, 10, 0.94) 0%,
+    rgba(10, 10, 10, 0.78) 45%,
+    rgba(10, 10, 10, 0.35) 100%
+  );
+  z-index: 2;
+}
+
+.hero-content {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 100%;
+  transform: translateY(-50%);
+  z-index: 5;
+}
+
+.hero-content h5 {
+  color: var(--gold);
+  letter-spacing: 4px;
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 12px;
+  text-transform: uppercase;
+}
+
+.hero-content h1 {
+  color: #FFFFFF;
+  font-family: var(--font-serif);
+  font-size: 72px;
+  font-weight: 700;
+  line-height: 1.15;
+  margin-bottom: 16px;
+  letter-spacing: 1px;
+}
+
+.hero-content h3 {
+  color: var(--gold-light);
+  font-family: var(--font-serif);
+  font-size: 26px;
+  font-weight: 600;
+  margin-bottom: 18px;
+}
+
+.hero-content p {
+  color: var(--text-muted);
+  font-size: 16px;
+  line-height: 1.8;
+  margin-bottom: 30px;
+  max-width: 540px;
+}
+
+.hero-buttons {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.order-btn {
+  background: var(--gold);
+  color: #000;
+  border: 2px solid var(--gold);
+  padding: 13px 34px;
+  border-radius: 50px;
+  font-weight: 600;
+  font-size: 15px;
+  text-decoration: none;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  transition: var(--transition);
+}
+
+.order-btn:hover {
+  background: #FFFFFF;
+  border-color: #FFFFFF;
+  color: #000;
+  transform: translateY(-3px);
+  box-shadow: 0 10px 25px rgba(255, 255, 255, 0.2);
+}
+
+.video-btn {
+  background: transparent;
+  color: #FFFFFF;
+  border: 2px solid rgba(255, 255, 255, 0.6);
+  padding: 13px 32px;
+  border-radius: 50px;
+  font-weight: 500;
+  font-size: 15px;
+  text-decoration: none;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  transition: var(--transition);
+}
+
+.video-btn:hover {
+  border-color: var(--gold);
+  color: var(--gold);
+  transform: translateY(-3px);
+  box-shadow: 0 0 20px var(--gold-glow);
+}
+
+.carousel-control-prev,
+.carousel-control-next {
+  width: 5%;
+  z-index: 10;
+  opacity: 0.7;
+  transition: var(--transition);
+}
+
+.carousel-control-prev:hover,
+.carousel-control-next:hover {
+  opacity: 1;
+}
+
+.carousel-indicators button {
+  width: 10px !important;
+  height: 10px !important;
+  border-radius: 50%;
+  margin: 0 6px !important;
+  background-color: rgba(255, 255, 255, 0.5) !important;
+  border: none !important;
+  transition: var(--transition);
+}
+
+.carousel-indicators button.active {
+  background-color: var(--gold) !important;
+  transform: scale(1.3);
+}
+
+/* ==========================================================
+   ABOUT SECTION
+========================================================== */
+.about-section {
+  background: #0D0D0D;
+  padding: 110px 0;
+  position: relative;
+}
+
+.about-gallery {
+  height: 620px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.gallery-item {
+  position: relative;
+  flex: 1;
+  overflow: hidden;
+  border-radius: 20px;
+  border: 1.5px solid var(--border-gold);
+  background: #111;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+  transition: var(--transition);
+}
+
+.gallery-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.8s ease;
+  display: block;
+}
+
+.gallery-item::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.75) 0%, rgba(0, 0, 0, 0.1) 60%);
+  z-index: 1;
+}
+
+.image-overlay {
+  position: absolute;
+  left: 24px;
+  bottom: 20px;
+  z-index: 2;
+}
+
+.image-overlay h4 {
+  color: #FFFFFF;
+  font-family: var(--font-serif);
+  font-size: 26px;
+  letter-spacing: 1px;
+  margin: 0;
+}
+
+.gallery-item:hover {
+  transform: translateY(-6px);
+  border-color: var(--gold);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.6), 0 0 25px var(--gold-glow);
+}
+
+.gallery-item:hover img {
+  transform: scale(1.08);
+}
+
+/* About Card */
+.about-card {
+  background: var(--bg-card);
+  border-radius: 20px;
+  padding: 44px;
+  border: 1.5px solid var(--border-gold);
+  box-shadow: 0 12px 36px rgba(0, 0, 0, 0.5);
+}
+
+.about-tag {
+  color: var(--gold);
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+}
+
+.about-title {
+  color: #FFFFFF;
+  font-family: var(--font-serif);
+  font-size: 44px;
+  font-weight: 700;
+  margin: 10px 0 16px;
+}
+
+.about-title span {
+  color: var(--gold);
+}
+
+.title-design {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 24px;
+  color: var(--gold);
+}
+
+.title-design span {
+  width: 60px;
+  height: 1.5px;
+  background: var(--gold);
+}
+
+.story-title {
+  color: var(--gold-light);
+  font-family: var(--font-serif);
+  font-size: 26px;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+.about-text {
+  color: var(--text-muted);
+  font-size: 15px;
+  line-height: 1.8;
+  margin-bottom: 16px;
+}
+
+.feature-section {
+  margin-top: 28px;
+}
+
+.feature-box {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 12px;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.04);
+  transition: var(--transition);
+}
+
+.feature-box:hover {
+  background: rgba(212, 175, 55, 0.06);
+  border-color: var(--border-gold);
+  transform: translateY(-3px);
+}
+
+.feature-box i {
+  color: var(--gold);
+  font-size: 32px;
+  flex-shrink: 0;
+}
+
+.feature-box h5 {
+  color: #FFFFFF;
+  font-size: 17px;
+  font-weight: 600;
+  margin: 0;
+}
+
+.feature-box small {
+  color: var(--text-muted);
+  font-size: 13px;
+}
+
+.about-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 32px;
+  border: 1.5px solid var(--gold);
+  color: var(--gold);
+  text-decoration: none;
+  border-radius: 50px;
+  font-weight: 600;
+  font-size: 14px;
+  transition: var(--transition);
+}
+
+.about-btn:hover {
+  background: var(--gold);
+  color: #000;
+  box-shadow: 0 0 20px var(--gold-glow);
+  transform: translateY(-3px);
+}
+
+/* ==========================================================
+   SERVICES SECTION
+========================================================== */
+.services-section {
+  background: var(--bg-dark);
+  padding: 100px 0;
+}
+
+.service-heading,
+.section-heading-gold {
+  color: #FFFFFF;
+  font-family: var(--font-serif);
+  font-size: 46px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.service-divider,
+.section-divider {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 14px;
+  color: var(--gold);
+  margin-bottom: 50px;
+}
+
+.service-divider span,
+.section-divider span {
+  width: 80px;
+  height: 1.5px;
+  background: var(--gold);
+}
+
+.service-row {
+  border: 1px solid var(--border-gold);
+  border-radius: 20px;
+  background: var(--bg-card);
+  overflow: hidden;
+}
+
+.service-box {
+  text-align: center;
+  padding: 45px 24px;
+  border-right: 1px solid var(--border-gold);
+  background: transparent;
+  transition: var(--transition);
+  position: relative;
+  height: 100%;
+}
+
+.service-box:hover {
+  background: rgba(212, 175, 55, 0.05);
+  transform: translateY(-6px);
+}
+
+.service-icon {
+  font-size: 48px;
+  color: var(--gold);
+  margin-bottom: 18px;
+  display: inline-block;
+  transition: var(--transition);
+}
+
+.service-box:hover .service-icon {
+  transform: scale(1.15) rotate(-6deg);
+}
+
+.service-box h4 {
+  color: #FFFFFF;
+  font-family: var(--font-serif);
+  font-size: 22px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  margin-bottom: 12px;
+  transition: var(--transition);
+}
+
+.service-box:hover h4 {
+  color: var(--gold);
+}
+
+.service-box p {
+  color: var(--text-muted);
+  font-size: 14px;
+  line-height: 1.7;
+  margin: 0;
+}
+
+/* ==========================================================
+   OUR MENU (HOME SHOWCASE)
+========================================================== */
+.menu-section {
+  background: #0D0D0D;
+  padding: 100px 0;
+}
+
+.menu-title {
+  color: #FFFFFF;
+  font-family: var(--font-serif);
+  font-size: 46px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.menu-divider {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 14px;
+  color: var(--gold);
+  margin-bottom: 50px;
+}
+
+.menu-divider span {
+  width: 80px;
+  height: 1.5px;
+  background: var(--gold);
+}
+
+.menu-card {
+  background: var(--bg-card);
+  border: 1.5px solid var(--border-gold);
+  border-radius: 18px;
+  overflow: hidden;
+  transition: var(--transition);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+}
+
+.menu-card:hover {
+  transform: translateY(-8px);
+  border-color: var(--gold);
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.6), 0 0 22px var(--gold-glow);
+}
+
+.menu-image {
+  height: 240px;
+  overflow: hidden;
+  position: relative;
+  background: #1A1A1A;
+}
+
+.menu-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.7s ease;
 }
 
-.review-card:hover .review-icon{
-
-    transform:rotate(-12deg) scale(1.25);
-
-    color:#FFD369;
-
-}
-
-/*==============================
-      Customer Image
-==============================*/
-
-.customer img{
-
-    transition:.5s;
-
-}
-
-.review-card:hover .customer img{
-
-    transform:scale(1.12);
-
-    box-shadow:0 0 18px rgba(212,175,55,.45);
-
-}
-
-/*==============================
-      Customer Name
-==============================*/
-
-.customer h5{
-
-    transition:.4s;
-
-}
-
-.review-card:hover h5{
-
-    color:#D4AF37;
-
-}
-
-/*==============================
-      Review Text
-==============================*/
-
-.review-text{
-
-    transition:.4s;
-
-}
-
-.review-card:hover .review-text{
-
-    color:#ffffff;
-
-}
-
-/*==============================
-      Card Glow
-==============================*/
-
-.review-card:hover{
-
-    box-shadow:
-
-    0 18px 40px rgba(0,0,0,.45),
-
-    0 0 25px rgba(212,175,55,.25);
-
-}
-
-/*=========================================
-            CONTACT SECTION
-=========================================*/
-
-.contact-section{
-
-    background:#0b0b0b;
-
-    padding:100px 0;
-
-}
-
-/*=========================================
-            HEADING
-=========================================*/
-
-.contact-title{
-
-    color:#ffffff;
-
-    font-size:48px;
-
-    font-family:'Cormorant Garamond',serif;
-
-    font-weight:700;
-
-    letter-spacing:2px;
-
-}
-
-.contact-divider{
-
-    display:flex;
-
-    justify-content:center;
-
-    align-items:center;
-
-    gap:15px;
-
-    margin:15px 0 60px;
-
-    color:#D4AF37;
-
-}
-
-.contact-divider span{
-
-    width:90px;
-
-    height:2px;
-
-    background:#D4AF37;
-
-}
-
-/*=========================================
-          LEFT CONTACT BOX
-=========================================*/
-
-.contact-box{
-
-    background:#141414;
-
-    border:2px solid rgba(212,175,55,.35);
-
-    border-radius:15px;
-
-    padding:35px;
-
-    height:100%;
-
-}
-
-/*=========================================
-          CONTACT ITEM
-=========================================*/
-
-.contact-item{
-
-    display:flex;
-
-    align-items:flex-start;
-
-    gap:18px;
-
-    margin-bottom:28px;
-
-}
-
-.contact-item:last-child{
-
-    margin-bottom:0;
-
-}
-
-/*=========================================
-          ICON
-=========================================*/
-
-.contact-icon{
-
-    width:55px;
-
-    height:55px;
-
-    border:2px solid #D4AF37;
-
-    border-radius:50%;
-
-    display:flex;
-
-    align-items:center;
-
-    justify-content:center;
-
-    color:#D4AF37;
-
-    font-size:22px;
-
-    flex-shrink:0;
-
-}
-
-/*=========================================
-          TEXT
-=========================================*/
-
-.contact-item h5{
-
-    color:#ffffff;
-
-    margin-bottom:6px;
-
-    font-size:22px;
-
-}
-
-.contact-item p{
-
-    color:#d0d0d0;
-
-    margin:0;
-
-    line-height:28px;
-
-    font-size:16px;
-
-}
-
-/*=========================================
-            MAP
-=========================================*/
-
-.map-box{
-
-    border-radius:15px;
-
-    overflow:hidden;
-
-    border:2px solid rgba(212,175,55,.35);
-
-    height:420px;
-
-    box-shadow:0 10px 30px rgba(0,0,0,.35);
-
-}
-
-.map-box iframe{
-
-    width:100%;
-
-    height:100%;
-
-    border:0;
-
-}
-
-/*=========================================
-        CONTACT BOX HOVER
-=========================================*/
-
-.contact-box{
-
-    transition:.5s;
-
-}
-
-.contact-box:hover{
-
-    transform:translateY(-8px);
-
-    border-color:#D4AF37;
-
-    box-shadow:
-
-    0 18px 40px rgba(0,0,0,.45),
-
-    0 0 25px rgba(212,175,55,.18);
-
-}
-
-/*=========================================
-            ICON EFFECT
-=========================================*/
-
-.contact-icon{
-
-    transition:.4s;
-
-}
-
-.contact-item:hover .contact-icon{
-
-    background:#D4AF37;
-
-    color:#111;
-
-    transform:rotate(360deg) scale(1.1);
-
-    box-shadow:0 0 18px rgba(212,175,55,.45);
-
-}
-
-/*=========================================
-            TEXT EFFECT
-=========================================*/
-
-.contact-item{
-
-    transition:.4s;
-
-}
-
-.contact-item:hover{
-
-    transform:translateX(8px);
-
-}
-
-.contact-item:hover h5{
-
-    color:#D4AF37;
-
-}
-
-.contact-item:hover p{
-
-    color:#ffffff;
-
-}
-
-/*=========================================
-            MAP EFFECT
-=========================================*/
-
-.map-box{
-
-    transition:.5s;
-
-}
-
-.map-box:hover{
-
-    transform:translateY(-8px);
-
-    border-color:#D4AF37;
-
-    box-shadow:
-
-    0 18px 40px rgba(0,0,0,.45),
-
-    0 0 25px rgba(212,175,55,.25);
-
-}
-
-.map-box iframe{
-
-    transition:1s;
-
-}
-
-.map-box:hover iframe{
-
-    transform:scale(1.05);
-
-}
-
-/*=========================================
-        GOLDEN SHINE EFFECT
-=========================================*/
-
-.contact-box::before,
-
-.map-box::before{
-
-    content:"";
-
-    position:absolute;
-
-    top:0;
-
-    left:-120%;
-
-    width:50%;
-
-    height:100%;
-
-    background:linear-gradient(
-
-        120deg,
-
-        transparent,
-
-        rgba(255,255,255,.15),
-
-        transparent
-
-    );
-
-    transform:skewX(-25deg);
-
-    transition:.9s;
-
-}
-
-.contact-box,
-
-.map-box{
-
-    position:relative;
-
-    overflow:hidden;
-
+.menu-card:hover .menu-image img {
+  transform: scale(1.1);
 }
 
-.contact-box:hover::before,
-
-.map-box:hover::before{
-
-    left:150%;
-
+.menu-content {
+  padding: 20px;
+  text-align: center;
 }
-
-/*=========================================
-        HEADING ANIMATION
-=========================================*/
 
-.contact-title{
-
-    position:relative;
-
-    display:inline-block;
-
+.menu-btn {
+  display: block;
+  width: 100%;
+  padding: 12px;
+  border: 1.5px solid var(--gold);
+  background: transparent;
+  color: var(--gold);
+  text-decoration: none;
+  font-size: 15px;
+  font-weight: 600;
+  border-radius: 50px;
+  transition: var(--transition);
 }
-
-.contact-title::after{
-
-    content:"";
-
-    position:absolute;
-
-    left:50%;
-
-    bottom:-10px;
-
-    transform:translateX(-50%);
-
-    width:0;
-
-    height:3px;
-
-    background:#D4AF37;
-
-    transition:.5s;
-
+
+.menu-btn:hover {
+  background: var(--gold);
+  color: #000;
+  box-shadow: 0 0 16px var(--gold-glow);
 }
-
-.contact-section:hover .contact-title::after{
-
-    width:100%;
 
+/* ==========================================================
+   CHEFS SECTION
+========================================================== */
+.chef-section {
+  background: var(--bg-dark);
+  padding: 100px 0;
 }
 
-/*=========================================
-        FLOATING LIGHT
-=========================================*/
+.chef-title {
+  color: #FFFFFF;
+  font-family: var(--font-serif);
+  font-size: 46px;
+  font-weight: 700;
+  text-align: center;
+  letter-spacing: 2px;
+  margin-bottom: 10px;
+}
+
+.chef-divider {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 14px;
+  color: var(--gold);
+  margin-bottom: 50px;
+}
+
+.chef-divider span {
+  width: 80px;
+  height: 1.5px;
+  background: var(--gold);
+}
 
-.contact-section::before{
-
-    content:"";
-
-    position:absolute;
-
-    width:280px;
-
-    height:280px;
-
-    top:-80px;
-
-    left:-120px;
-
-    border-radius:50%;
-
-    background:radial-gradient(
-
-        rgba(212,175,55,.12),
-
-        transparent 70%
-
-    );
-
-    animation:goldLight 8s linear infinite;
-
+.chef-card {
+  background: var(--bg-card);
+  border: 1.5px solid var(--border-gold);
+  border-radius: 18px;
+  overflow: hidden;
+  transition: var(--transition);
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.4);
 }
-
-.contact-section{
-
-    position:relative;
-
-    overflow:hidden;
-
+
+.chef-card:hover {
+  transform: translateY(-8px);
+  border-color: var(--gold);
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.6), 0 0 22px var(--gold-glow);
+}
+
+.chef-image {
+  height: 330px;
+  overflow: hidden;
+  background: #181818;
+}
+
+.chef-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.7s ease;
+}
+
+.chef-card:hover .chef-image img {
+  transform: scale(1.08);
+}
+
+.chef-info {
+  padding: 20px;
+  text-align: center;
+}
+
+.chef-info h4 {
+  color: #FFFFFF;
+  font-family: var(--font-serif);
+  font-size: 24px;
+  margin-bottom: 4px;
+}
+
+.chef-info p {
+  color: var(--gold);
+  font-size: 14px;
+  letter-spacing: 1px;
+  margin: 0;
+}
+
+/* ==========================================================
+   BOOK TABLE BANNER
+========================================================== */
+.booking-section {
+  position: relative;
+  width: 100%;
+  min-height: 520px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  padding: 80px 0;
+}
+
+.booking-bg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 1;
+}
+
+.booking-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    90deg,
+    rgba(10, 10, 10, 0.95) 0%,
+    rgba(10, 10, 10, 0.82) 45%,
+    rgba(10, 10, 10, 0.4) 100%
+  );
+  z-index: 2;
+}
+
+.booking-content {
+  position: relative;
+  z-index: 5;
+  max-width: 540px;
+}
+
+.booking-content h2 {
+  font-family: var(--font-serif);
+  font-size: 46px;
+  font-weight: 700;
+  color: #FFFFFF;
+  margin-bottom: 16px;
+}
+
+.booking-content p {
+  color: var(--text-muted);
+  font-size: 16px;
+  line-height: 1.8;
+  margin-bottom: 30px;
+}
+
+.booking-btn {
+  display: inline-block;
+  padding: 13px 36px;
+  border: 1.5px solid var(--gold);
+  background: var(--gold);
+  color: #000;
+  font-weight: 600;
+  font-size: 15px;
+  border-radius: 50px;
+  text-decoration: none;
+  transition: var(--transition);
+}
+
+.booking-btn:hover {
+  background: #FFFFFF;
+  border-color: #FFFFFF;
+  color: #000;
+  box-shadow: 0 0 25px rgba(255, 255, 255, 0.3);
+  transform: translateY(-3px);
+}
+
+/* ==========================================================
+   CUSTOMER REVIEWS
+========================================================== */
+.review-section {
+  background: #0D0D0D;
+  padding: 100px 0;
+}
+
+.review-title {
+  color: #FFFFFF;
+  font-family: var(--font-serif);
+  font-size: 46px;
+  font-weight: 700;
+  text-align: center;
+  letter-spacing: 2px;
+  margin-bottom: 10px;
+}
+
+.review-divider {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 14px;
+  color: var(--gold);
+  margin-bottom: 50px;
+}
+
+.review-divider span {
+  width: 80px;
+  height: 1.5px;
+  background: var(--gold);
+}
+
+.review-card {
+  background: var(--bg-card);
+  border: 1.5px solid var(--border-gold);
+  border-radius: 18px;
+  padding: 32px 26px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: var(--transition);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+}
+
+.review-card:hover {
+  transform: translateY(-8px);
+  border-color: var(--gold);
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.6), 0 0 20px var(--gold-glow);
+}
+
+.review-icon {
+  font-size: 36px;
+  color: var(--gold);
+}
+
+.review-text {
+  color: #E0E0E0;
+  font-size: 15px;
+  line-height: 1.7;
+  margin: 16px 0 24px;
+}
+
+.customer {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.customer img {
+  width: 54px;
+  height: 54px;
+  border-radius: 50%;
+  border: 2px solid var(--gold);
+  object-fit: cover;
+}
+
+.customer h5 {
+  color: #FFFFFF;
+  font-family: var(--font-serif);
+  font-size: 20px;
+  margin: 0;
+}
+
+/* ==========================================================
+   CONTACT SECTION
+========================================================== */
+.contact-section {
+  background: var(--bg-dark);
+  padding: 100px 0;
+}
+
+.contact-title {
+  color: #FFFFFF;
+  font-family: var(--font-serif);
+  font-size: 46px;
+  font-weight: 700;
+  text-align: center;
+  letter-spacing: 2px;
+  margin-bottom: 10px;
+}
+
+.contact-divider {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 14px;
+  color: var(--gold);
+  margin-bottom: 50px;
+}
+
+.contact-divider span {
+  width: 80px;
+  height: 1.5px;
+  background: var(--gold);
+}
+
+.contact-box {
+  background: var(--bg-card);
+  border: 1.5px solid var(--border-gold);
+  border-radius: 18px;
+  padding: 36px;
+  height: 100%;
+}
+
+.contact-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 18px;
+  margin-bottom: 26px;
+}
+
+.contact-item:last-child {
+  margin-bottom: 0;
+}
+
+.contact-icon {
+  width: 48px;
+  height: 48px;
+  border: 1.5px solid var(--gold);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--gold);
+  font-size: 20px;
+  flex-shrink: 0;
+}
+
+.contact-item h5 {
+  color: #FFFFFF;
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 4px;
+}
+
+.contact-item p {
+  color: var(--text-muted);
+  font-size: 14px;
+  line-height: 1.6;
+  margin: 0;
+}
+
+.map-box {
+  border-radius: 18px;
+  overflow: hidden;
+  border: 1.5px solid var(--border-gold);
+  height: 400px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+}
+
+.map-box iframe {
+  width: 100%;
+  height: 100%;
+  border: 0;
 }

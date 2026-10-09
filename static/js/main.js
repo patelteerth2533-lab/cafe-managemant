@@ -68,9 +68,10 @@
 
             var level = val.length === 0 ? levels[0] : levels[score];
 
-            strengthBar.style.width = level.width;
-            strengthBar.style.background = level.color;
+            strengthBar.style.setProperty("--strength-width", level.width);
+            strengthBar.style.setProperty("--strength-color", level.color);
             strengthText.textContent = level.text;
+            strengthText.style.color = level.color;
         });
     }
 
