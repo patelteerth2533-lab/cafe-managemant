@@ -90,7 +90,7 @@ body{background:#111;color:#fff}
               <span class="badge bg-warning text-dark">{{ pay.status }}</span>
               {% endif %}
             </td>
-            <td>{{ pay.created_at|date:"d M Y, h:i A" }}</td>
+            <td>{{ pay.paid_at|date:"d M Y, h:i A" }}</td>
           </tr>
           {% empty %}
           <tr>

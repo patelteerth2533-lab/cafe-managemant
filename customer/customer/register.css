@@ -1,0 +1,719 @@
+/*=========================================
+        BETHAK CAFE REGISTER PAGE
+=========================================*/
+
+/* Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600;700&family=Poppins:wght@300;400;500;600;700&display=swap');
+
+/*=========================
+        ROOT
+=========================*/
+
+:root{
+
+    --gold:#D4AF37;
+    --gold-dark:#b8860b;
+    --black:#0d0d0d;
+    --card:rgba(20,20,20,.78);
+    --white:#ffffff;
+    --text:#d7d7d7;
+
+}
+
+/*=========================
+        RESET
+=========================*/
+
+*{
+
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+
+}
+
+html{
+
+    scroll-behavior:smooth;
+
+}
+
+/*=========================
+        BODY
+=========================*/
+
+body{
+
+    font-family:'Poppins',sans-serif;
+
+    background:url("../image/login-bg.jpg") center center/cover no-repeat;
+
+    min-height:100vh;
+
+    overflow-x:hidden;
+
+    position:relative;
+
+    color:var(--white);
+
+}
+
+/*=========================
+        BACKGROUND OVERLAY
+=========================*/
+
+.bg-overlay{
+
+    position:fixed;
+
+    top:0;
+    left:0;
+
+    width:100%;
+    height:100%;
+
+    background:rgba(0,0,0,.75);
+
+    z-index:0;
+
+}
+
+/*=========================
+        REGISTER SECTION
+=========================*/
+
+.register-section{
+
+    position:relative;
+
+    z-index:2;
+
+    padding:60px 0;
+
+}
+
+/*=========================
+        REGISTER CARD
+=========================*/
+
+.register-card{
+
+    position:relative;
+
+    background:var(--card);
+
+    backdrop-filter:blur(18px);
+
+    -webkit-backdrop-filter:blur(18px);
+
+    border:1px solid rgba(212,175,55,.25);
+
+    border-radius:25px;
+
+    padding:45px;
+
+    overflow:hidden;
+
+    box-shadow:
+
+    0 0 30px rgba(212,175,55,.12),
+
+    0 20px 40px rgba(0,0,0,.45);
+
+}
+
+/*=========================
+        LOGO
+=========================*/
+
+.logo{
+
+    width:140px;
+
+    margin-bottom:18px;
+
+    user-select:none;
+
+}
+
+/*=========================
+        TITLE
+=========================*/
+
+.register-card h2{
+
+    font-family:'Cormorant Garamond',serif;
+
+    color:var(--gold);
+
+    font-size:42px;
+
+    font-weight:700;
+
+    margin-bottom:10px;
+
+    letter-spacing:1px;
+
+}
+
+.register-card p{
+
+    color:var(--text);
+
+    font-size:15px;
+
+    margin-bottom:35px;
+
+    line-height:1.8;
+
+}
+
+/*=========================================
+        INPUT BOX
+=========================================*/
+
+.input-box{
+
+    width:100%;
+    height:58px;
+    position:relative;
+    margin-bottom:25px;
+
+}
+
+.input-box input{
+
+    width:100%;
+    height:100%;
+
+    background:#111;
+
+    border:1px solid rgba(255,255,255,.12);
+
+    border-radius:50px;
+
+    outline:none;
+
+    color:#fff;
+
+    padding:0 55px;
+
+    font-size:15px;
+
+    transition:.4s ease;
+
+}
+
+.input-box input::placeholder{
+
+    color:#999;
+
+}
+
+.input-box input:focus{
+
+    border-color:var(--gold);
+
+    box-shadow:0 0 18px rgba(212,175,55,.25);
+
+    background:#181818;
+
+}
+
+/*=========================================
+        INPUT ICON
+=========================================*/
+
+.input-box i{
+
+    position:absolute;
+
+    left:22px;
+
+    top:50%;
+
+    transform:translateY(-50%);
+
+    color:var(--gold);
+
+    font-size:18px;
+
+}
+
+/*=========================================
+        PASSWORD BOX
+=========================================*/
+
+.password-box{
+
+    position:relative;
+
+}
+
+.toggle-password{
+
+    position:absolute;
+
+    right:22px;
+
+    top:50%;
+
+    transform:translateY(-50%);
+
+    color:var(--gold);
+
+    cursor:pointer;
+
+    font-size:18px;
+
+    transition:.3s;
+
+}
+
+.toggle-password:hover{
+
+    color:#FFD700;
+
+}
+
+/*=========================================
+        PASSWORD STRENGTH
+=========================================*/
+
+.password-strength{
+
+    width:100%;
+
+    height:6px;
+
+    background:#2b2b2b;
+
+    border-radius:30px;
+
+    overflow:hidden;
+
+    margin-top:-10px;
+
+    margin-bottom:10px;
+
+}
+
+.strength-bar{
+
+    width:35%;
+
+    height:100%;
+
+    background:#ff3b3b;
+
+    border-radius:30px;
+
+    transition:.5s;
+
+}
+
+.strength-text{
+
+    display:block;
+
+    color:#cfcfcf;
+
+    font-size:13px;
+
+    margin-bottom:25px;
+
+}
+
+/*=========================================
+        TERMS
+=========================================*/
+
+.terms-area{
+
+    margin-bottom:30px;
+
+}
+
+.terms-area label{
+
+    color:#d7d7d7;
+
+    font-size:14px;
+
+    user-select:none;
+
+}
+
+.terms-area input{
+
+    accent-color:var(--gold);
+
+    margin-right:8px;
+
+}
+
+.terms-area a{
+
+    color:var(--gold);
+
+    text-decoration:none;
+
+    transition:.3s;
+
+}
+
+.terms-area a:hover{
+
+    color:#fff;
+
+}
+
+/*=========================================
+        REGISTER BUTTON
+=========================================*/
+
+.register-btn{
+
+    width:100%;
+
+    height:58px;
+
+    border:none;
+
+    border-radius:50px;
+
+    background:linear-gradient(45deg,#D4AF37,#f7d774);
+
+    color:#111;
+
+    font-size:16px;
+
+    font-weight:600;
+
+    letter-spacing:.5px;
+
+    cursor:pointer;
+
+    transition:.4s;
+
+}
+
+.register-btn i{
+
+    margin-left:8px;
+
+}
+
+.register-btn:hover{
+
+    background:linear-gradient(45deg,#f7d774,#D4AF37);
+
+    transform:translateY(-3px);
+
+    box-shadow:0 10px 25px rgba(212,175,55,.35);
+
+}
+
+.register-btn:active{
+
+    transform:scale(.98);
+
+}
+
+/*=========================================
+        DIVIDER
+=========================================*/
+
+.divider{
+
+    display:flex;
+
+    align-items:center;
+
+    margin:35px 0;
+
+}
+
+.divider span{
+
+    flex:1;
+
+    height:1px;
+
+    background:rgba(255,255,255,.15);
+
+}
+
+.divider p{
+
+    margin:0 15px;
+
+    color:#bfbfbf;
+
+    font-size:13px;
+
+    letter-spacing:1px;
+
+    white-space:nowrap;
+
+}
+
+/*=========================================
+        SOCIAL LOGIN
+=========================================*/
+
+.social-login{
+
+    display:flex;
+
+    gap:15px;
+
+    margin-bottom:30px;
+
+}
+
+.social-login a{
+
+    flex:1;
+
+    height:55px;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    gap:10px;
+
+    text-decoration:none;
+
+    border-radius:50px;
+
+    border:1px solid rgba(255,255,255,.12);
+
+    background:#111;
+
+    color:#fff;
+
+    transition:.4s;
+
+}
+
+.social-login a i{
+
+    font-size:20px;
+
+}
+
+.social-login a:hover{
+
+    background:var(--gold);
+
+    color:#111;
+
+    border-color:var(--gold);
+
+    box-shadow:0 10px 25px rgba(212,175,55,.35);
+
+}
+
+.google:hover{
+
+    background:#ffffff;
+
+    color:#111;
+
+}
+
+.github:hover{
+
+    background:#D4AF37;
+
+    color:#111;
+
+}
+
+/*=========================================
+        LOGIN LINK
+=========================================*/
+
+.login-link{
+
+    text-align:center;
+
+    color:#d7d7d7;
+
+    margin-bottom:20px;
+
+    font-size:15px;
+
+}
+
+.login-link a{
+
+    color:var(--gold);
+
+    text-decoration:none;
+
+    font-weight:600;
+
+    margin-left:5px;
+
+    transition:.3s;
+
+}
+
+.login-link a:hover{
+
+    color:#fff;
+
+}
+
+/*=========================================
+        BACK HOME
+=========================================*/
+
+.back-home{
+
+    text-align:center;
+
+}
+
+.back-home a{
+
+    text-decoration:none;
+
+    color:#fff;
+
+    transition:.3s;
+
+    font-size:15px;
+
+}
+
+.back-home a i{
+
+    margin-right:8px;
+
+}
+
+.back-home a:hover{
+
+    color:var(--gold);
+
+}
+
+/*=========================================
+        RESPONSIVE
+=========================================*/
+
+@media(max-width:991px){
+
+.register-card{
+
+padding:40px 30px;
+
+}
+
+}
+
+@media(max-width:768px){
+
+.register-section{
+
+padding:40px 15px;
+
+}
+
+.register-card{
+
+padding:35px 25px;
+
+}
+
+.register-card h2{
+
+font-size:34px;
+
+}
+
+.logo{
+
+width:120px;
+
+}
+
+.social-login{
+
+flex-direction:column;
+
+}
+
+}
+
+@media(max-width:576px){
+
+.register-card{
+
+padding:30px 20px;
+
+border-radius:18px;
+
+}
+
+.register-card h2{
+
+font-size:30px;
+
+}
+
+.register-card p{
+
+font-size:14px;
+
+}
+
+.input-box{
+
+height:52px;
+
+}
+
+.input-box input{
+
+font-size:14px;
+
+padding:0 50px;
+
+}
+
+.register-btn{
+
+height:52px;
+
+font-size:15px;
+
+}
+
+.social-login a{
+
+height:50px;
+
+font-size:14px;
+
+}
+
+.login-link{
+
+font-size:14px;
+
+}
+
+.back-home a{
+
+font-size:14px;
+
+}
+
+}

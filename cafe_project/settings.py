@@ -21,12 +21,12 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/6.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-^p&%b$9ni91(w2-(slkf)fri-(pahmn!0annkat)2t(vhfc1n9'
+SECRET_KEY = os.environ.get('SECRET_KEY', 'django-insecure-^p&%b$9ni91(w2-(slkf)fri-(pahmn!0annkat)2t(vhfc1n9')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = os.environ.get('DEBUG', 'True').lower() in ('true', '1', 'yes')
 
-ALLOWED_HOSTS = ['*', 'localhost', '127.0.0.1', 'testserver']
+ALLOWED_HOSTS = os.environ.get('ALLOWED_HOSTS', '*,localhost,127.0.0.1,testserver').split(',')
 
 
 # Application definition
@@ -127,10 +127,14 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/6.1/howto/static-files/
 
-STATIC_URL = 'static/'
+STATIC_URL = '/static/'
 STATICFILES_DIRS = [
     BASE_DIR / 'static',
 ]
+STATIC_ROOT = BASE_DIR / 'staticfiles'
+
+MEDIA_URL = 'media/'
+MEDIA_ROOT = BASE_DIR / 'media'
 
 # Email
 # https://docs.djangoproject.com/en/6.1/topics/email/#topic-email-configuration

@@ -102,7 +102,7 @@ body{background:#111;color:#fff}
             </td>
             <td>
               {% for itm in b.items.all %}
-              <span class="item-pill">{{ itm.menu_item.name }} x{{ itm.quantity }}</span>
+              <span class="item-pill">{{ itm.item_name }} x{{ itm.quantity }}</span>
               {% empty %}
               <span class="text-muted">Standard booking</span>
               {% endfor %}

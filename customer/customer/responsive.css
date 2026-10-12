@@ -1,0 +1,393 @@
+/*=========================================
+      RESPONSIVE
+=========================================*/
+
+@media(max-width:991px){
+
+.about-gallery{
+
+    height:auto;
+
+}
+
+.gallery-item{
+
+    height:300px;
+
+}
+
+}
+
+@media(max-width:576px){
+
+.gallery-item{
+
+    height:230px;
+
+}
+
+.image-overlay h4{
+
+    font-size:22px;
+
+}
+
+}
+
+/*=========================================
+          RESPONSIVE
+=========================================*/
+
+@media(max-width:991px){
+
+.service-box{
+
+    border-right:none;
+
+    border-bottom:1px solid rgba(212,175,55,.25);
+
+}
+
+.service-heading{
+
+    font-size:40px;
+
+}
+
+}
+
+@media(max-width:576px){
+
+.services-section{
+
+    padding:60px 0;
+
+}
+
+.service-heading{
+
+    font-size:32px;
+
+}
+
+.service-icon{
+
+    font-size:45px;
+
+}
+
+.service-box{
+
+    padding:30px 15px;
+
+}
+
+}
+
+/*=========================================
+      RESPONSIVE IMPROVEMENT
+=========================================*/
+
+@media(max-width:768px){
+
+.service-box{
+
+    margin-bottom:20px;
+
+    border-right:none;
+
+}
+
+.service-row{
+
+    border:none;
+
+}
+
+}
+
+/*=========================================
+          RESPONSIVE
+=========================================*/
+
+@media(max-width:991px){
+
+.menu-image{
+
+    height:220px;
+
+}
+
+}
+
+@media(max-width:576px){
+
+.menu-title{
+
+    font-size:36px;
+
+}
+
+.menu-image{
+
+    height:200px;
+
+}
+
+.menu-btn{
+
+    font-size:15px;
+
+}
+
+}
+
+/*=========================================
+        MOBILE
+=========================================*/
+
+@media(max-width:768px){
+
+.menu-card{
+
+    animation:none;
+
+    margin-bottom:20px;
+
+}
+
+}
+
+/*=========================================
+            RESPONSIVE
+=========================================*/
+
+@media(max-width:991px){
+
+.chef-image{
+
+    height:300px;
+
+}
+
+}
+
+@media(max-width:576px){
+
+.chef-title{
+
+    font-size:36px;
+
+}
+
+.chef-image{
+
+    height:260px;
+
+}
+
+}
+
+/*=========================================
+        MOBILE
+=========================================*/
+
+@media(max-width:768px){
+
+    .chef-card{
+
+        animation:none;
+
+    }
+
+}
+
+/*==============================
+      Mobile
+==============================*/
+
+@media(max-width:768px){
+
+.booking-section::before{
+
+    display:none;
+
+}
+
+.booking-content{
+
+    text-align:center;
+
+}
+
+.booking-btn{
+
+    display:inline-block;
+
+}
+
+}
+
+/*=========================================
+            RESPONSIVE
+=========================================*/
+
+@media(max-width:991px){
+
+.review-card{
+
+    margin-bottom:20px;
+
+}
+
+}
+
+@media(max-width:576px){
+
+.review-title{
+
+    font-size:34px;
+
+}
+
+.review-card{
+
+    padding:22px;
+
+}
+
+.review-text{
+
+    font-size:15px;
+
+    line-height:26px;
+
+}
+
+.customer img{
+
+    width:55px;
+
+    height:55px;
+
+}
+
+.customer h5{
+
+    font-size:18px;
+
+}
+
+}
+
+/*==============================
+      Mobile
+==============================*/
+
+@media(max-width:768px){
+
+.review-card{
+
+    animation:none;
+
+}
+
+}
+
+/*=========================================
+          RESPONSIVE
+=========================================*/
+
+@media(max-width:991px){
+
+.contact-box{
+
+    margin-bottom:30px;
+
+}
+
+.map-box{
+
+    height:350px;
+
+}
+
+}
+
+@media(max-width:576px){
+
+.contact-title{
+
+    font-size:34px;
+
+}
+
+.contact-box{
+
+    padding:25px;
+
+}
+
+.contact-icon{
+
+    width:45px;
+
+    height:45px;
+
+    font-size:18px;
+
+}
+
+.contact-item h5{
+
+    font-size:18px;
+
+}
+
+.contact-item p{
+
+    font-size:14px;
+
+    line-height:24px;
+
+}
+
+.map-box{
+
+    height:280px;
+
+}
+
+}
+
+/*=========================================
+        MOBILE
+=========================================*/
+
+@media(max-width:768px){
+
+.contact-section::before{
+
+    display:none;
+
+}
+
+.contact-item:hover{
+
+    transform:none;
+
+}
+
+.map-box:hover{
+
+    transform:none;
+
+}
+
+.contact-box:hover{
+
+    transform:none;
+
+}
+
+}

@@ -1,0 +1,117 @@
+/* ==========================================
+   Bethak Cafe Admin - Responsive Styles
+   ========================================== */
+
+/* Large tablets */
+@media (max-width: 1200px){
+  .main-container{
+    padding:20px;
+  }
+}
+
+/* Tablets */
+@media (max-width: 992px){
+
+  .sidebar{
+    width:220px;
+  }
+
+  .content{
+    margin-left:220px;
+  }
+
+  .page-title{
+    font-size:22px;
+  }
+
+  .card{
+    margin-bottom:20px;
+  }
+
+  .table-responsive{
+    overflow-x:auto;
+  }
+}
+
+/* Mobile */
+@media (max-width: 768px){
+
+  .sidebar{
+    position:fixed;
+    left:-240px;
+    top:0;
+    width:240px;
+    height:100vh;
+    z-index:1050;
+    transition:left .3s ease;
+  }
+
+  .sidebar.show{
+    left:0;
+  }
+
+  .content{
+    margin-left:0;
+    width:100%;
+  }
+
+  .topbar{
+    padding:12px 15px;
+  }
+
+  .page-title{
+    font-size:20px;
+  }
+
+  .main-container{
+    padding:15px;
+  }
+
+  .card{
+    margin-bottom:15px;
+  }
+
+  .table{
+    min-width:700px;
+  }
+
+  .btn,
+  .btn-gold{
+    width:100%;
+    margin-bottom:10px;
+  }
+
+  .form-control,
+  .form-select{
+    margin-bottom:12px;
+  }
+
+  .avatar{
+    width:90px;
+    height:90px;
+  }
+}
+
+/* Small phones */
+@media (max-width: 576px){
+
+  .brand{
+    font-size:20px;
+  }
+
+  .page-title{
+    font-size:18px;
+  }
+
+  .card{
+    border-radius:10px;
+  }
+
+  .topbar{
+    text-align:center;
+  }
+
+  .footer{
+    font-size:14px;
+  }
+}

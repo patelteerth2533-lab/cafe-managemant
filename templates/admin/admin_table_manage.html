@@ -142,7 +142,7 @@ body{background:#111;color:#fff}
   document.querySelectorAll('.toggle-table-btn').forEach(btn => {
     btn.addEventListener('click', function() {
       const tableId = this.dataset.id;
-      fetch(`/admin-panel/api/toggle-table/${tableId}/`, {
+      fetch("{% url 'admin_toggle_table' 0 %}".replace('/0/', '/' + tableId + '/'), {
         method: 'POST',
         headers: {
           'X-CSRFToken': '{{ csrf_token }}'
@@ -167,7 +167,7 @@ body{background:#111;color:#fff}
     formData.append('status', document.getElementById('newTableStatus').value);
     formData.append('csrfmiddlewaretoken', '{{ csrf_token }}');
 
-    fetch('/admin-panel/api/add-table/', {
+    fetch("{% url 'admin_add_table' %}", {
       method: 'POST',
       body: formData
     })

@@ -207,6 +207,7 @@
 
     var cart = BethakCart.getCart();
     if (!cart.length) return;
+    var orderTotal = BethakCart.getCartTotal();
 
     var name = document.getElementById("custName").value.trim();
     var phone = document.getElementById("custPhone").value.trim();
@@ -227,10 +228,15 @@
     orderBtn.disabled = true;
     orderBtn.innerHTML = '<span class="spinner-border spinner-border-sm"></span> Processing Order...';
 
+    var csrfToken = (document.cookie.split(';')
+      .map(function(c){ return c.trim(); })
+      .filter(function(c){ return c.startsWith('csrftoken='); })[0] || '=').split('=')[1] || '{{ csrf_token }}';
+
     fetch("{% url 'api_create_order' %}", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
+        "X-CSRFToken": csrfToken,
       },
       body: JSON.stringify({
         name: name,
@@ -259,7 +265,7 @@
         date: date,
         time: time,
         items: cart,
-        total: total,
+        total: orderTotal,
         paymentMethod: paymentMethod,
         status: "Confirmed",
         createdAt: new Date().toISOString()
@@ -293,7 +299,7 @@
         date: date,
         time: time,
         items: cart,
-        total: total,
+        total: orderTotal,
         paymentMethod: paymentMethod,
         status: "Confirmed",
         createdAt: new Date().toISOString()

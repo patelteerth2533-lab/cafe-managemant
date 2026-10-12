@@ -80,6 +80,7 @@ class Reservation(models.Model):
         ("Approved", "Approved"),
         ("Completed", "Completed"),
         ("Cancelled", "Cancelled"),
+        ("Rejected", "Rejected"),
     )
 
     customer = models.ForeignKey(
@@ -165,6 +166,10 @@ class OrderItem(models.Model):
     quantity = models.PositiveIntegerField(default=1)
 
     def total_price(self):
+        return self.price * self.quantity
+
+    @property
+    def subtotal(self):
         return self.price * self.quantity
 
     def __str__(self):

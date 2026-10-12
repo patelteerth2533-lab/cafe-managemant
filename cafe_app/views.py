@@ -490,6 +490,9 @@ def admin_editmenu(request, item_id):
         stock_val = request.POST.get("stock")
         if stock_val:
             item.stock = int(stock_val)
+        img_url = request.POST.get("image_url")
+        if img_url:
+            item.image_url = img_url.strip()
         item.description = request.POST.get("description", item.description)
         item.is_available = (request.POST.get("status") == "Available")
         item.save()

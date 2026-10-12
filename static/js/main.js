@@ -84,6 +84,8 @@
     var confirmBtn = document.querySelector(".confirm-table-btn");
     var chosenTable = null;
 
+    var hiddenSelectedTable = document.getElementById("hiddenSelectedTable");
+
     if (tableCards.length) {
         tableCards.forEach(function (card) {
             card.addEventListener("click", function () {
@@ -96,6 +98,9 @@
                 // mark this one selected
                 card.classList.add("active");
                 chosenTable = card.getAttribute("data-table");
+                if (hiddenSelectedTable) {
+                    hiddenSelectedTable.value = chosenTable;
+                }
             });
         });
     }
@@ -104,6 +109,9 @@
         confirmBtn.addEventListener("click", function () {
             if (selectedTableSpan) {
                 selectedTableSpan.textContent = chosenTable ? chosenTable : "None";
+            }
+            if (hiddenSelectedTable) {
+                hiddenSelectedTable.value = chosenTable || "";
             }
         });
     }

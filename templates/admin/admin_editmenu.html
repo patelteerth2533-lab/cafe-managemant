@@ -94,6 +94,10 @@ body{background:#111;color:#fff}
           </div>
         </div>
         <div class='mb-3'>
+          <label class="form-label">Static Image Asset (relative path)</label>
+          <input type="text" name="image_url" class='form-control bg-dark text-white border-secondary' value='{{ item.image_url }}'>
+        </div>
+        <div class='mb-3'>
           <label class="form-label">Description</label>
           <textarea name="description" class='form-control bg-dark text-white border-secondary' rows='3'>{{ item.description }}</textarea>
         </div>

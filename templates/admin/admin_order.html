@@ -107,7 +107,7 @@ body{background:#111;color:#fff}
             <td>
               <ul class="list-unstyled mb-0 small">
                 {% for item in order.items.all %}
-                <li>{{ item.menu_item.name }} <span class="text-muted">x{{ item.quantity }}</span> (₹{{ item.subtotal }})</li>
+                <li>{{ item.item_name }} <span class="text-muted">x{{ item.quantity }}</span> (₹{{ item.subtotal }})</li>
                 {% empty %}
                 <li class="text-muted">No items</li>
                 {% endfor %}
