@@ -246,6 +246,9 @@ def reservation(request):
         table_obj = None
         if table_no and table_no != "None":
             table_obj = CafeTable.objects.filter(table_number__iexact=table_no).first()
+        if not table_obj:
+            # Auto-assign first available table of requested type, or any available table
+            table_obj = CafeTable.objects.filter(status="available", table_type__iexact=table_type).first() or CafeTable.objects.filter(status="available").first()
 
         res = Reservation.objects.create(
             customer=customer_profile,

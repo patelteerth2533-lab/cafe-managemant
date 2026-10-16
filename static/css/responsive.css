@@ -1,393 +1,924 @@
-/*=========================================
-      RESPONSIVE
-=========================================*/
+/* ==========================================================
+   BETHAK CAFE — MASTER RESPONSIVE STYLESHEET
+   Comprehensive mobile, tablet, and desktop layout & button fixes
+   for Home, Menu, Cart, Reservation, Login, Register, & Forgot Password
+   ========================================================== */
 
-@media(max-width:991px){
-
-.about-gallery{
-
-    height:auto;
-
+/* ==========================================================
+   0. GLOBAL FIXES & TOUCH TARGETS
+   ========================================================== */
+html, body {
+  max-width: 100%;
+  overflow-x: hidden;
 }
 
-.gallery-item{
-
-    height:300px;
-
+img {
+  max-width: 100%;
+  height: auto;
 }
 
+/* Ensure mobile form inputs don't trigger iOS auto-zoom */
+@media (max-width: 768px) {
+  input[type="text"],
+  input[type="email"],
+  input[type="password"],
+  input[type="tel"],
+  input[type="date"],
+  input[type="time"],
+  select,
+  textarea {
+    font-size: 16px !important;
+  }
 }
 
-@media(max-width:576px){
+/* ==========================================================
+   1. NAVBAR & MOBILE HAMBURGER MENU (Home Page)
+   ========================================================== */
+@media (max-width: 991px) {
+  .navbar {
+    padding: 12px 0;
+    background: rgba(10, 10, 10, 0.95) !important;
+    backdrop-filter: blur(12px);
+  }
 
-.gallery-item{
+  .navbar-brand img {
+    width: 115px;
+    height: auto;
+  }
 
-    height:230px;
+  /* Hamburger toggler luxury button */
+  .navbar-toggler {
+    border: 1.5px solid #D4AF37 !important;
+    padding: 6px 10px;
+    border-radius: 8px;
+    background: rgba(212, 175, 55, 0.12) !important;
+    outline: none !important;
+    box-shadow: none !important;
+  }
 
+  .navbar-toggler:focus {
+    box-shadow: 0 0 10px rgba(212, 175, 55, 0.4) !important;
+  }
+
+  /* Collapsed mobile drawer */
+  .navbar-collapse {
+    background: rgba(14, 14, 14, 0.98);
+    backdrop-filter: blur(16px);
+    border: 1px solid rgba(212, 175, 55, 0.25);
+    border-radius: 16px;
+    padding: 20px 18px;
+    margin-top: 14px;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.85);
+    max-height: 82vh;
+    overflow-y: auto;
+  }
+
+  .navbar-nav .nav-link {
+    font-size: 16px;
+    padding: 10px 14px;
+    margin: 2px 0;
+    border-radius: 8px;
+    transition: all 0.25s ease;
+  }
+
+  .navbar-nav .nav-link:hover,
+  .navbar-nav .nav-link.active {
+    background: rgba(212, 175, 55, 0.12);
+    color: #D4AF37 !important;
+  }
+
+  /* Stacked mobile auth & reservation buttons */
+  .nav-auth-buttons {
+    flex-direction: column !important;
+    width: 100%;
+    gap: 10px !important;
+    margin-top: 15px !important;
+    padding-top: 15px;
+    border-top: 1px solid rgba(212, 175, 55, 0.25);
+  }
+
+  .nav-auth-buttons .booktable-btn,
+  .nav-auth-buttons .login-btn,
+  .nav-auth-buttons .btn {
+    width: 100% !important;
+    margin: 0 !important;
+    text-align: center;
+    justify-content: center;
+    display: flex;
+    align-items: center;
+    min-height: 44px;
+    font-size: 14px;
+    border-radius: 30px;
+  }
 }
 
-.image-overlay h4{
-
-    font-size:22px;
-
+@media (max-width: 576px) {
+  .navbar-brand img {
+    width: 95px;
+  }
 }
 
+/* ==========================================================
+   2. HERO SLIDER & CALL-TO-ACTION BUTTONS (Home Page)
+   ========================================================== */
+@media (max-width: 991px) {
+  .carousel,
+  .carousel-item {
+    height: auto;
+    min-height: 80vh;
+  }
+
+  .carousel-item img {
+    height: 80vh;
+    object-fit: cover;
+  }
+
+  .hero-content h1 {
+    font-size: 52px;
+    line-height: 60px;
+  }
+
+  .hero-content h3 {
+    font-size: 22px;
+  }
+
+  .hero-content h5 {
+    font-size: 18px;
+    letter-spacing: 2px;
+  }
+
+  .hero-content p {
+    font-size: 16px;
+    line-height: 28px;
+  }
+
+  .order-btn,
+  .video-btn {
+    padding: 12px 24px;
+    font-size: 14px;
+  }
 }
 
-/*=========================================
-          RESPONSIVE
-=========================================*/
+@media (max-width: 768px) {
+  .carousel,
+  .carousel-item {
+    min-height: 75vh;
+  }
 
-@media(max-width:991px){
+  .carousel-item img {
+    height: 75vh;
+  }
 
-.service-box{
+  .hero-content h1 {
+    font-size: 38px;
+    line-height: 46px;
+    margin-bottom: 12px;
+  }
 
-    border-right:none;
+  .hero-content h3 {
+    font-size: 18px;
+    margin-bottom: 14px;
+  }
 
-    border-bottom:1px solid rgba(212,175,55,.25);
+  .hero-content h5 {
+    font-size: 14px;
+    letter-spacing: 1.5px;
+    margin-bottom: 8px;
+  }
 
+  .hero-content p {
+    font-size: 14px;
+    line-height: 24px;
+    margin-bottom: 20px;
+  }
+
+  .hero-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 15px;
+  }
+
+  .hero-buttons .order-btn,
+  .hero-buttons .video-btn {
+    margin-left: 0 !important;
+    padding: 12px 22px;
+    font-size: 14px;
+    min-height: 44px;
+  }
 }
 
-.service-heading{
+@media (max-width: 576px) {
+  .carousel,
+  .carousel-item {
+    min-height: 70vh;
+  }
 
-    font-size:40px;
+  .carousel-item img {
+    height: 70vh;
+  }
 
+  .hero-content h1 {
+    font-size: 28px;
+    line-height: 36px;
+  }
+
+  .hero-content h3 {
+    font-size: 15px;
+  }
+
+  .hero-content h5 {
+    font-size: 12px;
+  }
+
+  .hero-content p {
+    font-size: 13px;
+    line-height: 22px;
+    margin-bottom: 16px;
+  }
+
+  /* Full-width clean CTA buttons on narrow mobile */
+  .hero-buttons {
+    width: 100%;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 10px;
+  }
+
+  .hero-buttons .order-btn,
+  .hero-buttons .video-btn {
+    width: 100%;
+    justify-content: center;
+    text-align: center;
+    padding: 12px 18px;
+    font-size: 14px;
+    margin-left: 0 !important;
+  }
+
+  /* Hide huge carousel arrows on narrow phones to avoid tapping conflict */
+  .carousel-control-prev,
+  .carousel-control-next {
+    display: none !important;
+  }
 }
 
+/* ==========================================================
+   3. ABOUT SECTION (Home Page)
+   ========================================================== */
+@media (max-width: 991px) {
+  .about-gallery {
+    height: auto !important;
+  }
+
+  .gallery-item {
+    height: 280px;
+  }
+
+  .about-card {
+    height: auto !important;
+    padding: 35px 25px;
+  }
+
+  .about-title {
+    font-size: 36px;
+  }
 }
 
-@media(max-width:576px){
+@media (max-width: 576px) {
+  .gallery-item {
+    height: 220px;
+  }
 
-.services-section{
+  .image-overlay h4 {
+    font-size: 20px;
+  }
 
-    padding:60px 0;
+  .about-card {
+    padding: 26px 18px;
+  }
 
+  .about-title {
+    font-size: 28px;
+  }
+
+  .about-card p {
+    font-size: 14px;
+    line-height: 24px;
+  }
+
+  .about-btn {
+    border-radius: 40px !important;
+    padding: 12px 26px !important;
+    font-size: 14px !important;
+    font-weight: 600;
+    min-height: 44px;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+  }
 }
 
-.service-heading{
+/* ==========================================================
+   4. SERVICES SECTION (Home Page)
+   ========================================================== */
+@media (max-width: 991px) {
+  .service-box {
+    border-right: none !important;
+    border-bottom: 1px solid rgba(212, 175, 55, 0.25);
+  }
 
-    font-size:32px;
-
+  .service-heading {
+    font-size: 38px;
+  }
 }
 
-.service-icon{
+@media (max-width: 768px) {
+  .service-box {
+    margin-bottom: 18px;
+    border-right: none !important;
+  }
 
-    font-size:45px;
-
+  .service-row {
+    border: none !important;
+  }
 }
 
-.service-box{
+@media (max-width: 576px) {
+  .services-section {
+    padding: 50px 0;
+  }
 
-    padding:30px 15px;
+  .service-heading {
+    font-size: 28px;
+  }
 
+  .service-icon {
+    font-size: 40px;
+  }
+
+  .service-box {
+    padding: 25px 15px;
+  }
 }
 
+/* ==========================================================
+   5. MENU PREVIEW SECTION (Home Page)
+   ========================================================== */
+@media (max-width: 991px) {
+  .menu-image {
+    height: 220px;
+  }
 }
 
-/*=========================================
-      RESPONSIVE IMPROVEMENT
-=========================================*/
-
-@media(max-width:768px){
-
-.service-box{
-
-    margin-bottom:20px;
-
-    border-right:none;
-
+@media (max-width: 768px) {
+  .menu-card {
+    animation: none !important;
+    margin-bottom: 16px;
+  }
 }
 
-.service-row{
+@media (max-width: 576px) {
+  .menu-title {
+    font-size: 30px;
+  }
 
-    border:none;
+  .menu-image {
+    height: 180px;
+  }
 
+  .menu-btn {
+    font-size: 14px !important;
+    padding: 10px 16px !important;
+    border-radius: 30px !important;
+    min-height: 42px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
 }
 
+/* ==========================================================
+   6. CHEFS SECTION (Home Page)
+   ========================================================== */
+@media (max-width: 991px) {
+  .chef-image {
+    height: 300px;
+  }
 }
 
-/*=========================================
-          RESPONSIVE
-=========================================*/
-
-@media(max-width:991px){
-
-.menu-image{
-
-    height:220px;
-
+@media (max-width: 768px) {
+  .chef-card {
+    animation: none !important;
+    margin-bottom: 18px;
+  }
 }
 
+@media (max-width: 576px) {
+  .chef-title {
+    font-size: 30px;
+  }
+
+  .chef-image {
+    height: 240px;
+  }
 }
 
-@media(max-width:576px){
+/* ==========================================================
+   7. BOOKING / EXPERIENCE SECTION (Home Page)
+   ========================================================== */
+@media (max-width: 768px) {
+  .booking-section::before {
+    display: none;
+  }
 
-.menu-title{
+  .booking-content {
+    text-align: center;
+  }
 
-    font-size:36px;
+  .booking-title,
+  .booking-content h2 {
+    font-size: 32px;
+  }
 
+  .booking-btn {
+    display: inline-block;
+  }
 }
 
-.menu-image{
+@media (max-width: 576px) {
+  .booking-title,
+  .booking-content h2 {
+    font-size: 26px;
+  }
 
-    height:200px;
-
+  .booking-btn {
+    padding: 12px 26px !important;
+    font-size: 14px !important;
+    border-radius: 40px !important;
+    min-height: 44px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
 }
 
-.menu-btn{
-
-    font-size:15px;
-
+/* ==========================================================
+   8. REVIEWS & TESTIMONIALS (Home Page)
+   ========================================================== */
+@media (max-width: 991px) {
+  .review-card {
+    margin-bottom: 18px;
+  }
 }
 
+@media (max-width: 768px) {
+  .review-card {
+    animation: none !important;
+  }
 }
 
-/*=========================================
-        MOBILE
-=========================================*/
+@media (max-width: 576px) {
+  .review-title {
+    font-size: 28px;
+  }
 
-@media(max-width:768px){
+  .review-card {
+    padding: 20px 16px;
+  }
 
-.menu-card{
+  .review-text {
+    font-size: 14px;
+    line-height: 24px;
+  }
 
-    animation:none;
+  .customer img {
+    width: 48px;
+    height: 48px;
+  }
 
-    margin-bottom:20px;
-
+  .customer h5 {
+    font-size: 16px;
+  }
 }
 
+/* ==========================================================
+   9. CONTACT SECTION & FOOTER (Home Page)
+   ========================================================== */
+@media (max-width: 991px) {
+  .contact-box {
+    margin-bottom: 25px;
+  }
+
+  .map-box {
+    height: 320px;
+  }
 }
 
-/*=========================================
-            RESPONSIVE
-=========================================*/
+@media (max-width: 768px) {
+  .contact-section::before {
+    display: none;
+  }
 
-@media(max-width:991px){
-
-.chef-image{
-
-    height:300px;
-
+  .contact-item:hover,
+  .map-box:hover,
+  .contact-box:hover {
+    transform: none !important;
+  }
 }
 
+@media (max-width: 576px) {
+  .contact-title {
+    font-size: 28px;
+  }
+
+  .contact-box {
+    padding: 22px 16px;
+  }
+
+  .contact-icon {
+    width: 42px;
+    height: 42px;
+    font-size: 17px;
+  }
+
+  .contact-item h5 {
+    font-size: 16px;
+  }
+
+  .contact-item p {
+    font-size: 13px;
+    line-height: 22px;
+  }
+
+  .map-box {
+    height: 240px;
+  }
+
+  footer {
+    text-align: center;
+    padding: 20px 14px !important;
+    font-size: 13px;
+  }
+
+  footer .container {
+    flex-direction: column;
+    gap: 8px;
+  }
 }
 
-@media(max-width:576px){
+/* ==========================================================
+   10. MENU PAGE (menu.html)
+   ========================================================== */
+@media (max-width: 768px) {
+  .menu-header-bar {
+    padding: 16px 14px !important;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    position: relative;
+  }
 
-.chef-title{
+  .menu-header-bar h1 {
+    width: 100%;
+    order: 1;
+    font-size: 24px !important;
+    margin-bottom: 0;
+    text-align: center;
+  }
 
-    font-size:36px;
+  .menu-back-link {
+    position: static !important;
+    order: 0;
+    transform: none !important;
+    font-size: 14px;
+  }
 
+  .view-cart-btn {
+    position: static !important;
+    order: 2;
+    transform: none !important;
+    padding: 8px 16px !important;
+    font-size: 13px !important;
+  }
+
+  .menu-search-bar-wrap {
+    padding: 14px 10px 8px 10px;
+  }
+
+  .search-input-box {
+    max-width: 100%;
+  }
+
+  .search-input-box input {
+    font-size: 14px;
+    padding: 10px 40px 10px 42px;
+  }
+
+  .category-nav-bar {
+    padding: 10px 0;
+  }
+
+  .cat-nav-pill {
+    padding: 6px 14px !important;
+    font-size: 13px !important;
+    gap: 6px !important;
+  }
+
+  .menu-section {
+    padding: 40px 0 !important;
+  }
+
+  .section-title {
+    font-size: 26px !important;
+  }
 }
 
-.chef-image{
+@media (max-width: 576px) {
+  .menu-grid {
+    grid-template-columns: 1fr !important;
+    gap: 18px;
+  }
 
-    height:260px;
+  .price-row {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+  }
 
+  .add-cart-btn {
+    padding: 8px 16px !important;
+    font-size: 13px !important;
+    min-height: 40px;
+  }
 }
 
+/* ==========================================================
+   11. CART & CHECKOUT PAGE (viewcart.html)
+   ========================================================== */
+@media (max-width: 768px) {
+  .cart-container {
+    padding: 0 15px 40px !important;
+    margin: 25px auto !important;
+  }
+
+  .cart-header {
+    padding: 16px 14px !important;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    position: relative;
+  }
+
+  .cart-header .menu-back-link {
+    position: static !important;
+    transform: none !important;
+    font-size: 14px;
+    align-self: flex-start;
+  }
+
+  .cart-header h1 {
+    font-size: 1.6rem !important;
+    margin: 0 !important;
+  }
+
+  .cart-title {
+    font-size: 1.5rem !important;
+  }
+
+  .checkout-form .row-2 {
+    grid-template-columns: 1fr !important;
+    gap: 0 !important;
+  }
 }
 
-/*=========================================
-        MOBILE
-=========================================*/
+@media (max-width: 576px) {
+  .cart-item {
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    gap: 12px !important;
+    padding: 15px !important;
+  }
 
-@media(max-width:768px){
+  .cart-item-total {
+    text-align: left !important;
+    font-size: 1.15rem;
+    color: #D4AF37;
+  }
 
-    .chef-card{
+  .qty-control {
+    gap: 12px !important;
+    padding: 6px 14px !important;
+  }
 
-        animation:none;
+  .qty-control button {
+    width: 32px !important;
+    height: 32px !important;
+    font-size: 1.25rem !important;
+  }
 
-    }
+  .remove-item-btn {
+    align-self: flex-start;
+    padding: 8px 16px !important;
+    font-size: 13px !important;
+  }
 
+  .order-btn {
+    padding: 14px !important;
+    font-size: 1rem !important;
+    min-height: 48px;
+  }
+
+  .bill-box {
+    padding: 18px 12px !important;
+  }
+
+  .bill-actions {
+    flex-direction: column !important;
+    gap: 10px !important;
+  }
+
+  .bill-actions button,
+  .bill-actions a {
+    width: 100% !important;
+    min-height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
 }
 
-/*==============================
-      Mobile
-==============================*/
+/* ==========================================================
+   12. RESERVATION PAGE & TABLE MODAL (reservation.html)
+   ========================================================== */
+@media (max-width: 768px) {
+  .reservation-card {
+    padding: 28px 20px !important;
+  }
 
-@media(max-width:768px){
+  .reservation-card h2 {
+    font-size: 30px !important;
+  }
 
-.booking-section::before{
+  /* Table cards in modal: 3 columns on tablet */
+  .table-layout {
+    grid-template-columns: repeat(3, 1fr) !important;
+    gap: 12px !important;
+  }
 
-    display:none;
-
+  .table-card {
+    height: 80px !important;
+    font-size: 17px !important;
+  }
 }
 
-.booking-content{
+@media (max-width: 576px) {
+  .reservation-section {
+    padding: 25px 10px !important;
+  }
 
-    text-align:center;
+  .reservation-card {
+    border-radius: 18px !important;
+    padding: 22px 15px !important;
+  }
 
+  .reservation-card .logo {
+    width: 105px !important;
+  }
+
+  .reservation-card h2 {
+    font-size: 24px !important;
+  }
+
+  .reservation-card p {
+    font-size: 13px !important;
+    margin-bottom: 22px !important;
+  }
+
+  .input-box {
+    height: 50px !important;
+    margin-bottom: 18px !important;
+  }
+
+  .input-box input,
+  .input-box select {
+    padding: 0 45px !important;
+    font-size: 14px !important;
+  }
+
+  .choose-table-btn,
+  .reserve-btn {
+    height: 50px !important;
+    font-size: 15px !important;
+    min-height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  /* Table cards in modal: 2 columns on mobile instead of 1 long column */
+  .table-layout {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 10px !important;
+  }
+
+  .table-card {
+    height: 70px !important;
+    font-size: 16px !important;
+    padding: 8px !important;
+  }
+
+  .confirm-table-btn {
+    width: 100% !important;
+    height: 48px !important;
+    font-size: 15px !important;
+  }
 }
 
-.booking-btn{
+/* ==========================================================
+   13. AUTHENTICATION PAGES (login.html, register.html, forgot_password.html)
+   ========================================================== */
+@media (max-width: 768px) {
+  .login-card,
+  .register-card {
+    padding: 32px 22px !important;
+  }
 
-    display:inline-block;
-
+  .login-card h2,
+  .register-card h2 {
+    font-size: 32px !important;
+  }
 }
 
-}
-
-/*=========================================
-            RESPONSIVE
-=========================================*/
-
-@media(max-width:991px){
-
-.review-card{
-
-    margin-bottom:20px;
-
-}
-
-}
-
-@media(max-width:576px){
-
-.review-title{
-
-    font-size:34px;
-
-}
-
-.review-card{
-
-    padding:22px;
-
-}
-
-.review-text{
-
-    font-size:15px;
-
-    line-height:26px;
-
-}
-
-.customer img{
-
-    width:55px;
-
-    height:55px;
-
-}
-
-.customer h5{
-
-    font-size:18px;
-
-}
-
-}
-
-/*==============================
-      Mobile
-==============================*/
-
-@media(max-width:768px){
-
-.review-card{
-
-    animation:none;
-
-}
-
-}
-
-/*=========================================
-          RESPONSIVE
-=========================================*/
-
-@media(max-width:991px){
-
-.contact-box{
-
-    margin-bottom:30px;
-
-}
-
-.map-box{
-
-    height:350px;
-
-}
-
-}
-
-@media(max-width:576px){
-
-.contact-title{
-
-    font-size:34px;
-
-}
-
-.contact-box{
-
-    padding:25px;
-
-}
-
-.contact-icon{
-
-    width:45px;
-
-    height:45px;
-
-    font-size:18px;
-
-}
-
-.contact-item h5{
-
-    font-size:18px;
-
-}
-
-.contact-item p{
-
-    font-size:14px;
-
-    line-height:24px;
-
-}
-
-.map-box{
-
-    height:280px;
-
-}
-
-}
-
-/*=========================================
-        MOBILE
-=========================================*/
-
-@media(max-width:768px){
-
-.contact-section::before{
-
-    display:none;
-
-}
-
-.contact-item:hover{
-
-    transform:none;
-
-}
-
-.map-box:hover{
-
-    transform:none;
-
-}
-
-.contact-box:hover{
-
-    transform:none;
-
-}
-
+@media (max-width: 576px) {
+  .login-card,
+  .register-card {
+    padding: 24px 16px !important;
+    border-radius: 20px !important;
+    margin: 10px 0;
+  }
+
+  .login-card .logo,
+  .register-card .logo {
+    width: 105px !important;
+  }
+
+  .login-card h2,
+  .register-card h2 {
+    font-size: 26px !important;
+  }
+
+  .login-card p,
+  .register-card p {
+    font-size: 13px !important;
+    margin-bottom: 22px !important;
+  }
+
+  /* Role toggle: Customer vs Admin side-by-side or stacked clean */
+  .role-toggle {
+    display: flex !important;
+    gap: 8px !important;
+    margin-bottom: 18px !important;
+    width: 100%;
+  }
+
+  .role-option {
+    flex: 1 !important;
+    justify-content: center !important;
+    text-align: center !important;
+    padding: 9px 12px !important;
+    font-size: 13px !important;
+  }
+
+  .login-btn,
+  .login-submit-btn,
+  .register-submit-btn {
+    height: 50px !important;
+    font-size: 15px !important;
+    min-height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .social-login {
+    flex-direction: column !important;
+    gap: 10px !important;
+  }
+
+  .social-login a {
+    padding: 11px !important;
+    font-size: 14px !important;
+  }
+
+  .back-home a {
+    font-size: 14px;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 8px 12px;
+  }
 }

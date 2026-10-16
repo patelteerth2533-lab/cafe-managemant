@@ -118,14 +118,15 @@
 
 
     /* -----------------------------------------
-        3) RESERVE BUTTON - block submit if no table chosen
+        3) RESERVE BUTTON - smooth submit
     ----------------------------------------- */
     var reservationForm = document.querySelector(".reservation-card form");
     if (reservationForm) {
         reservationForm.addEventListener("submit", function (e) {
-            if (!chosenTable) {
-                e.preventDefault();
-                alert("Please choose a table before reserving.");
+            var reserveBtn = reservationForm.querySelector(".reserve-btn");
+            if (reserveBtn) {
+                reserveBtn.disabled = true;
+                reserveBtn.innerHTML = '<span class="spinner-border spinner-border-sm me-2"></span> Reserving Table...';
             }
         });
     }

@@ -40,9 +40,9 @@
 
             <!-- Mobile Button -->
 
-            <button class="navbar-toggler bg-light" type="button" data-bs-toggle="collapse" data-bs-target="#menu">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menu" aria-label="Toggle navigation" style="border:1.5px solid #D4AF37;padding:6px 10px;border-radius:8px;background:rgba(212,175,55,0.1);">
 
-                <span class="navbar-toggler-icon"></span>
+                <span class="navbar-toggler-icon" style="filter:invert(75%) sepia(80%) saturate(450%) hue-rotate(5deg);"></span>
 
             </button>
 
@@ -88,27 +88,29 @@
 
                 </ul>
 
-                <a class="booktable-btn me-2" href="{% url 'reservation' %}">BOOK TABLE</a>
+                <div class="nav-auth-buttons d-flex align-items-center flex-wrap gap-2">
+                    <a class="booktable-btn" href="{% url 'reservation' %}">BOOK TABLE</a>
 
-                {% if user.is_authenticated %}
-                    {% if user.is_staff or user.is_superuser %}
-                        <a href="{% url 'admin_dashboard' %}" class="btn btn-warning ms-2 px-3 py-2 rounded-pill fw-bold" style="background:#D4AF37;border:none;color:#000;">
-                            <i class="bi bi-speedometer2"></i> Admin Panel
+                    {% if user.is_authenticated %}
+                        {% if user.is_staff or user.is_superuser %}
+                            <a href="{% url 'admin_dashboard' %}" class="btn btn-warning px-3 py-2 rounded-pill fw-bold" style="background:#D4AF37;border:none;color:#000;">
+                                <i class="bi bi-speedometer2"></i> Admin Panel
+                            </a>
+                        {% else %}
+                            <span class="text-warning d-none d-lg-inline fw-semibold" style="color:#D4AF37 !important;">
+                                <i class="bi bi-person-circle"></i> {{ user.first_name|default:user.username }}
+                            </span>
+                        {% endif %}
+                        <a href="{% url 'logout' %}" class="btn btn-outline-danger px-3 py-2 rounded-pill fw-bold">
+                            <i class="bi bi-box-arrow-right"></i> Logout
                         </a>
                     {% else %}
-                        <span class="text-warning ms-2 d-none d-lg-inline fw-semibold" style="color:#D4AF37 !important;">
-                            <i class="bi bi-person-circle"></i> {{ user.first_name|default:user.username }}
-                        </span>
+                        <a class="login-btn" href="{% url 'login' %}">LOGIN</a>
+                        <a href="{% url 'register' %}" class="btn px-3 py-2 rounded-pill fw-bold" style="background:#D4AF37;color:#000;text-decoration:none;">
+                            REGISTER
+                        </a>
                     {% endif %}
-                    <a href="{% url 'logout' %}" class="btn btn-outline-danger ms-2 px-3 py-2 rounded-pill fw-bold">
-                        <i class="bi bi-box-arrow-right"></i> Logout
-                    </a>
-                {% else %}
-                    <a class="login-btn me-2" href="{% url 'login' %}">LOGIN</a>
-                    <a href="{% url 'register' %}" class="btn px-3 py-2 rounded-pill fw-bold" style="background:#D4AF37;color:#000;text-decoration:none;">
-                        REGISTER
-                    </a>
-                {% endif %}
+                </div>
 
             </div>
 

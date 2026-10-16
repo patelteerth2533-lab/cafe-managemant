@@ -75,10 +75,22 @@
     min-width:700px;
   }
 
-  .btn,
-  .btn-gold{
+  /* Only make standalone action cards or full-width buttons 100% */
+  .btn-gold.w-100,
+  .btn-block{
     width:100%;
     margin-bottom:10px;
+  }
+
+  /* Prevent table and group action buttons from stretching */
+  .table .btn,
+  .btn-group .btn,
+  .navbar .btn,
+  form .btn[type="submit"]{
+    width:auto !important;
+    margin-bottom:0 !important;
+    display:inline-flex;
+    align-items:center;
   }
 
   .form-control,
