@@ -486,7 +486,7 @@ flex-direction:column;
 
 .role-toggle{
 display:flex;
-gap:10px;
+gap:12px;
 margin-bottom:20px;
 justify-content:center;
 }
@@ -494,23 +494,47 @@ justify-content:center;
 .role-option{
 display:flex;
 align-items:center;
-gap:6px;
-padding:8px 20px;
-border:1px solid rgba(212,175,55,0.4);
+gap:8px;
+padding:10px 22px;
+border:1.5px solid rgba(212,175,55,0.35);
 border-radius:30px;
 cursor:pointer;
 font-size:14px;
-color:#ddd;
-transition:0.3s;
+font-weight:600;
+color:#bbb;
+background:rgba(0,0,0,0.3);
+transition:all 0.3s ease;
+user-select:none;
 }
 
 .role-option input{
 accent-color:var(--gold);
 margin:0;
+cursor:pointer;
 }
 
+.role-option:hover{
+border-color:var(--gold);
+color:#fff;
+background:rgba(212,175,55,0.1);
+}
+
+.role-option.active,
 .role-option:has(input:checked){
-background:rgba(212,175,55,0.15);
+background:rgba(212,175,55,0.2);
 border-color:var(--gold);
 color:var(--gold);
+box-shadow:0 0 15px rgba(212,175,55,0.3);
+}
+
+.admin-notice{
+background:rgba(212,175,55,0.12);
+border:1px dashed rgba(212,175,55,0.5);
+color:var(--gold);
+border-radius:10px;
+padding:10px 14px;
+font-size:13px;
+text-align:center;
+margin-bottom:18px;
+font-weight:500;
 }

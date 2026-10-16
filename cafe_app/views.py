@@ -54,18 +54,22 @@ def menu(request):
 
 def login_page(request):
     if request.user.is_authenticated:
-        if request.user.is_staff:
+        if request.user.is_staff or request.user.is_superuser:
             return redirect("admin_dashboard")
         return redirect("home")
+
+    preset_role = request.GET.get("role", "customer").strip().lower()
+    if preset_role not in ["customer", "admin"]:
+        preset_role = "customer"
 
     if request.method == "POST":
         email_or_user = request.POST.get("email", "").strip()
         secret = request.POST.get("password", "")
-        chosen_role = request.POST.get("role", "customer")
+        chosen_role = request.POST.get("role", "customer").strip().lower()
 
         if not email_or_user or not secret:
             messages.error(request, "Please enter your username/email and password.")
-            return render(request, "customer/login.html")
+            return render(request, "customer/login.html", {"selected_role": chosen_role})
 
         # Try to find user by email or by username
         user_obj = None
@@ -79,27 +83,83 @@ def login_page(request):
 
         if authenticated_user is None:
             messages.error(request, "Invalid username/email or password.")
-            return render(request, "customer/login.html")
+            return render(request, "customer/login.html", {"selected_role": chosen_role})
 
-        if chosen_role == "customer":
+        is_admin = authenticated_user.is_staff or authenticated_user.is_superuser
+
+        # Admin login is strictly permitted only when "Admin" side/role is selected
+        if chosen_role == "admin":
+            if not is_admin:
+                messages.error(request, "Access denied: This account does not have Admin privileges.")
+                return render(request, "customer/login.html", {"selected_role": "admin"})
+
+            login(request, authenticated_user)
+            messages.success(request, f"Welcome to Admin Dashboard, {authenticated_user.first_name or authenticated_user.username}!")
+            return redirect("admin_dashboard")
+
+        else:  # chosen_role == "customer"
+            if is_admin:
+                messages.warning(
+                    request,
+                    "This account has Admin privileges. Please click 'Admin' above to log in to the Admin Panel."
+                )
+                return render(request, "customer/login.html", {"selected_role": "admin", "prefill_email": email_or_user})
+
             login(request, authenticated_user)
             messages.success(request, f"Welcome back, {authenticated_user.first_name or authenticated_user.username}!")
             return redirect("home")
 
-        elif chosen_role == "admin":
-            if not (authenticated_user.is_staff or authenticated_user.is_superuser):
-                messages.error(request, "You are not authorized as admin.")
-                return render(request, "customer/login.html")
+    return render(request, "customer/login.html", {"selected_role": preset_role})
 
-            login(request, authenticated_user)
-            messages.success(request, "Admin login successful!")
+
+def forgot_password(request):
+    if request.user.is_authenticated:
+        if request.user.is_staff or request.user.is_superuser:
             return redirect("admin_dashboard")
+        return redirect("home")
 
-        else:
-            messages.error(request, "Invalid login role selected.")
-            return render(request, "customer/login.html")
+    if request.method == "POST":
+        identity = request.POST.get("identity", "").strip()
+        new_password = request.POST.get("new_password", "")
+        confirm_password = request.POST.get("confirm_password", "")
 
-    return render(request, "customer/login.html")
+        if not identity or not new_password or not confirm_password:
+            messages.error(request, "Please fill all required fields.")
+            return render(request, "customer/forgot_password.html", {"identity": identity})
+
+        if len(new_password) < 6:
+            messages.error(request, "Password must be at least 6 characters long.")
+            return render(request, "customer/forgot_password.html", {"identity": identity})
+
+        if new_password != confirm_password:
+            messages.error(request, "New Password and Confirm Password do not match.")
+            return render(request, "customer/forgot_password.html", {"identity": identity})
+
+        # Locate user by Username, Email, or Customer Mobile number
+        target_user = None
+        if "@" in identity:
+            target_user = User.objects.filter(email__iexact=identity).first()
+        elif identity.isdigit() and len(identity) >= 10:
+            cust = Customer.objects.filter(mobile=identity).first()
+            if cust:
+                target_user = cust.user
+        if not target_user:
+            target_user = User.objects.filter(username__iexact=identity).first()
+
+        if not target_user:
+            messages.error(request, "No account was found with the provided Username, Email, or Mobile Number.")
+            return render(request, "customer/forgot_password.html", {"identity": identity})
+
+        target_user.set_password(new_password)
+        target_user.save()
+
+        messages.success(request, "Your password has been reset successfully! Please log in with your new password.")
+        # If it was an admin user, redirect to admin login
+        if target_user.is_staff or target_user.is_superuser:
+            return redirect("/login/?role=admin")
+        return redirect("login")
+
+    return render(request, "customer/forgot_password.html")
 
 
 def register(request):

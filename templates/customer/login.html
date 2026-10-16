@@ -86,115 +86,129 @@
                             {% csrf_token %}
 
                             <!-- Login As: Customer / Admin -->
-
                             <div class="role-toggle">
-
-                                <label class="role-option">
-                                    <input type="radio" name="role" value="customer" checked>
+                                <label class="role-option {% if selected_role != 'admin' %}active{% endif %}" id="customerRoleLabel">
+                                    <input type="radio" name="role" value="customer" {% if selected_role != 'admin' %}checked{% endif %}>
+                                    <i class="bi bi-person-fill"></i>
                                     <span>Customer</span>
                                 </label>
 
-                                <label class="role-option">
-                                    <input type="radio" name="role" value="admin">
+                                <label class="role-option {% if selected_role == 'admin' %}active{% endif %}" id="adminRoleLabel">
+                                    <input type="radio" name="role" value="admin" {% if selected_role == 'admin' %}checked{% endif %}>
+                                    <i class="bi bi-shield-lock-fill"></i>
                                     <span>Admin</span>
                                 </label>
-
                             </div>
 
-                            <!-- Email -->
+                            <!-- Admin Mode Notice -->
+                            <div id="adminNotice" class="admin-notice" style="{% if selected_role != 'admin' %}display:none;{% endif %}">
+                                <i class="bi bi-shield-check"></i> Admin Portal Login Mode Active
+                            </div>
 
+                            <!-- Email / Username -->
                             <div class="input-box">
-
-                                <i class="bi bi-envelope-fill"></i>
-
+                                <i class="bi bi-person-circle"></i>
                                 <input type="text"
+                                    id="loginEmailInput"
                                     name="email"
-                                    placeholder="Enter Email or Username"
+                                    value="{{ prefill_email|default:'' }}"
+                                    placeholder="{% if selected_role == 'admin' %}Enter Admin Username or Email{% else %}Enter Email or Username{% endif %}"
                                     autocomplete="username"
                                     required>
-
                             </div>
 
                             <!-- Password -->
-
                             <div class="input-box password-box">
-
                                 <i class="bi bi-lock-fill"></i>
-
                                 <input type="password"
                                     placeholder="Enter Password"
                                     id="password"
                                     name="password"
                                     required>
-
                                 <span class="toggle-password">
-
                                     <i class="bi bi-eye-fill"></i>
-
                                 </span>
-
                             </div>
 
-                            <!-- Remember -->
-
+                            <!-- Remember / Forgot Password -->
                             <div class="remember-area">
-
                                 <label>
-
                                     <input type="checkbox">
-
                                     Remember Me
-
                                 </label>
-
-                                <a href="#">
-
+                                <a href="{% url 'forgot_password' %}">
                                     Forgot Password?
-
                                 </a>
-
                             </div>
 
                             <!-- Login Submit -->
-                            <button class="login-submit-btn" type="submit">
-                                LOGIN <i class="bi bi-arrow-right"></i>
+                            <button class="login-submit-btn" id="loginSubmitBtn" type="submit">
+                                {% if selected_role == 'admin' %}
+                                    LOGIN TO ADMIN PANEL <i class="bi bi-shield-lock-fill"></i>
+                                {% else %}
+                                    LOGIN <i class="bi bi-arrow-right"></i>
+                                {% endif %}
                             </button>
                         </form>
 
-                        <!-- Register Link -->
-                        <div class="register-link">
+                        <!-- Register Link (Only for customers) -->
+                        <div class="register-link" id="registerLinkWrap" style="{% if selected_role == 'admin' %}display:none;{% endif %}">
                             Don't have an account?
                             <a href="{% url 'register' %}" class="register-btn">Register Now</a>
                         </div>
 
                         <!-- Back -->
-
                         <div class="back-home">
-
                             <a href="{% url 'home' %}">
-
                                 <i class="bi bi-arrow-left"></i>
-
                                 Back to Home
-
                             </a>
-
                         </div>
 
                     </div>
-
                 </div>
-
             </div>
-
         </div>
-
     </section>
 
     <script src="{% static 'js/all-animations.js' %}"></script>
     <script src="{% static 'js/main.js' %}"></script>
-</body>
+    <script>
+        (function() {
+            var roleRadios = document.querySelectorAll('input[name="role"]');
+            var custLabel = document.getElementById('customerRoleLabel');
+            var adminLabel = document.getElementById('adminRoleLabel');
+            var emailInput = document.getElementById('loginEmailInput');
+            var submitBtn = document.getElementById('loginSubmitBtn');
+            var adminNotice = document.getElementById('adminNotice');
+            var registerWrap = document.getElementById('registerLinkWrap');
 
+            function updateRoleUI(role) {
+                if (role === 'admin') {
+                    custLabel.classList.remove('active');
+                    adminLabel.classList.add('active');
+                    adminNotice.style.display = 'block';
+                    if (registerWrap) registerWrap.style.display = 'none';
+                    emailInput.placeholder = 'Enter Admin Username or Email';
+                    submitBtn.innerHTML = 'LOGIN TO ADMIN PANEL <i class="bi bi-shield-lock-fill"></i>';
+                } else {
+                    adminLabel.classList.remove('active');
+                    custLabel.classList.add('active');
+                    adminNotice.style.display = 'none';
+                    if (registerWrap) registerWrap.style.display = 'block';
+                    emailInput.placeholder = 'Enter Email or Username';
+                    submitBtn.innerHTML = 'LOGIN <i class="bi bi-arrow-right"></i>';
+                }
+            }
+
+            roleRadios.forEach(function(radio) {
+                radio.addEventListener('change', function() {
+                    updateRoleUI(this.value);
+                });
+            });
+        })();
+    </script>
+</body>
 </html>
 
 
